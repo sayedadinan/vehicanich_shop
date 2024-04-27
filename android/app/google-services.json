@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "853196773303",
+    "project_id": "vehicanich",
+    "storage_bucket": "vehicanich.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853196773303:android:98dfb6d3d4bdd3aa9eba32",
+        "android_client_info": {
+          "package_name": "in.shop.vehicanich_shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "853196773303-hbv16p0ru2o7iu764qodeitpdr3uoi1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm8CTJorEzSWcUK-cejzRcDwvorza8JtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "853196773303-hbv16p0ru2o7iu764qodeitpdr3uoi1u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "853196773303-g4ag6l3gnn8i5qieatp2fm7kenpd6nhb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vehicanich"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853196773303:android:f3fe04ac2d858ee19eba32",
+        "android_client_info": {
+          "package_name": "in.user.vehicanich"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "853196773303-t2tjpsr3nh1flcnd0eue8ooavtg0aitm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.user.vehicanich",
+            "certificate_hash": "af933cb7bb5e793aafee3b3c013cbc608996e256"
+          }
+        },
+        {
+          "client_id": "853196773303-hbv16p0ru2o7iu764qodeitpdr3uoi1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm8CTJorEzSWcUK-cejzRcDwvorza8JtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "853196773303-hbv16p0ru2o7iu764qodeitpdr3uoi1u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "853196773303-g4ag6l3gnn8i5qieatp2fm7kenpd6nhb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vehicanich"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
