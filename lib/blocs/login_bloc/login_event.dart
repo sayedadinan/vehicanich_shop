@@ -4,7 +4,11 @@ class LoginBlocEvent {}
 
 class ForgotButtonPressed extends LoginBlocEvent {}
 
-class LoginScreenButtonPressed extends LoginBlocEvent {}
+class LoginScreenButtonPressed extends LoginBlocEvent {
+  final GlobalKey<FormState> formkey;
+
+  LoginScreenButtonPressed({required this.formkey});
+}
 
 class LoginWithGoogleButtonPressed extends LoginBlocEvent {}
 

@@ -4,8 +4,10 @@ import 'package:vehicanich_shop/blocs/login_bloc/login_bloc.dart';
 import 'package:vehicanich_shop/screens/forgot_password/forgot_password.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_custom_button.dart';
+import 'package:vehicanich_shop/utils/app_custom_dialogue.dart';
+import 'package:vehicanich_shop/utils/app_loadingindicator.dart';
 import 'package:vehicanich_shop/utils/app_textfields.dart';
-import 'package:vehicanich_shop/utils/constant_variables/formvalidation_keys.dart';
+
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 import 'package:vehicanich_shop/widgets/login_screen_widgets/custom_divider.dart';
 import 'package:vehicanich_shop/widgets/login_screen_widgets/forgot_button.dart';
@@ -16,13 +18,29 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<FormState> loginKey = GlobalKey<FormState>();
     return BlocListener<LoginBloc, LoginBlocState>(
         listener: (context, state) {
+          if (state is LoginLoading) {
+            loader;
+          }
+          if (state is LoginError) {
+            CustomShowdialogue.showCustomDialog(context,
+                title: 'Error', message: state.error, type: DialogType.error);
+          }
           if (state is NavigateToForgetPage) {
             Navigator.push(
                 context,
                 MaterialPageRoute(
                     builder: (context) => const ForgotPasswordScreen()));
+          }
+          if (state is LoginSuccess) {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const ForgotPasswordScreen()),
+              (route) => false,
+            );
           }
         },
         child: Scaffold(
@@ -56,8 +74,9 @@ class LoginScreen extends StatelessWidget {
                     function: () {},
                     buttontextcolor: Appallcolor().colorwhite,
                     text: 'Login',
-                    // function: () =>
-                    // context.read<LoginBloc>().add(LoginScreenButtonPressed()),
+                    // function: () => context
+                    //     .read<LoginBloc>()
+                    //     .add(LoginScreenButtonPressed(formkey: loginKey)),
                     fontSize: Mymediaquery().mediaqueryheight(0.02, context),
                     color: Appallcolor().buttonforgroundcolor,
                   ),

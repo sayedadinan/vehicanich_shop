@@ -22,6 +22,7 @@ class FirebaseDatastoring {
       final bannerimagereferenceUrl =
           await Imagechanging().bannerimagechanging(context);
       final shopDetails = ShopModel(
+        isRejected: false,
         phone: phonecontroller.text.trim().toString(),
         isApproved: false,
         name: namecontroller.text.trim(),

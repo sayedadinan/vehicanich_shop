@@ -15,6 +15,7 @@ class ShopModel {
   final String mmimagepath;
   final String bannerimagepath;
   final bool isApproved;
+  final bool isRejected;
   final Map<String, dynamic> bodyservicemap;
   final Map<String, dynamic> interiorservicemap;
   final Map<String, dynamic> enginservicemap;
@@ -36,6 +37,7 @@ class ShopModel {
     required this.bodyservicemap,
     required this.interiorservicemap,
     required this.enginservicemap,
+    required this.isRejected,
   });
   Map<String, dynamic> toJson() {
     return {
@@ -53,6 +55,7 @@ class ShopModel {
       "mmimagepath": mmimagepath,
       "bannerimagepath": bannerimagepath,
       "isApproved": isApproved,
+      "isRejected": isRejected,
       "bodyservicemap": bodyservicemap,
       "interiorservicemap": interiorservicemap,
       "enginservicemap": enginservicemap,

@@ -1,7 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/firebase_auth/login_verification.dart';
-import 'package:vehicanich_shop/utils/constant_variables/formvalidation_keys.dart';
 part 'login_event.dart';
 part 'login_state.dart';
 
@@ -27,7 +27,7 @@ class LoginBloc extends Bloc<LoginBlocEvent, LoginBlocState> {
 
   loginScreenButtonPressed(
       LoginScreenButtonPressed event, Emitter<LoginBlocState> emit) async {
-    if (loginKey.currentState!.validate()) {
+    if (event.formkey.currentState!.validate()) {
       final connectivity = await Connectivity().checkConnectivity();
       if (connectivity.contains(ConnectivityResult.none)) {
         emit(Networkerror(error: 'Check your network connection'));
