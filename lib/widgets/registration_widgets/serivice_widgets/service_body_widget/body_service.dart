@@ -31,22 +31,6 @@ class BodyServicePageState extends State<BodyServicePage> {
             EdgeInsets.only(top: Mymediaquery().mediaquerywidth(0.02, context)),
         child: Column(
           children: [
-            // Bodydentreparingcard(
-            //   controller: dentrepairingController,
-            //   texts: 'Dent Repairings',
-            // ),
-            // Bodydentreparingcard(
-            //   controller: scratchController,
-            //   texts: 'Scratch Removal',
-            // ),
-            // Bodydentreparingcard(
-            //   controller: paintController,
-            //   texts: 'Paint Refinishing',
-            // ),
-            // Bodydentreparingcard(
-            //   controller: trimController,
-            //   texts: 'Body trimrepair',
-            // ),
             Expanded(
               child: BlocBuilder<BodyBloc, ServiceState>(
                   builder: (context, state) {
@@ -163,8 +147,8 @@ class BodyServicePageState extends State<BodyServicePage> {
                 color: Appallcolor().textcolor,
                 borderRadius: BorderRadius.circular(13),
               ),
-              height: Mymediaquery().mediaqueryheight(0.34, context),
-              width: Mymediaquery().mediaqueryheight(0.37, context),
+              height: Mymediaquery().mediaqueryheight(0.37, context),
+              width: Mymediaquery().mediaqueryheight(0.36, context),
               padding: const EdgeInsets.all(20),
               child: Form(
                 key: signupKey,
@@ -172,7 +156,7 @@ class BodyServicePageState extends State<BodyServicePage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SizedBox(
-                        height: Mymediaquery().mediaqueryheight(0.02, context)),
+                        height: Mymediaquery().mediaqueryheight(0.01, context)),
                     Text(
                       'Add all your services',
                       style: TextStyle(
@@ -189,17 +173,19 @@ class BodyServicePageState extends State<BodyServicePage> {
                       keyboardType: TextInputType.name,
                       label: 'service',
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(
+                        height: Mymediaquery().mediaqueryheight(0.01, context)),
                     Inputfield(
+                      keyboardType: TextInputType.number,
                       validator: (value) =>
                           Validators().validateNumericInput(value),
                       maxlength: 5,
                       controller: serviceRateController,
                       hinttext: 'Give your services',
-                      keyboardType: TextInputType.number,
                       label: 'rate',
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(
+                        height: Mymediaquery().mediaqueryheight(0.01, context)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [

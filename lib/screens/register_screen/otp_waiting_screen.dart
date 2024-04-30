@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:vehicanich_shop/firebase_auth/phoneauth_.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_custom_button.dart';
+import 'package:vehicanich_shop/utils/app_textfields.dart';
+import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
-import 'package:vehicanich_shop/widgets/registration_widgets/otp_textfield.dart';
 
 class OtpWaitingScreen extends StatelessWidget {
   final String verificationId;
@@ -49,14 +50,17 @@ class OtpWaitingScreen extends StatelessWidget {
           SizedBox(
             height: Mymediaquery().mediaqueryheight(0.02, context),
           ),
-          const SizedBox(child: OTPTextField()),
+          Inputfield(
+            hinttext: '',
+            controller: otpcontroller,
+          ),
           SizedBox(
             height: Mymediaquery().mediaqueryheight(0.04, context),
           ),
           CustomButton(
               color: Appallcolor().buttonforgroundcolor,
               function: () {
-                FireBasePhoneAuth().verifying(verificationId);
+                FireBasePhoneAuth().verifying(verificationId, context);
               },
               text: 'Enter',
               fontSize: Mymediaquery().mediaquerywidth(0.03, context),

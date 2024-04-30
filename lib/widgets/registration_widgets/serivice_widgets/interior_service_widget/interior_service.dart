@@ -31,22 +31,6 @@ class BodyServicePageState extends State<InteriorServicePage> {
             EdgeInsets.only(top: Mymediaquery().mediaquerywidth(0.02, context)),
         child: Column(
           children: [
-            // Bodydentreparingcard(
-            //   controller: dentrepairingController,
-            //   texts: 'Dent Repairings',
-            // ),
-            // Bodydentreparingcard(
-            //   controller: scratchController,
-            //   texts: 'Scratch Removal',
-            // ),
-            // Bodydentreparingcard(
-            //   controller: paintController,
-            //   texts: 'Paint Refinishing',
-            // ),
-            // Bodydentreparingcard(
-            //   controller: trimController,
-            //   texts: 'Body trimrepair',
-            // ),
             Expanded(
               child: BlocBuilder<InteriorBloc, InteriorState>(
                   builder: (context, state) {
@@ -163,8 +147,8 @@ class BodyServicePageState extends State<InteriorServicePage> {
                 color: Appallcolor().textcolor,
                 borderRadius: BorderRadius.circular(13),
               ),
-              height: Mymediaquery().mediaqueryheight(0.34, context),
-              width: Mymediaquery().mediaqueryheight(0.37, context),
+              height: Mymediaquery().mediaqueryheight(0.39, context),
+              width: Mymediaquery().mediaqueryheight(0.36, context),
               padding: const EdgeInsets.all(20),
               child: Form(
                 key: signupKey,
@@ -172,7 +156,7 @@ class BodyServicePageState extends State<InteriorServicePage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SizedBox(
-                        height: Mymediaquery().mediaqueryheight(0.02, context)),
+                        height: Mymediaquery().mediaqueryheight(0.01, context)),
                     Text(
                       'Add all your services',
                       style: TextStyle(
@@ -189,22 +173,25 @@ class BodyServicePageState extends State<InteriorServicePage> {
                       keyboardType: TextInputType.name,
                       label: 'service',
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(
+                        height: Mymediaquery().mediaqueryheight(0.01, context)),
                     Inputfield(
+                      keyboardType: TextInputType.number,
                       validator: (value) =>
                           Validators().validateNumericInput(value),
                       maxlength: 5,
                       controller: serviceRateController,
                       hinttext: 'Give your services',
-                      keyboardType: TextInputType.number,
                       label: 'rate',
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(
+                        height: Mymediaquery().mediaqueryheight(0.01, context)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         ElevatedButton(
-                          onPressed: () {
+                          onPressed: () async {
+                            FocusScope.of(context).unfocus();
                             if (signupKey.currentState!.validate()) {
                               String serviceName = serviceNameController.text;
                               int serviceRate =
@@ -213,15 +200,16 @@ class BodyServicePageState extends State<InteriorServicePage> {
                                   InteriorServiceAddingButtonPressed(
                                       newservicename: serviceName,
                                       rate: serviceRate));
+                              Navigator.pop(context);
                               serviceNameController.clear();
                               serviceRateController.clear();
-                              Navigator.pop(context);
                             }
                           },
                           child: const Text('Submit'),
                         ),
                         ElevatedButton(
                           onPressed: () {
+                            FocusScope.of(context).unfocus();
                             Navigator.pop(context); // Close the dialog
                           },
                           child: const Text('Cancel'),

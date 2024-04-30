@@ -4,6 +4,7 @@ class ShopModel {
   final String name;
   final String email;
   final String whatsapp;
+  final String phone;
   final String password;
   final String shopname;
   final GeoPoint shoplocation;
@@ -21,6 +22,7 @@ class ShopModel {
     required this.name,
     required this.email,
     required this.whatsapp,
+    required this.phone,
     required this.password,
     required this.shopname,
     required this.shoplocation,
@@ -40,6 +42,7 @@ class ShopModel {
       "name": name,
       "email": email,
       "whatsapp": whatsapp,
+      "phone": phone,
       "password": password,
       "shopname": shopname,
       "location": shoplocation,

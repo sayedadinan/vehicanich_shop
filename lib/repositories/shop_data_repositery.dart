@@ -19,10 +19,11 @@ class FirebaseDatastoring {
       final licenceimagereferenceUrl =
           await Imagechanging().licenceimagechanging(context);
       final mmimagereferenceUrl =
-          await Imagechanging().licenceimagechanging(context);
+          await Imagechanging().mmimagechanging(context);
       final bannerimagereferenceUrl =
-          await Imagechanging().licenceimagechanging(context);
+          await Imagechanging().bannerimagechanging(context);
       final shopDetails = ShopModel(
+        phone: phonecontroller.text.trim().toString(),
         isApproved: false,
         name: namecontroller.text.trim(),
         email: emailcontroller.text.trim(),
