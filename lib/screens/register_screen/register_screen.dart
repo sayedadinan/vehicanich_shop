@@ -5,6 +5,7 @@ import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_custom_button.dart';
 import 'package:vehicanich_shop/utils/app_textfields.dart';
 import 'package:vehicanich_shop/utils/app_validators.dart';
+import 'package:vehicanich_shop/utils/constant_variables/formvalidation_keys.dart';
 import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
 import 'package:vehicanich_shop/widgets/registration_widgets/banner_photo_container.dart';
 import 'package:vehicanich_shop/widgets/registration_widgets/emergency_service/emergency_container.dart';
@@ -27,7 +28,6 @@ class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> signupKey = GlobalKey<FormState>();
     return Scaffold(
         backgroundColor: Appallcolor().appbackgroundcolor,
         body: BlocConsumer<RegistrationBloc, RegistrationState>(

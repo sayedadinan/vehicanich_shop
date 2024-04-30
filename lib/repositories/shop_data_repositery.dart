@@ -7,13 +7,12 @@ import 'package:vehicanich_shop/blocs/registration_blocs/services/engine_bloc/bl
 import 'package:vehicanich_shop/blocs/registration_blocs/services/interior_service/bloc/interior_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/startingtime_bloc.dart/bloc/time_bloc.dart';
 import 'package:vehicanich_shop/models/shop_model.dart';
+import 'package:vehicanich_shop/repositories/shop_reference.dart';
 import 'package:vehicanich_shop/services/image_changing.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
 
 class FirebaseDatastoring {
-  final CollectionReference reference =
-      FirebaseFirestore.instance.collection('shop_details');
   addShopDetailsToFirebase(BuildContext context) async {
     try {
       final licenceimagereferenceUrl =
@@ -48,7 +47,7 @@ class FirebaseDatastoring {
             BlocProvider.of<EngineBloc>(context).state.serviceNamemap,
       );
       // Map<String, dynamic> shopData = shopDetails.toJson();
-      await reference.add(shopDetails.toJson());
+      await ShopreferenceId().reference.add(shopDetails.toJson());
     } catch (error) {
       print("Error adding shop details: $error");
     }

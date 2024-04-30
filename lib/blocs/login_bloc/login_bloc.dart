@@ -1,4 +1,7 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vehicanich_shop/firebase_auth/login_verification.dart';
+import 'package:vehicanich_shop/utils/constant_variables/formvalidation_keys.dart';
 part 'login_event.dart';
 part 'login_state.dart';
 
@@ -23,7 +26,25 @@ class LoginBloc extends Bloc<LoginBlocEvent, LoginBlocState> {
   }
 
   loginScreenButtonPressed(
-      LoginScreenButtonPressed event, Emitter<LoginBlocState> emit) {
-    emit(NavigateToHome());
+      LoginScreenButtonPressed event, Emitter<LoginBlocState> emit) async {
+    if (loginKey.currentState!.validate()) {
+      final connectivity = await Connectivity().checkConnectivity();
+      if (connectivity.contains(ConnectivityResult.none)) {
+        emit(Networkerror(error: 'Check your network connection'));
+        return;
+      }
+    }
+    emit(LoginLoading());
+    final loginverification = LoginVerification();
+    final result = await loginverification.verifyLoginDetails();
+    if (result == 'Login successful') {
+      emit(LoginSuccess());
+    } else if (result == 'User does not exist') {
+      emit(LoginError(error: 'User does not exist'));
+    } else if (result == 'Password is incorrect') {
+      emit(LoginError(error: 'Password is incorrect'));
+    } else {
+      emit(LoginError(error: 'some thing went wrong'));
+    }
   }
 }

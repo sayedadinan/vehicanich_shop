@@ -30,7 +30,6 @@ class FireBasePhoneAuth {
       print('Phone authentication request sent successfully.');
     } catch (e) {
       print('An error occurred during phone authentication: $e');
-      // Handle error here, e.g., show an error message to the user
     }
   }
 

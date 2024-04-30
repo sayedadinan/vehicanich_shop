@@ -9,3 +9,5 @@ final TextEditingController descriptioncontroller = TextEditingController();
 final TextEditingController passwordcontroller = TextEditingController();
 final TextEditingController confirmpassword = TextEditingController();
 final TextEditingController otpcontroller = TextEditingController();
+final TextEditingController loginphonecontroller = TextEditingController();
+final TextEditingController loginpasswordcontroller = TextEditingController();
