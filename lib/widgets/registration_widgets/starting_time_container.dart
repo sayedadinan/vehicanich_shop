@@ -25,7 +25,7 @@ class StartingTimeTextContainer extends StatelessWidget {
               }
             },
             child: Container(
-              width: Mymediaquery().mediaquerywidth(0.41, context),
+              width: Mymediaquery().mediaquerywidth(0.9, context),
               height: Mymediaquery().mediaqueryheight(0.07, context),
               decoration: BoxDecoration(
                 color: Appallcolor().placeholderimagecolor,
@@ -34,7 +34,7 @@ class StartingTimeTextContainer extends StatelessWidget {
               child: Row(
                 children: [
                   SizedBox(
-                    width: Mymediaquery().mediaquerywidth(0.02, context),
+                    width: Mymediaquery().mediaquerywidth(0.04, context),
                   ),
                   BlocBuilder<StartingTimeBloc, TimeState>(
                     builder: (context, state) {
@@ -44,7 +44,7 @@ class StartingTimeTextContainer extends StatelessWidget {
                           style: TextStyle(
                             color: Appallcolor().colorblack,
                             fontSize:
-                                Mymediaquery().mediaquerywidth(0.02, context),
+                                Mymediaquery().mediaquerywidth(0.05, context),
                           ),
                         );
                       } else {
@@ -53,14 +53,14 @@ class StartingTimeTextContainer extends StatelessWidget {
                           style: TextStyle(
                             color: Appallcolor().colorblack,
                             fontSize:
-                                Mymediaquery().mediaquerywidth(0.02, context),
+                                Mymediaquery().mediaquerywidth(0.05, context),
                           ),
                         );
                       }
                     },
                   ),
                   SizedBox(
-                    width: Mymediaquery().mediaquerywidth(0.21, context),
+                    width: Mymediaquery().mediaquerywidth(0.5, context),
                   ),
                   const Icon(Icons.access_time)
                 ],

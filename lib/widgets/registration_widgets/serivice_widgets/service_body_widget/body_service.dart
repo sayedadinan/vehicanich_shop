@@ -27,8 +27,8 @@ class BodyServicePageState extends State<BodyServicePage> {
     return Scaffold(
       backgroundColor: Appallcolor().appbackgroundcolor,
       body: Padding(
-        padding:
-            EdgeInsets.only(top: Mymediaquery().mediaquerywidth(0.02, context)),
+        padding: EdgeInsets.only(
+            top: Mymediaquery().mediaqueryheight(0.02, context)),
         child: Column(
           children: [
             Expanded(
@@ -48,8 +48,8 @@ class BodyServicePageState extends State<BodyServicePage> {
                     } else if (index == state.serviceNamemap.length) {
                       return Padding(
                         padding: EdgeInsets.only(
-                          left: Mymediaquery().mediaquerywidth(0.12, context),
-                          top: 10,
+                          left: Mymediaquery().mediaquerywidth(0.30, context),
+                          top: Mymediaquery().mediaqueryheight(0.02, context),
                         ),
                         child: AnimatedButton(
                           selectedBackgroundColor:
@@ -61,13 +61,13 @@ class BodyServicePageState extends State<BodyServicePage> {
                           onPress: () {
                             _showAddMoreDialog(context);
                           },
-                          width: Mymediaquery().mediaquerywidth(0.2, context),
+                          width: Mymediaquery().mediaquerywidth(0.4, context),
                           text: 'Add one',
                           selectedTextColor: Colors.black,
                           transitionType: TransitionType.RIGHT_TOP_ROUNDER,
                           textStyle: TextStyle(
                             fontSize:
-                                Mymediaquery().mediaquerywidth(0.02, context),
+                                Mymediaquery().mediaquerywidth(0.04, context),
                             letterSpacing: 1,
                             color: Appallcolor().textcolor,
                             fontWeight: FontWeight.w400,
@@ -101,10 +101,10 @@ class BodyServicePageState extends State<BodyServicePage> {
       ),
       floatingActionButton: Padding(
         padding: EdgeInsets.only(
-            bottom: Mymediaquery().mediaqueryheight(0.02, context),
+            bottom: Mymediaquery().mediaqueryheight(0.03, context),
             right: Mymediaquery().mediaquerywidth(0.03, context)),
         child: SizedBox(
-          width: Mymediaquery().mediaquerywidth(0.18, context),
+          width: Mymediaquery().mediaquerywidth(0.38, context),
           height: Mymediaquery().mediaqueryheight(0.06, context),
           child: FloatingActionButton(
               onPressed: () {},
@@ -116,12 +116,12 @@ class BodyServicePageState extends State<BodyServicePage> {
                       'skip',
                       style: TextStyle(
                           fontSize:
-                              Mymediaquery().mediaquerywidth(0.02, context)),
+                              Mymediaquery().mediaquerywidth(0.04, context)),
                     )
                   : Text('next',
                       style: TextStyle(
                           fontSize:
-                              Mymediaquery().mediaquerywidth(0.02, context)))),
+                              Mymediaquery().mediaquerywidth(0.05, context)))),
         ),
       ),
     );

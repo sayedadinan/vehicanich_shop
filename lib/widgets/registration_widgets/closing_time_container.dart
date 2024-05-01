@@ -27,7 +27,7 @@ class ClosingTimeTextContainer extends StatelessWidget {
             }
           },
           child: Container(
-            width: Mymediaquery().mediaquerywidth(0.41, context),
+            width: Mymediaquery().mediaquerywidth(0.9, context),
             height: Mymediaquery().mediaqueryheight(0.07, context),
             decoration: BoxDecoration(
               color: Appallcolor().placeholderimagecolor,
@@ -36,7 +36,7 @@ class ClosingTimeTextContainer extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(
-                  width: Mymediaquery().mediaquerywidth(0.02, context),
+                  width: Mymediaquery().mediaquerywidth(0.05, context),
                 ),
                 BlocBuilder<ClosingtimeBloc, ClosingtimeState>(
                   builder: (context, state) {
@@ -46,7 +46,7 @@ class ClosingTimeTextContainer extends StatelessWidget {
                         style: TextStyle(
                           color: Appallcolor().colorblack,
                           fontSize:
-                              Mymediaquery().mediaquerywidth(0.02, context),
+                              Mymediaquery().mediaquerywidth(0.05, context),
                         ),
                       );
                     } else {
@@ -55,14 +55,14 @@ class ClosingTimeTextContainer extends StatelessWidget {
                         style: TextStyle(
                           color: Appallcolor().colorblack,
                           fontSize:
-                              Mymediaquery().mediaquerywidth(0.02, context),
+                              Mymediaquery().mediaquerywidth(0.05, context),
                         ),
                       );
                     }
                   },
                 ),
                 SizedBox(
-                  width: Mymediaquery().mediaquerywidth(0.22, context),
+                  width: Mymediaquery().mediaquerywidth(0.5, context),
                 ),
                 const Icon(Icons.access_time)
               ],

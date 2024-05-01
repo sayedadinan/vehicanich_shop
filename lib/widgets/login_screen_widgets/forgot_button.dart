@@ -11,13 +11,15 @@ class Forgetbutton extends StatelessWidget {
     return Row(
       children: [
         SizedBox(
-          width: Mymediaquery().mediaquerywidth(0.3, context),
+          width: Mymediaquery().mediaquerywidth(0.65, context),
         ),
         GestureDetector(
           onTap: function,
           child: Text(
             'Forgot Password?',
-            style: TextStyle(color: Appallcolor().textcolor),
+            style: TextStyle(
+                color: Appallcolor().textcolor,
+                fontSize: Mymediaquery().mediaquerywidth(0.04, context)),
           ),
         ),
       ],

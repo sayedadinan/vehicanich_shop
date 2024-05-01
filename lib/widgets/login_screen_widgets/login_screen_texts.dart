@@ -12,13 +12,16 @@ class CustomQuestion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(
-          width: Mymediaquery().mediaquerywidth(0.10, context),
-        ),
+        // SizedBox(
+        //   width: Mymediaquery().mediaquerywidth(0.10, context),
+        // ),
         Text(
-          "Don't have an account?",
-          style: TextStyle(color: Appallcolor().textcolor),
+          "Don't have an account? ",
+          style: TextStyle(
+              color: Appallcolor().textcolor,
+              fontSize: Mymediaquery().mediaquerywidth(0.04, context)),
         ),
         GestureDetector(
           onTap: () {
@@ -27,7 +30,9 @@ class CustomQuestion extends StatelessWidget {
           },
           child: Text(
             ' Register Now',
-            style: TextStyle(color: Appallcolor().buttonforgroundcolor),
+            style: TextStyle(
+                color: Appallcolor().buttonforgroundcolor,
+                fontSize: Mymediaquery().mediaquerywidth(0.04, context)),
           ),
         )
       ],
@@ -41,12 +46,13 @@ class LoginScreenMainText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         const Myonboardingsmalltext(
-          subtitle: '   Welcome back! Glad \nto see you, Again!',
+          subtitle: 'Welcome back! ',
         ),
         SizedBox(
-          width: Mymediaquery().mediaquerywidth(0.14, context),
+          width: Mymediaquery().mediaquerywidth(0.23, context),
         )
       ],
     );

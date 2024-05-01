@@ -51,7 +51,7 @@ class MapScreen extends StatelessWidget {
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
                       height: Mymediaquery().mediaqueryheight(0.06, context),
-                      width: Mymediaquery().mediaquerywidth(0.13, context),
+                      width: Mymediaquery().mediaquerywidth(0.3, context),
                       decoration: BoxDecoration(
                         border: Border.all(
                           width: 2,

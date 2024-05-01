@@ -26,7 +26,9 @@ class EmergencyButton extends StatelessWidget {
           // context.read<BodyBloc>().add(BodymaintaincePressed());
         },
         child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20),
+          padding: EdgeInsets.only(
+              left: Mymediaquery().mediaquerywidth(0.06, context),
+              right: Mymediaquery().mediaquerywidth(0.06, context)),
           child: Container(
             width: double.infinity,
             height: Mymediaquery().mediaqueryheight(0.07, context),
@@ -37,19 +39,19 @@ class EmergencyButton extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(
-                  width: Mymediaquery().mediaquerywidth(0.02, context),
+                  width: Mymediaquery().mediaquerywidth(0.04, context),
                 ),
                 CustomText(
                     text: text,
-                    fontSize: Mymediaquery().mediaquerywidth(0.02, context),
+                    fontSize: Mymediaquery().mediaquerywidth(0.04, context),
                     color: Appallcolor().colorblack,
                     width: FontWeight.w500),
                 SizedBox(
-                  width: Mymediaquery().mediaquerywidth(0.09, context),
+                  width: Mymediaquery().mediaquerywidth(0.34, context),
                 ),
                 Icon(
                   Icons.arrow_right,
-                  size: Mymediaquery().mediaquerywidth(0.04, context),
+                  size: Mymediaquery().mediaquerywidth(0.07, context),
                 )
               ],
             ),

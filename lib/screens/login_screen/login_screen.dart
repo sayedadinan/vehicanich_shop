@@ -5,6 +5,7 @@ import 'package:vehicanich_shop/screens/forgot_password/forgot_password.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_custom_button.dart';
 import 'package:vehicanich_shop/utils/app_custom_dialogue.dart';
+import 'package:vehicanich_shop/utils/app_google_button.dart';
 import 'package:vehicanich_shop/utils/app_loadingindicator.dart';
 import 'package:vehicanich_shop/utils/app_textfields.dart';
 
@@ -64,12 +65,14 @@ class LoginScreen extends StatelessWidget {
                     icon: Icon(Icons.remove_red_eye_outlined),
                     hinttext: 'Enter your password',
                   ),
+                  SizedBox(
+                      height: Mymediaquery().mediaqueryheight(0.01, context)),
                   Forgetbutton(
                     function: () =>
                         context.read<LoginBloc>().add(ForgotButtonPressed()),
                   ),
                   SizedBox(
-                      height: Mymediaquery().mediaqueryheight(0.1, context)),
+                      height: Mymediaquery().mediaqueryheight(0.06, context)),
                   CustomButton(
                     function: () {},
                     buttontextcolor: Appallcolor().colorwhite,
@@ -85,6 +88,14 @@ class LoginScreen extends StatelessWidget {
                   const CustomDivider(),
                   SizedBox(
                       height: Mymediaquery().mediaqueryheight(0.03, context)),
+                  CustomGoogleButton(
+                    text: 'login with phone',
+                    bordercolor: Colors.white,
+                    buttontextcolor: Appallcolor().textcolor,
+                    color: Colors.transparent,
+                    fontSize: Mymediaquery().mediaqueryheight(0.02, context),
+                    function: () {},
+                  ),
                   SizedBox(
                       height: Mymediaquery().mediaqueryheight(0.03, context)),
                   const CustomQuestion()

@@ -27,7 +27,7 @@ class LocationTextContainer extends StatelessWidget {
             context.read<LocationBLoc>().add(LocationButtonPressed());
           },
           child: Container(
-            width: Mymediaquery().mediaquerywidth(0.41, context),
+            width: Mymediaquery().mediaquerywidth(0.9, context),
             height: Mymediaquery().mediaqueryheight(0.07, context),
             decoration: BoxDecoration(
               color: Appallcolor().placeholderimagecolor,
@@ -36,14 +36,14 @@ class LocationTextContainer extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(
-                  width: Mymediaquery().mediaquerywidth(0.02, context),
+                  width: Mymediaquery().mediaquerywidth(0.05, context),
                 ),
                 if (state.address.isEmpty)
                   Text(
                     'choose your location',
                     style: TextStyle(
                       color: Appallcolor().colorblack,
-                      fontSize: Mymediaquery().mediaquerywidth(0.02, context),
+                      fontSize: Mymediaquery().mediaquerywidth(0.05, context),
                     ),
                   ),
                 if (state.address.isNotEmpty)
@@ -51,7 +51,7 @@ class LocationTextContainer extends StatelessWidget {
                     state.address,
                     style: TextStyle(
                       color: Appallcolor().colorblack,
-                      fontSize: Mymediaquery().mediaquerywidth(0.02, context),
+                      fontSize: Mymediaquery().mediaquerywidth(0.05, context),
                     ),
                   ),
                 // SizedBox(

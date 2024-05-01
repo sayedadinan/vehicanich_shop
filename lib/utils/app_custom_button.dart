@@ -20,7 +20,9 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20),
+      padding: EdgeInsets.only(
+          left: Mymediaquery().mediaquerywidth(0.05, context),
+          right: Mymediaquery().mediaquerywidth(0.05, context)),
       child: Material(
         color: Colors.transparent,
         child: InkWell(

@@ -44,7 +44,7 @@ class BannerImagecontainer extends StatelessWidget {
             },
             child: Padding(
               padding: EdgeInsets.only(
-                  left: Mymediaquery().mediaquerywidth(0.02, context)),
+                  left: Mymediaquery().mediaquerywidth(0.01, context)),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
@@ -53,7 +53,7 @@ class BannerImagecontainer extends StatelessWidget {
                   ),
                   color: Appallcolor().textcolor,
                 ),
-                width: Mymediaquery().mediaquerywidth(0.40, context),
+                width: Mymediaquery().mediaquerywidth(0.9, context),
                 // width: double.infinity,
                 height: Mymediaquery().mediaqueryheight(0.12, context),
                 child: Column(
@@ -64,7 +64,7 @@ class BannerImagecontainer extends StatelessWidget {
                     CustomText(
                       width: FontWeight.w400,
                       color: Appallcolor().colorblack,
-                      fontSize: Mymediaquery().mediaquerywidth(0.01, context),
+                      fontSize: Mymediaquery().mediaquerywidth(0.03, context),
                       text:
                           'Please upload your shop photo here for showing to customer',
                     ),
@@ -74,7 +74,7 @@ class BannerImagecontainer extends StatelessWidget {
                     CustomText(
                       width: FontWeight.w300,
                       color: Appallcolor().colorblack,
-                      fontSize: Mymediaquery().mediaquerywidth(0.01, context),
+                      fontSize: Mymediaquery().mediaquerywidth(0.03, context),
                       text: '(tap here)',
                     ),
                   ],
@@ -82,7 +82,7 @@ class BannerImagecontainer extends StatelessWidget {
               ),
             ),
           ),
-        SizedBox(width: Mymediaquery().mediaquerywidth(0.02, context)),
+        // SizedBox(width: Mymediaquery().mediaquerywidth(0.02, context)),
       ]);
     });
   }

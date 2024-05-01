@@ -36,7 +36,7 @@ class Myonboardingsmalltext extends StatelessWidget {
         subtitle,
         style: TextStyle(
           color: Appallcolor().textcolor,
-          fontSize: MediaQuery.of(context).size.width * 0.07,
+          fontSize: MediaQuery.of(context).size.height * 0.04,
         ),
         textAlign: TextAlign.center,
       ),
@@ -52,12 +52,12 @@ class Loginorsigntext extends StatelessWidget {
     return Row(
       children: [
         SizedBox(
-          width: Mymediaquery().mediaquerywidth(0.08, context),
+          width: Mymediaquery().mediaquerywidth(0.09, context),
         ),
         Text(
           'make your choice perfect',
           style: TextStyle(
-              fontSize: Mymediaquery().mediaqueryheight(0.03, context),
+              fontSize: Mymediaquery().mediaqueryheight(0.04, context),
               color: Appallcolor().colorwhite),
         ),
       ],

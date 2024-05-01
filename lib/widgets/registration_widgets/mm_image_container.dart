@@ -22,7 +22,7 @@ class MMImageContainer extends StatelessWidget {
                 width: 3,
               ),
             ),
-            width: Mymediaquery().mediaquerywidth(0.20, context),
+            width: Mymediaquery().mediaquerywidth(0.43, context),
             height: Mymediaquery().mediaqueryheight(0.12, context),
             child: Image.memory(
               state.mmimagepathunit!,
@@ -44,7 +44,7 @@ class MMImageContainer extends StatelessWidget {
                   width: 2,
                 ),
               ),
-              width: Mymediaquery().mediaquerywidth(0.20, context),
+              width: Mymediaquery().mediaquerywidth(0.43, context),
               height: Mymediaquery().mediaqueryheight(0.12, context),
               child: Column(
                 children: [
@@ -54,21 +54,21 @@ class MMImageContainer extends StatelessWidget {
                   CustomText(
                     width: FontWeight.w400,
                     color: Appallcolor().colorblack,
-                    fontSize: Mymediaquery().mediaquerywidth(0.01, context),
+                    fontSize: Mymediaquery().mediaquerywidth(0.02, context),
                     text:
                         'Please upload your merchandise\n mark to showcase your branding',
                   ),
                   CustomText(
                     width: FontWeight.w300,
                     color: Appallcolor().colorblack,
-                    fontSize: Mymediaquery().mediaquerywidth(0.01, context),
+                    fontSize: Mymediaquery().mediaquerywidth(0.02, context),
                     text: '(tap here)',
                   ),
                 ],
               ),
             ),
           ),
-        SizedBox(width: Mymediaquery().mediaquerywidth(0.01, context)),
+        SizedBox(width: Mymediaquery().mediaquerywidth(0.03, context)),
       ]);
     });
   }

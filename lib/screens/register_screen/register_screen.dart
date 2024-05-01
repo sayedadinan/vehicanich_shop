@@ -39,10 +39,10 @@ class RegisterScreen extends StatelessWidget {
               child: Column(children: [
                 SizedBox(
                     height: Mymediaquery().mediaqueryheight(0.15, context)),
-                const MainText(text: '       Welcome to our \n community!'),
+                const MainText(text: ' Welcome to vehicanich !'),
                 SizedBox(
                     height: Mymediaquery().mediaqueryheight(0.05, context)),
-                const Smallheading(text: 'Details', width: 0.3),
+                const Smallheading(text: 'Details', width: 0.6),
                 SizedBox(
                     height: Mymediaquery().mediaqueryheight(0.02, context)),
                 Inputfield(
@@ -103,8 +103,6 @@ class RegisterScreen extends StatelessWidget {
                 const LocationErrorText(),
                 SizedBox(
                     height: Mymediaquery().mediaqueryheight(0.02, context)),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
                 Inputfield(
                     hinttext: 'Description',
                     controller: descriptioncontroller,
@@ -120,12 +118,14 @@ class RegisterScreen extends StatelessWidget {
                 const ClosingtimeErrorText(),
                 SizedBox(
                     height: Mymediaquery().mediaqueryheight(0.02, context)),
-                const Smallheading(text: 'Proofs', width: 0.3),
+                const Smallheading(text: 'Proofs', width: 0.6),
                 SizedBox(
                     height: Mymediaquery().mediaqueryheight(0.02, context)),
-                const Padding(
-                    padding: EdgeInsets.only(left: 15, right: 13),
-                    child: Row(children: [
+                Padding(
+                    padding: EdgeInsets.only(
+                        left: Mymediaquery().mediaquerywidth(0.05, context),
+                        right: 0),
+                    child: const Row(children: [
                       MMImageContainer(),
                       LicenceImagecontainer()
                     ])),
@@ -134,10 +134,10 @@ class RegisterScreen extends StatelessWidget {
                     height: Mymediaquery().mediaqueryheight(0.02, context)),
                 SizedBox(
                     height: Mymediaquery().mediaqueryheight(0.01, context)),
-                const Smallheading(text: 'Photos', width: 0.3),
+                const Smallheading(text: 'Photos', width: 0.6),
                 SizedBox(
                     height: Mymediaquery().mediaqueryheight(0.01, context)),
-                const HintText(size: 0.04, text: 'Banner photo'),
+                const HintText(size: 0.09, text: 'Banner photo'),
                 SizedBox(
                     height: Mymediaquery().mediaqueryheight(0.01, context)),
                 const BannerImagecontainer(),

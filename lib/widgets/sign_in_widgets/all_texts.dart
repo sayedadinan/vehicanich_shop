@@ -10,13 +10,14 @@ class MainText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Myonboardingsmalltext(
           subtitle: text,
         ),
-        SizedBox(
-          width: Mymediaquery().mediaquerywidth(0.18, context),
-        )
+        // SizedBox(
+        //   width: Mymediaquery().mediaquerywidth(0.18, context),
+        // )
       ],
     );
   }
@@ -57,7 +58,7 @@ class HintText extends StatelessWidget {
         Text(
           text,
           style: TextStyle(
-              fontSize: Mymediaquery().mediaquerywidth(0.02, context),
+              fontSize: Mymediaquery().mediaquerywidth(0.04, context),
               color: Appallcolor().textcolor),
         ),
       ],

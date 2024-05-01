@@ -21,7 +21,9 @@ class CustomGoogleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20),
+      padding: EdgeInsets.only(
+          left: Mymediaquery().mediaquerywidth(0.06, context),
+          right: Mymediaquery().mediaquerywidth(0.06, context)),
       child: Container(
         width: double.infinity,
         height: Mymediaquery().mediaqueryheight(0.07, context),

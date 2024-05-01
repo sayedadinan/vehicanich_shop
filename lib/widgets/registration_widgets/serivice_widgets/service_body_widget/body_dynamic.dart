@@ -8,14 +8,15 @@ import 'package:vehicanich_shop/utils/mediaquery.dart';
 class CustomBodydynamicard extends StatelessWidget {
   final String texts;
   final dynamic rate;
-  const CustomBodydynamicard({super.key, required this.texts, required this.rate});
+  const CustomBodydynamicard(
+      {super.key, required this.texts, required this.rate});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          left: Mymediaquery().mediaqueryheight(0.01, context),
-          right: Mymediaquery().mediaquerywidth(0.01, context)),
+          left: Mymediaquery().mediaquerywidth(0.03, context),
+          right: Mymediaquery().mediaquerywidth(0.03, context)),
       child: Card(
         color: Appallcolor().textcolor,
         child: SizedBox(
@@ -26,7 +27,7 @@ class CustomBodydynamicard extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(
-                  width: Mymediaquery().mediaquerywidth(0.24, context),
+                  width: Mymediaquery().mediaquerywidth(0.55, context),
                   child: CustomText(
                     width: FontWeight.w300,
                     color: Appallcolor().colorblack,
@@ -42,7 +43,7 @@ class CustomBodydynamicard extends StatelessWidget {
                       ? Icon(
                           Icons.check_box,
                           color: Appallcolor().appbarbackgroundcolor,
-                          size: Mymediaquery().mediaquerywidth(0.03, context),
+                          size: Mymediaquery().mediaquerywidth(0.05, context),
                         )
                       : Icon(
                           Icons.check_box_outline_blank,
@@ -53,14 +54,14 @@ class CustomBodydynamicard extends StatelessWidget {
                         serviceName: texts, rate: rate));
                   },
                 ),
-                SizedBox(width: Mymediaquery().mediaquerywidth(0.00, context)),
+                SizedBox(width: Mymediaquery().mediaquerywidth(0.03, context)),
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(4),
                       color: Appallcolor().colorwhite,
                       border: Border.all(
                           color: Appallcolor().buttonforgroundcolor)),
-                  width: Mymediaquery().mediaquerywidth(0.07, context),
+                  width: Mymediaquery().mediaquerywidth(0.17, context),
                   height: Mymediaquery().mediaqueryheight(0.03, context),
                   child: Center(child: (Text(rate.toString()))),
                 )

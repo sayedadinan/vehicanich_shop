@@ -53,18 +53,19 @@ class LicenceImagecontainer extends StatelessWidget {
                           width: 2,
                         ),
                       ),
-                      width: Mymediaquery().mediaquerywidth(0.20, context),
+                      width: Mymediaquery().mediaquerywidth(0.43, context),
                       height: Mymediaquery().mediaqueryheight(0.12, context),
                       child: Column(
                         children: [
-                          const SizedBox(
-                            height: 29,
+                          SizedBox(
+                            height:
+                                Mymediaquery().mediaqueryheight(0.03, context),
                           ),
                           CustomText(
                             width: FontWeight.w400,
                             color: Appallcolor().colorblack,
                             fontSize:
-                                Mymediaquery().mediaquerywidth(0.01, context),
+                                Mymediaquery().mediaquerywidth(0.02, context),
                             text:
                                 'Please upload your licence photo\n for validation  Thank you',
                           ),
@@ -72,7 +73,7 @@ class LicenceImagecontainer extends StatelessWidget {
                             width: FontWeight.w400,
                             color: Appallcolor().colorblack,
                             fontSize:
-                                Mymediaquery().mediaquerywidth(0.01, context),
+                                Mymediaquery().mediaquerywidth(0.02, context),
                             text: '(tap here)',
                           ),
                         ],

@@ -33,27 +33,27 @@ class LoginOrsign extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: Mymediaquery().mediaqueryheight(0.2, context),
+                height: Mymediaquery().mediaqueryheight(0.1, context),
               ),
               Row(
                 children: [
                   SizedBox(
-                    width: Mymediaquery().mediaquerywidth(0.18, context),
+                    width: Mymediaquery().mediaquerywidth(0.10, context),
                   ),
                   Myonboardmaintitle(
-                    size: Mymediaquery().mediaquerywidth(0.05, context),
+                    size: Mymediaquery().mediaquerywidth(0.16, context),
                     textcolor: Appallcolor().colorwhite,
-                    title: 'VEHII',
+                    title: 'VEHI-CANICH',
                   ),
                 ],
               ),
-              Myonboardmaintitle(
-                size: Mymediaquery().mediaquerywidth(0.06, context),
-                textcolor: Appallcolor().colorwhite,
-                title: 'Canich',
-              ),
+              // Myonboardmaintitle(
+              //   size: Mymediaquery().mediaquerywidth(0.16, context),
+              //   textcolor: Appallcolor().colorwhite,
+              //   title: 'Canich',
+              // ),
               SizedBox(
-                height: Mymediaquery().mediaqueryheight(0.2, context),
+                height: Mymediaquery().mediaqueryheight(0.4, context),
               ),
               const Loginorsigntext(),
               SizedBox(
@@ -78,6 +78,10 @@ class LoginOrsign extends StatelessWidget {
                 fontSize: Mymediaquery().mediaqueryheight(0.02, context),
                 color: Appallcolor().buttonforgroundcolor,
               ),
+              // Container(
+              //   child: Lottie.asset('assets/images/animationmovingcar.json',
+              //       fit: BoxFit.fill),
+              // )
             ],
           ),
         ));
