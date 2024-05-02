@@ -47,7 +47,7 @@ class EmergencyButton extends StatelessWidget {
                     color: Appallcolor().colorblack,
                     width: FontWeight.w500),
                 SizedBox(
-                  width: Mymediaquery().mediaquerywidth(0.34, context),
+                  width: Mymediaquery().mediaquerywidth(0.25, context),
                 ),
                 Icon(
                   Icons.arrow_right,

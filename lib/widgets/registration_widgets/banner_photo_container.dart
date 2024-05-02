@@ -19,7 +19,7 @@ class BannerImagecontainer extends StatelessWidget {
             },
             child: Padding(
               padding: EdgeInsets.only(
-                  left: Mymediaquery().mediaquerywidth(0.02, context)),
+                  left: Mymediaquery().mediaquerywidth(0.0, context)),
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(
@@ -27,7 +27,7 @@ class BannerImagecontainer extends StatelessWidget {
                     width: 3,
                   ),
                 ),
-                width: Mymediaquery().mediaquerywidth(0.40, context),
+                width: Mymediaquery().mediaquerywidth(0.87, context),
                 height: Mymediaquery().mediaqueryheight(0.12, context),
                 child: Image.memory(
                   state.bannerimagepathunit!,
@@ -53,7 +53,7 @@ class BannerImagecontainer extends StatelessWidget {
                   ),
                   color: Appallcolor().textcolor,
                 ),
-                width: Mymediaquery().mediaquerywidth(0.9, context),
+                width: Mymediaquery().mediaquerywidth(0.90, context),
                 // width: double.infinity,
                 height: Mymediaquery().mediaqueryheight(0.12, context),
                 child: Column(

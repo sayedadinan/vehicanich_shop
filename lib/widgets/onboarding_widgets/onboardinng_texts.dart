@@ -51,14 +51,15 @@ class Loginorsigntext extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(
-          width: Mymediaquery().mediaquerywidth(0.09, context),
-        ),
-        Text(
-          'make your choice perfect',
-          style: TextStyle(
-              fontSize: Mymediaquery().mediaqueryheight(0.04, context),
-              color: Appallcolor().colorwhite),
+        Padding(
+          padding: EdgeInsets.only(
+              left: Mymediaquery().mediaquerywidth(0.19, context)),
+          child: Text(
+            'make your choice perfect',
+            style: TextStyle(
+                fontSize: Mymediaquery().mediaqueryheight(0.03, context),
+                color: Appallcolor().colorwhite),
+          ),
         ),
       ],
     );

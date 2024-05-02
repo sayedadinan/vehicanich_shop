@@ -46,7 +46,7 @@ class BodyServiceContainer extends StatelessWidget {
                     color: Appallcolor().colorblack,
                     width: FontWeight.w500),
                 SizedBox(
-                  width: Mymediaquery().mediaquerywidth(0.47, context),
+                  width: Mymediaquery().mediaquerywidth(0.40, context),
                 ),
                 Icon(
                   Icons.arrow_right,

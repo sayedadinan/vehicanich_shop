@@ -16,6 +16,7 @@ class ShopModel {
   final String bannerimagepath;
   final bool isApproved;
   final bool isRejected;
+  final String locationaddress;
   final Map<String, dynamic> bodyservicemap;
   final Map<String, dynamic> interiorservicemap;
   final Map<String, dynamic> enginservicemap;
@@ -38,6 +39,7 @@ class ShopModel {
     required this.interiorservicemap,
     required this.enginservicemap,
     required this.isRejected,
+    required this.locationaddress,
   });
   Map<String, dynamic> toJson() {
     return {
@@ -59,6 +61,7 @@ class ShopModel {
       "bodyservicemap": bodyservicemap,
       "interiorservicemap": interiorservicemap,
       "enginservicemap": enginservicemap,
+      "locationaddress": locationaddress
     };
   }
 }

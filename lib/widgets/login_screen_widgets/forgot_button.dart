@@ -11,7 +11,7 @@ class Forgetbutton extends StatelessWidget {
     return Row(
       children: [
         SizedBox(
-          width: Mymediaquery().mediaquerywidth(0.65, context),
+          width: Mymediaquery().mediaquerywidth(0.60, context),
         ),
         GestureDetector(
           onTap: function,

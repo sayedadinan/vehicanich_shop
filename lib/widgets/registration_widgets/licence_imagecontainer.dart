@@ -25,7 +25,7 @@ class LicenceImagecontainer extends StatelessWidget {
                   width: 3,
                 ),
               ),
-              width: Mymediaquery().mediaquerywidth(0.20, context),
+              width: Mymediaquery().mediaquerywidth(0.43, context),
               height: Mymediaquery().mediaqueryheight(0.12, context),
               child: Image.memory(
                 state.licenceimagepathunit!,

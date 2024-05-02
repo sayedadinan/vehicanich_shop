@@ -62,7 +62,7 @@ class ClosingTimeTextContainer extends StatelessWidget {
                   },
                 ),
                 SizedBox(
-                  width: Mymediaquery().mediaquerywidth(0.5, context),
+                  width: Mymediaquery().mediaquerywidth(0.4, context),
                 ),
                 const Icon(Icons.access_time)
               ],

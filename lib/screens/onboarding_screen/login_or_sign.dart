@@ -37,20 +37,27 @@ class LoginOrsign extends StatelessWidget {
               ),
               Row(
                 children: [
-                  SizedBox(
-                    width: Mymediaquery().mediaquerywidth(0.10, context),
-                  ),
-                  Myonboardmaintitle(
-                    size: Mymediaquery().mediaquerywidth(0.16, context),
-                    textcolor: Appallcolor().colorwhite,
-                    title: 'VEHI-CANICH',
+                  // SizedBox(
+                  //   width: Mymediaquery().mediaquerywidth(0.08, context),
+                  // ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: Mymediaquery().mediaquerywidth(0.16, context)),
+                    child: Myonboardmaintitle(
+                      size: Mymediaquery().mediaquerywidth(0.14, context),
+                      textcolor: Appallcolor().colorwhite,
+                      title: 'VEHI-CANICH',
+                    ),
                   ),
                 ],
               ),
-              // Myonboardmaintitle(
-              //   size: Mymediaquery().mediaquerywidth(0.16, context),
-              //   textcolor: Appallcolor().colorwhite,
-              //   title: 'Canich',
+              // Container(
+              //   // width: Mymediaquery().mediaquerywidth(0.23, context),
+              //   // height: Mymediaquery().mediaqueryheight(0.23, context),
+              //   child: Transform.scale(
+              //       scale: 2.4,
+              //       child: Image.asset(
+              //           'assets/images/Animation - 1714540752582.gif')),
               // ),
               SizedBox(
                 height: Mymediaquery().mediaqueryheight(0.4, context),
