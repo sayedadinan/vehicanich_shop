@@ -1,9 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vehicanich_shop/firebase_auth/phoneauth_.dart';
-import 'package:vehicanich_shop/repositories/shop_data_repositery.dart';
+import 'package:vehicanich_shop/services/firebase_auth/phoneauth_.dart';
+import 'package:vehicanich_shop/data/repositories/shop_data_repositery.dart';
 import 'package:vehicanich_shop/screens/register_screen/registration_velidations.dart';
+import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
 part 'registration_event.dart';
 part 'registration_state.dart';
 
@@ -13,6 +14,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
   }
   void registrationbuttonpressed(
       Registerbuttonpressed event, Emitter<RegistrationState> emit) async {
+    emit(Registrationloading(buttonpressed: state.buttonpressed));
     try {
       print('worked this also');
       emit(RegistrationInitial(buttonpressed: true));
@@ -29,6 +31,8 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
         print('this one');
         emit(Registrationsuccess(buttonpressed: state.buttonpressed));
         print('success fully worked');
+        FirebaseDatastoring()
+            .saveShopPhoneToSharedPreferences(emailcontroller.text);
       } else {
         return;
       }

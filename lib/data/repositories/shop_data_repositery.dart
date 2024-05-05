@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/closingtime_blocs/bloc/closingtime_bloc.dart';
@@ -6,11 +8,13 @@ import 'package:vehicanich_shop/blocs/registration_blocs/services/body_service/s
 import 'package:vehicanich_shop/blocs/registration_blocs/services/engine_bloc/bloc/engine_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/services/interior_service/bloc/interior_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/startingtime_bloc.dart/bloc/time_bloc.dart';
-import 'package:vehicanich_shop/models/shop_model.dart';
-import 'package:vehicanich_shop/repositories/shop_reference.dart';
+import 'package:vehicanich_shop/data/data_provider/keys.dart';
+import 'package:vehicanich_shop/data/models/shop_model.dart';
+import 'package:vehicanich_shop/data/data_provider/shop_reference.dart';
 import 'package:vehicanich_shop/services/image_changing.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FirebaseDatastoring {
   addShopDetailsToFirebase(BuildContext context) async {
@@ -49,9 +53,37 @@ class FirebaseDatastoring {
             BlocProvider.of<EngineBloc>(context).state.serviceNamemap,
       );
       // Map<String, dynamic> shopData = shopDetails.toJson();
-      await ShopreferenceId().reference.add(shopDetails.toJson());
+      await ShopreferenceId()
+          .shopCollectionReference()
+          .add(shopDetails.toJson());
     } catch (error) {
       print("Error adding shop details: $error");
     }
+  }
+
+  shopIdgeting() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final phone = prefs.getString(Referencekeys.shopphone);
+    QuerySnapshot<Map<String, dynamic>> querysnapshot = await ShopreferenceId()
+        .shopCollectionReference()
+        .where('phone', isEqualTo: phone)
+        .get();
+    return querysnapshot.docs.first.id;
+  }
+
+  Future<void> saveShopPhoneToSharedPreferences(String phone) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString(Referencekeys.shopphone, phone);
+  }
+
+  bookingDetailsGetting() async {
+    //notcompletedworkingonitnextsavetoavariavleandtaketoastreambuilder
+    final shopid = shopIdgeting();
+    final userDocRef = ShopreferenceId()
+        .shopCollectionReference()
+        .doc(shopid)
+        .collection('newbooking')
+        .doc();
+    final querySnapshot = await userDocRef.get();
   }
 }

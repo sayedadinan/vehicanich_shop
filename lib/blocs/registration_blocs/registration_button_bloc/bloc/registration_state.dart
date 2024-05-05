@@ -13,3 +13,7 @@ final class RegistrationInitial extends RegistrationState {
 class Registrationsuccess extends RegistrationState {
   Registrationsuccess({required super.buttonpressed});
 }
+
+class Registrationloading extends RegistrationState {
+  Registrationloading({required super.buttonpressed});
+}

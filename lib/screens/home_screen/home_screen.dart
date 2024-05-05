@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
-import 'package:vehicanich_shop/utils/mediaquery.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,18 +7,15 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Appallcolor().appbackgroundcolor,
       appBar: AppBar(
         backgroundColor: Appallcolor().appbarbackgroundcolor,
+        title: Text('Requests'),
+        centerTitle: true,
       ),
-      body: Center(
-        child: Text(
-          '      waiting for showing datas here\notp verified and entered to home screen',
-          style: TextStyle(
-              color: Appallcolor().colorwhite,
-              fontSize: Mymediaquery().mediaquerywidth(0.02, context)),
-        ),
+      body: Column(
+        children: [Text('data')],
       ),
-      backgroundColor: Appallcolor().appbackgroundcolor,
     );
   }
 }

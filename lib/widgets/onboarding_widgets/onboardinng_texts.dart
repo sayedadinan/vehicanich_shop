@@ -53,7 +53,7 @@ class Loginorsigntext extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(
-              left: Mymediaquery().mediaquerywidth(0.19, context)),
+              left: Mymediaquery().mediaquerywidth(0.12, context)),
           child: Text(
             'make your choice perfect',
             style: TextStyle(

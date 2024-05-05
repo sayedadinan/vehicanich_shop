@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:vehicanich_shop/repositories/shop_reference.dart';
+import 'package:vehicanich_shop/data/data_provider/shop_reference.dart';
 import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
 
 class LoginVerification {
   Future<String> verifyLoginDetails() async {
     try {
       final QuerySnapshot querySnapshot = await ShopreferenceId()
-          .reference
+          .shopCollectionReference()
           .where('phone', isEqualTo: loginphonecontroller.text)
           .get();
 

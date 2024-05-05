@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/registration_button_bloc/bloc/registration_bloc.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_custom_button.dart';
+import 'package:vehicanich_shop/utils/app_loadingindicator.dart';
 import 'package:vehicanich_shop/utils/app_textfields.dart';
 import 'package:vehicanich_shop/utils/app_validators.dart';
 import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
@@ -33,6 +34,9 @@ class RegisterScreen extends StatelessWidget {
         body: BlocConsumer<RegistrationBloc, RegistrationState>(
           listener: (context, state) {},
           builder: (context, state) {
+            if (state is Registrationloading) {
+              return loader;
+            }
             return SingleChildScrollView(
                 child: Form(
               key: signupKey,

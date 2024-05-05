@@ -8,7 +8,6 @@ import 'package:vehicanich_shop/utils/app_custom_dialogue.dart';
 import 'package:vehicanich_shop/utils/app_google_button.dart';
 import 'package:vehicanich_shop/utils/app_loadingindicator.dart';
 import 'package:vehicanich_shop/utils/app_textfields.dart';
-
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 import 'package:vehicanich_shop/widgets/login_screen_widgets/custom_divider.dart';
 import 'package:vehicanich_shop/widgets/login_screen_widgets/forgot_button.dart';
@@ -77,9 +76,6 @@ class LoginScreen extends StatelessWidget {
                     function: () {},
                     buttontextcolor: Appallcolor().colorwhite,
                     text: 'Login',
-                    // function: () => context
-                    //     .read<LoginBloc>()
-                    //     .add(LoginScreenButtonPressed(formkey: loginKey)),
                     fontSize: Mymediaquery().mediaqueryheight(0.02, context),
                     color: Appallcolor().buttonforgroundcolor,
                   ),

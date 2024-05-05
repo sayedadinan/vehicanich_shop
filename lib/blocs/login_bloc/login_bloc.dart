@@ -1,7 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vehicanich_shop/firebase_auth/login_verification.dart';
+import 'package:vehicanich_shop/services/firebase_auth/login_verification.dart';
 part 'login_event.dart';
 part 'login_state.dart';
 

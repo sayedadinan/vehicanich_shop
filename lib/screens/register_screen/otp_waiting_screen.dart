@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vehicanich_shop/firebase_auth/phoneauth_.dart';
+import 'package:vehicanich_shop/services/firebase_auth/phoneauth_.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_custom_button.dart';
 import 'package:vehicanich_shop/utils/app_textfields.dart';

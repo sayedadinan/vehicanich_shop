@@ -57,6 +57,7 @@ dependencies:
   firebase_auth: ^4.19.4
   connectivity_plus: ^6.0.3
   lottie: ^3.1.0
+  shared_preferences: ^2.2.3
   
 dev_dependencies:
   flutter_test:
@@ -86,6 +87,7 @@ flutter:
     - assets/images/workshop image for mechanicapp.png
     - assets/images/dslr-camera.png
     - assets/images/Animation - 1714540752582.gif
+    - assets/images/Exchange validation.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

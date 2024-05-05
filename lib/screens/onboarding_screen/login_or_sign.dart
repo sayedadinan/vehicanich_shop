@@ -42,7 +42,7 @@ class LoginOrsign extends StatelessWidget {
                   // ),
                   Padding(
                     padding: EdgeInsets.only(
-                        left: Mymediaquery().mediaquerywidth(0.16, context)),
+                        left: Mymediaquery().mediaquerywidth(0.08, context)),
                     child: Myonboardmaintitle(
                       size: Mymediaquery().mediaquerywidth(0.14, context),
                       textcolor: Appallcolor().colorwhite,
