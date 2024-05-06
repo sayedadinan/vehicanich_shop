@@ -13,7 +13,9 @@ import 'package:vehicanich_shop/blocs/registration_blocs/services/engine_bloc/bl
 import 'package:vehicanich_shop/blocs/registration_blocs/services/interior_service/bloc/interior_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/startingtime_bloc.dart/bloc/time_bloc.dart';
 import 'package:vehicanich_shop/firebase_options.dart';
-import 'package:vehicanich_shop/screens/onboarding_screen/onboarding_screen.dart';
+// import 'package:vehicanich_shop/screens/onboarding_screen/onboarding_screen.dart';
+import 'package:vehicanich_shop/screens/splash_screen/splash_screen.dart';
+// import 'package:vehicanich_shop/screens/waiting_screen/waiting_screen.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 
 void main(List<String> args) async {
@@ -49,7 +51,7 @@ class MyApp extends StatelessWidget {
             ColorScheme.fromSeed(seedColor: Appallcolor().buttonforgroundcolor),
         useMaterial3: true,
       ),
-      home: OnboardingScreen(),
+      home: const SplashScreen(),
     );
   }
 }

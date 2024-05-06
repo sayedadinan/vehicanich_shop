@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:vehicanich_shop/screens/home_screen/home_screen.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
-import 'package:vehicanich_shop/utils/page_transition/page_fade_transition.dart';
 import 'package:vehicanich_shop/utils/page_transition/page_slide_transition.dart';
 
 class WaitingScreen extends StatelessWidget {
@@ -15,6 +14,7 @@ class WaitingScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.notifications),
           onPressed: () {
+            // FirebaseDatastoring().bookingDetailsGetting();
             Navigator.push(
                 context, SlideTransitionPageRoute(child: const HomeScreen()));
           },

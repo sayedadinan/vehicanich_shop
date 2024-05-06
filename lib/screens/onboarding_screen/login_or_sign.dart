@@ -18,13 +18,17 @@ class LoginOrsign extends StatelessWidget {
         listener: (context, state) {
           if (state is NavigatetoLoginPage) {
             Navigator.of(context)
-                .push(FadeTransitionPageRoute(child: LoginScreen()));
+                .push(FadeTransitionPageRoute(child: const LoginScreen()));
           }
+          // if (state is Navigatetosignpage) {
+          //   Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //           builder: (context) => const RegisterScreen()));
+          // }
           if (state is Navigatetosignpage) {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const RegisterScreen()));
+            Navigator.of(context)
+                .push(FadeTransitionPageRoute(child: const RegisterScreen()));
           }
         },
         child: Scaffold(

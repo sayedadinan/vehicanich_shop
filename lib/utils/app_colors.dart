@@ -10,6 +10,7 @@ class AppColor {
   final Color emergencybuttoncolor;
   final Color bottomnavigationforcolor;
   final Color placeholderimagecolor;
+  final Color listcontainer;
   AppColor({
     required this.appbackgroundcolor,
     required this.bottomnavigationforcolor,
@@ -20,19 +21,22 @@ class AppColor {
     required this.appbarbackgroundcolor,
     required this.emergencybuttoncolor,
     required this.placeholderimagecolor,
+    required this.listcontainer,
   });
 }
 
 final class Appallcolor extends AppColor {
   Appallcolor()
       : super(
-            bottomnavigationforcolor: const Color.fromARGB(0, 0, 0, 0),
-            emergencybuttoncolor: const Color.fromARGB(255, 177, 37, 42),
-            appbarbackgroundcolor: const Color.fromARGB(255, 46, 96, 89),
-            colorblack: Colors.black,
-            colorwhite: Colors.white,
-            appbackgroundcolor: Colors.black,
-            textcolor: const Color.fromARGB(255, 167, 199, 198),
-            buttonforgroundcolor: const Color.fromARGB(255, 17, 187, 180),
-            placeholderimagecolor: const Color.fromARGB(255, 198, 198, 199));
+          bottomnavigationforcolor: const Color.fromARGB(0, 0, 0, 0),
+          emergencybuttoncolor: const Color.fromARGB(255, 177, 37, 42),
+          appbarbackgroundcolor: const Color.fromARGB(255, 46, 96, 89),
+          colorblack: Colors.black,
+          colorwhite: Colors.white,
+          appbackgroundcolor: Colors.black,
+          textcolor: const Color.fromARGB(255, 167, 199, 198),
+          buttonforgroundcolor: const Color.fromARGB(255, 17, 187, 180),
+          placeholderimagecolor: const Color.fromARGB(255, 198, 198, 199),
+          listcontainer: Color.fromARGB(49, 255, 255, 255),
+        );
 }

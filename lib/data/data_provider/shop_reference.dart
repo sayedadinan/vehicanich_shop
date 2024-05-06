@@ -4,7 +4,7 @@ import 'package:vehicanich_shop/data/data_provider/keys.dart';
 class ShopreferenceId {
   CollectionReference<Map<String, dynamic>> shopCollectionReference() {
     final shopcollectionReference =
-        FirebaseFirestore.instance.collection(Referencekeys.shopdetails);
+        FirebaseFirestore.instance.collection(Referencekeys.shopDetails);
     return shopcollectionReference;
   }
 }

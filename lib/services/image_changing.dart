@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/image_blocs/image_bloc.dart';
 
-class Imagechanging {
-  licenceimagechanging(BuildContext context) async {
+class ImageChanging {
+  licenceImageChanging(BuildContext context) async {
     try {
       firebase_storage.Reference reference = firebase_storage
           .FirebaseStorage.instance
@@ -22,7 +22,7 @@ class Imagechanging {
     }
   }
 
-  mmimagechanging(BuildContext context) async {
+  mmImageChanging(BuildContext context) async {
     try {
       firebase_storage.Reference reference = firebase_storage
           .FirebaseStorage.instance
@@ -39,7 +39,7 @@ class Imagechanging {
     }
   }
 
-  bannerimagechanging(BuildContext context) async {
+  bannerImageChanging(BuildContext context) async {
     try {
       firebase_storage.Reference reference = firebase_storage
           .FirebaseStorage.instance
