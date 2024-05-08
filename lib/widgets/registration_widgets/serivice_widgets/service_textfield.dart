@@ -21,7 +21,8 @@ class CustomServiceTextField extends StatelessWidget {
         cursorColor: Appallcolor().buttonforgroundcolor,
         keyboardType: TextInputType.number,
         maxLength: 5,
-        textAlign: TextAlign.center, cursorWidth: 2.0,
+        textAlign: TextAlign.center,
+        cursorWidth: 2.0,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Appallcolor().buttonforgroundcolor),
@@ -48,13 +49,6 @@ class CustomServiceTextField extends StatelessWidget {
           ),
           hintText: "Rate",
         ),
-
-        // Set the width of the TextField
-        // You can adjust this value according to your requirement
-        // For example, width: 100,
-        // You can use constraints or other layout widgets to control the width
-        // of the TextField
-        // width: 100,
       ),
     );
   }

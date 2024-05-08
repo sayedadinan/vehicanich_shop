@@ -15,6 +15,7 @@ class CurrentStatusBloc extends Bloc<CurrentStatusEvent, CurrentStatusState> {
       StartedbuttonPressed event, Emitter<CurrentStatusState> emit) async {
     emit(StartedLoading());
     try {
+      print('in bloc');
       await BookingDetailsUpdation().pendingDetailsUpdation(event.documentId);
       emit(StartedSucces());
     } catch (e) {
@@ -24,5 +25,13 @@ class CurrentStatusBloc extends Bloc<CurrentStatusEvent, CurrentStatusState> {
   }
 
   completedButtonPressed(
-      CompletedbuttonPressed event, Emitter<CurrentStatusState> emit) {}
+      CompletedbuttonPressed event, Emitter<CurrentStatusState> emit) async {
+    emit(CompletedLoading());
+    try {
+      await BookingDetailsUpdation()
+          .pendingDetailsUpdationForStartedButton(event.documentId);
+    } catch (e) {
+      print(e);
+    }
+  }
 }

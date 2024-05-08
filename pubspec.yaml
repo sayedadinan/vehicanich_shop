@@ -58,6 +58,8 @@ dependencies:
   connectivity_plus: ^6.0.3
   lottie: ^3.1.0
   shared_preferences: ^2.2.3
+  google_nav_bar: ^5.0.6
+  google_fonts: ^6.2.1
   
 dev_dependencies:
   flutter_test:
@@ -88,6 +90,8 @@ flutter:
     - assets/images/dslr-camera.png
     - assets/images/Animation - 1714540752582.gif
     - assets/images/Exchange validation.png
+    - assets/images/car for vehicanich.webp
+    - assets/images/urban-842.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

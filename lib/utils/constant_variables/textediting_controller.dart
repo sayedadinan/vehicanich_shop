@@ -11,3 +11,7 @@ final TextEditingController confirmpassword = TextEditingController();
 final TextEditingController otpcontroller = TextEditingController();
 final TextEditingController loginphonecontroller = TextEditingController();
 final TextEditingController loginpasswordcontroller = TextEditingController();
+final TextEditingController updateUserNameController = TextEditingController();
+final TextEditingController updateEmailController = TextEditingController();
+final TextEditingController updatePasswordController = TextEditingController();
+final TextEditingController updatePhoneController = TextEditingController();

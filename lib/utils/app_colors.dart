@@ -37,6 +37,6 @@ final class Appallcolor extends AppColor {
           textcolor: const Color.fromARGB(255, 167, 199, 198),
           buttonforgroundcolor: const Color.fromARGB(255, 17, 187, 180),
           placeholderimagecolor: const Color.fromARGB(255, 198, 198, 199),
-          listcontainer: Color.fromARGB(49, 255, 255, 255),
+          listcontainer: Color(0xFF1E1E1E),
         );
 }

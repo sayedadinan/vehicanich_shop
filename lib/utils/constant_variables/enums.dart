@@ -1,0 +1,1 @@
+enum CurrentStatus { started, pending }

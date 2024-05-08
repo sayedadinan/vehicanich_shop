@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:vehicanich_shop/data/data_provider/keys.dart';
 import 'package:vehicanich_shop/data/data_provider/shop_booking_ref.dart';
 import 'package:vehicanich_shop/utils/app_loadingindicator.dart';
+import 'package:vehicanich_shop/utils/constant_variables/enums.dart';
 import 'package:vehicanich_shop/widgets/home_widgets/list_view.dart';
 
 class ProgresScreen extends StatelessWidget {
@@ -15,6 +16,7 @@ class ProgresScreen extends StatelessWidget {
         stream: BookingReference()
             .allBookingDetails()
             .where(Referencekeys.isStarted, isEqualTo: true)
+            .where(Referencekeys.isPending, isEqualTo: false)
             .snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -33,6 +35,7 @@ class ProgresScreen extends StatelessWidget {
             } else {
               final bookingdetails = snapshot.data!.docs;
               return ListViewForBookings(
+                type: CurrentStatus.started,
                 bookingdetails: bookingdetails,
               );
             }

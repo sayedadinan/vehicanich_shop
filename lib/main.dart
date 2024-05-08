@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vehicanich_shop/blocs/bottom_nav_blocs/bloc/bottom_nav_bloc.dart';
+import 'package:vehicanich_shop/blocs/current_status_/bloc/current_status_bloc.dart';
 import 'package:vehicanich_shop/blocs/login_bloc/login_bloc.dart';
 import 'package:vehicanich_shop/blocs/onboarding_bloc/onboarding_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/closingtime_blocs/bloc/closingtime_bloc.dart';
@@ -12,10 +14,11 @@ import 'package:vehicanich_shop/blocs/registration_blocs/services/emergency_bloc
 import 'package:vehicanich_shop/blocs/registration_blocs/services/engine_bloc/bloc/engine_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/services/interior_service/bloc/interior_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/startingtime_bloc.dart/bloc/time_bloc.dart';
+import 'package:vehicanich_shop/blocs/shop_updation_blocs/Interior_service_updation/bloc/interior_service_bloc.dart';
+import 'package:vehicanich_shop/blocs/shop_updation_blocs/body_service_updation/bloc/body_service_updation_bloc.dart';
+import 'package:vehicanich_shop/blocs/user_profile_bloc/bloc/user_profile_bloc.dart';
 import 'package:vehicanich_shop/firebase_options.dart';
-// import 'package:vehicanich_shop/screens/onboarding_screen/onboarding_screen.dart';
 import 'package:vehicanich_shop/screens/splash_screen/splash_screen.dart';
-// import 'package:vehicanich_shop/screens/waiting_screen/waiting_screen.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 
 void main(List<String> args) async {
@@ -35,6 +38,11 @@ void main(List<String> args) async {
     BlocProvider(create: (context) => EngineBloc()),
     BlocProvider(create: (context) => EmergencyBloc()),
     BlocProvider(create: (context) => RegistrationBloc()),
+    BlocProvider(create: (context) => CurrentStatusBloc()),
+    BlocProvider(create: (context) => BottomNavigationBloc()),
+    BlocProvider(create: (context) => UserProfileBloc()),
+    BlocProvider(create: (context) => BodyServiceUpdationBloc()),
+    BlocProvider(create: (context) => InteriorServiceUpdationBloc()),
   ], child: const MyApp()));
 }
 
