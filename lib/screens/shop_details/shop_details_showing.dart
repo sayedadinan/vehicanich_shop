@@ -4,8 +4,11 @@ import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 import 'package:vehicanich_shop/utils/page_transition/page_slide_transition.dart';
 import 'package:vehicanich_shop/widgets/shop_details_updation.dart/service_updations/body_service_updation.dart';
+import 'package:vehicanich_shop/widgets/shop_details_updation.dart/service_updations/engine_service_updation.dart';
 import 'package:vehicanich_shop/widgets/shop_details_updation.dart/service_updations/interior_service.dart';
 import 'package:vehicanich_shop/widgets/shop_details_updation.dart/shop_details_updation.dart';
+import 'package:vehicanich_shop/widgets/shop_details_updation.dart/time_updations/closing_time_updation.dart';
+import 'package:vehicanich_shop/widgets/shop_details_updation.dart/time_updations/starting_time_updation.dart';
 
 class ShopDetailPage extends StatelessWidget {
   const ShopDetailPage({super.key});
@@ -29,7 +32,7 @@ class ShopDetailPage extends StatelessWidget {
           GestureDetector(
             onTap: () {
               Navigator.of(context)
-                  .push(SlideTransitionPageRoute(child: BodyUpdation()));
+                  .push(SlideTransitionPageRoute(child: const BodyUpdation()));
             },
             child: const ServiceContainers(
               text: 'Body Maintenance and Repair      ',
@@ -40,8 +43,8 @@ class ShopDetailPage extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(context)
-                  .push(SlideTransitionPageRoute(child: InteriorUpdation()));
+              Navigator.of(context).push(
+                  SlideTransitionPageRoute(child: const InteriorUpdation()));
             },
             child: const ServiceContainers(
               text: 'Interior Service and clean              ',
@@ -50,9 +53,23 @@ class ShopDetailPage extends StatelessWidget {
           SizedBox(
             height: Mymediaquery().mediaqueryheight(0.03, context),
           ),
-          const ServiceContainers(
-            text: 'Engine and Mechanichal Services',
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                  SlideTransitionPageRoute(child: const EngineUpdation()));
+            },
+            child: const ServiceContainers(
+              text: 'Engine and Mechanichal Services',
+            ),
           ),
+          SizedBox(
+            height: Mymediaquery().mediaqueryheight(0.03, context),
+          ),
+          const StartingTimeUpdationContainer(),
+          SizedBox(
+            height: Mymediaquery().mediaqueryheight(0.03, context),
+          ),
+          const ClosingTimeUpdationContainer()
         ],
       ),
     );

@@ -21,6 +21,8 @@ class CustomFloatingActionButton extends StatelessWidget {
             context
                 .read<BodyServiceUpdationBloc>()
                 .add(BodyServiceUpdationSavePressed());
+
+            Navigator.of(context).pop();
           },
           child: BlocProvider.of<BodyServiceUpdationBloc>(context, listen: true)
                   .state

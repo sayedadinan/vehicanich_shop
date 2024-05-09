@@ -23,7 +23,6 @@ class Referencekeys {
   static String closingtime = 'closingtime';
   static String licenceimagepath = 'licenceimagepath';
   static String mmimagepath = 'mmimagepath';
-  static String bannerimagepath = "bannerimagepath";
   static String bodyservicemap = "bodyservicemap";
   static String interiorservicemap = "interiorservicemap";
   static String enginservicemap = 'enginservicemap';

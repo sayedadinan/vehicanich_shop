@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vehicanich_shop/blocs/shop_updation_blocs/Interior_service_updation/bloc/interior_service_bloc.dart';
+import 'package:vehicanich_shop/blocs/shop_updation_blocs/engine_service_updation/bloc/engine_service_bloc.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 import 'package:vehicanich_shop/widgets/shop_details_updation.dart/custom_animation_button.dart';
 import 'package:vehicanich_shop/widgets/shop_details_updation.dart/custom_floating.dart';
 import 'package:vehicanich_shop/widgets/shop_details_updation.dart/service_card.dart';
 
-class InteriorUpdation extends StatefulWidget {
-  const InteriorUpdation({Key? key}) : super(key: key);
+class EngineUpdation extends StatefulWidget {
+  const EngineUpdation({Key? key}) : super(key: key);
 
   @override
-  InteriorUpdationState createState() => InteriorUpdationState();
+  EngineUpdationState createState() => EngineUpdationState();
 }
 
-class InteriorUpdationState extends State<InteriorUpdation> {
+class EngineUpdationState extends State<EngineUpdation> {
   @override
   void initState() {
     super.initState();
     context
-        .read<InteriorServiceUpdationBloc>()
-        .add(FetchDatatoInteriorServicePage());
+        .read<EngineServiceUpdationBloc>()
+        .add(FetchDatatoEngineServicePage());
   }
 
   @override
@@ -37,8 +37,8 @@ class InteriorUpdationState extends State<InteriorUpdation> {
         child: Column(
           children: [
             Expanded(
-              child: BlocBuilder<InteriorServiceUpdationBloc,
-                  InteriorServiceUpdationState>(
+              child: BlocBuilder<EngineServiceUpdationBloc,
+                  EngineServiceUpdationState>(
                 builder: (context, state) {
                   return ListView.builder(
                     itemCount: state.servicesFromFirebase.length + 1,
@@ -49,10 +49,10 @@ class InteriorUpdationState extends State<InteriorUpdation> {
                         List<String> keys =
                             state.servicesFromFirebase.keys.toList();
                         return CustomServiceCard(
-                          eventType: 'interior',
+                          eventType: 'engine',
                           onPressed: () {
-                            context.read<InteriorServiceUpdationBloc>().add(
-                                InteriorEnableButtonPressedUpdation(
+                            context.read<EngineServiceUpdationBloc>().add(
+                                EngineEnableButtonPressedUpdation(
                                     serviceName: keys[index],
                                     serviceRate: values[index]));
                           },
@@ -66,9 +66,9 @@ class InteriorUpdationState extends State<InteriorUpdation> {
                             top: Mymediaquery().mediaqueryheight(0.02, context),
                           ),
                           child: CustomAnimatedButton(
-                            bloc: context.read<InteriorServiceUpdationBloc>(),
+                            bloc: context.read<EngineServiceUpdationBloc>(),
                             buttonText: 'Add more',
-                            eventType: 'interior',
+                            eventType: 'engine',
                           ),
                         );
                       }
@@ -81,7 +81,7 @@ class InteriorUpdationState extends State<InteriorUpdation> {
         ),
       ),
       floatingActionButton:
-          const CustomFloatingActionButtonForUpdationForInterior(),
+          const CustomFloatingActionButtonForUpdationForEngine(),
     );
   }
 }

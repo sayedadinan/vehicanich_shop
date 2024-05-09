@@ -2,6 +2,7 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/image_blocs/image_bloc.dart';
+import 'package:vehicanich_shop/blocs/user_profile_bloc/profile_image/bloc/image_updation_bloc.dart';
 
 class ImageChanging {
   licenceImageChanging(BuildContext context) async {
@@ -53,6 +54,27 @@ class ImageChanging {
       return url;
     } catch (e) {
       return 'there is a error when changing banner photo';
+    }
+  }
+
+  updationProfileImageChanging(BuildContext context) async {
+    try {
+      firebase_storage.Reference reference = firebase_storage
+          .FirebaseStorage.instance
+          .ref()
+          .child('updation_banner_image')
+          .child(
+              BlocProvider.of<ImageUpdationBloc>(context).state.newImagePath);
+      final meta = firebase_storage.SettableMetadata(contentType: "image/jpeg");
+      await reference.putData(
+          BlocProvider.of<ImageUpdationBloc>(context, listen: false)
+              .state
+              .profileUpdationImageUnit!,
+          meta);
+      String url = await reference.getDownloadURL();
+      return url;
+    } catch (e) {
+      return 'there is a error when updation photo';
     }
   }
 }

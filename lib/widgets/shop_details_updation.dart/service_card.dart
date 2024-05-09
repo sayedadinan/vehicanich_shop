@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vehicanich_shop/blocs/registration_blocs/services/engine_bloc/bloc/engine_bloc.dart';
 import 'package:vehicanich_shop/blocs/shop_updation_blocs/Interior_service_updation/bloc/interior_service_bloc.dart';
 import 'package:vehicanich_shop/blocs/shop_updation_blocs/body_service_updation/bloc/body_service_updation_bloc.dart';
+import 'package:vehicanich_shop/blocs/shop_updation_blocs/engine_service_updation/bloc/engine_service_bloc.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_texts.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
@@ -68,11 +68,12 @@ class CustomServiceCard extends StatelessWidget {
         );
         break;
       case 'engine':
-        iconButton = BlocBuilder<EngineBloc, EngineState>(
+        iconButton =
+            BlocBuilder<EngineServiceUpdationBloc, EngineServiceUpdationState>(
           builder: (context, state) {
             // Customize the iconButton based on EngineBloc state
             return IconButton(
-              icon: state.serviceNamemap.isNotEmpty
+              icon: state.servicesFromFirebase.isNotEmpty
                   ? Icon(
                       Icons.check_box,
                       color: Appallcolor().appbarbackgroundcolor,

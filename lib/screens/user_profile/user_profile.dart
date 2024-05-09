@@ -1,14 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/blocs/user_profile_bloc/bloc/user_profile_bloc.dart';
+import 'package:vehicanich_shop/blocs/user_profile_bloc/profile_image/bloc/image_updation_bloc.dart';
 import 'package:vehicanich_shop/screens/shop_details/shop_details_showing.dart';
 import 'package:vehicanich_shop/utils/app_bar_text.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 import 'package:vehicanich_shop/utils/page_transition/page_fade_transition.dart';
+import 'package:vehicanich_shop/widgets/profile_widgets/edit_button_.dart';
+import 'package:vehicanich_shop/widgets/profile_widgets/profile_screen_list.dart';
 
-class UserProfilePage extends StatelessWidget {
+class UserProfilePage extends StatefulWidget {
   const UserProfilePage({super.key});
+
+  @override
+  State<UserProfilePage> createState() => _UserProfilePageState();
+}
+
+class _UserProfilePageState extends State<UserProfilePage> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<UserProfileBloc>().add(FetchingProfileDetails());
+    context.read<ImageUpdationBloc>().add(FetchingProfileImage());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,24 +78,7 @@ class UserProfilePage extends StatelessWidget {
                   SizedBox(
                     height: Mymediaquery().mediaqueryheight(0.02, context),
                   ),
-                  SizedBox(
-                    width: Mymediaquery().mediaquerywidth(0.43, context),
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                Appallcolor().appbarbackgroundcolor),
-                        onPressed: () {
-                          Navigator.of(context).push(
-                              FadeTransitionPageRoute(child: ShopDetailPage()));
-                        },
-                        child: Text(
-                          'Edit Profile',
-                          style: TextStyle(
-                              color: Appallcolor().colorwhite,
-                              fontSize: Mymediaquery()
-                                  .mediaquerywidth(0.04, context)),
-                        )),
-                  ),
+                  const edit_button(),
                   SizedBox(
                     height: Mymediaquery().mediaqueryheight(0.02, context),
                   ),
@@ -95,9 +93,15 @@ class UserProfilePage extends StatelessWidget {
                   SizedBox(
                     height: Mymediaquery().mediaqueryheight(0.03, context),
                   ),
-                  const profile_list_widget(
-                    icon: Icons.shop,
-                    text: 'shop details',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(FadeTransitionPageRoute(
+                          child: const ShopDetailPage()));
+                    },
+                    child: const profile_list_widget(
+                      icon: Icons.shop,
+                      text: 'shop details',
+                    ),
                   ),
                   SizedBox(
                     height: Mymediaquery().mediaqueryheight(0.03, context),
@@ -111,49 +115,6 @@ class UserProfilePage extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
-  }
-}
-
-class profile_list_widget extends StatelessWidget {
-  final String text;
-  final IconData icon;
-  const profile_list_widget({
-    super.key,
-    required this.text,
-    required this.icon,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: Container(
-        decoration: BoxDecoration(
-            color: Appallcolor().textcolor.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(100)),
-        width: Mymediaquery().mediaquerywidth(0.13, context),
-        height: Mymediaquery().mediaqueryheight(0.12, context),
-        child: Icon(
-          icon,
-          color: Appallcolor().textcolor,
-        ),
-      ),
-      title: Text(
-        text,
-        style: TextStyle(
-            color: Appallcolor().colorwhite,
-            fontWeight: FontWeight.w400,
-            fontSize: Mymediaquery().mediaquerywidth(0.04, context)),
-      ),
-      trailing: Container(
-        decoration: BoxDecoration(
-            color: Appallcolor().textcolor.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(100)),
-        width: Mymediaquery().mediaquerywidth(0.09, context),
-        height: Mymediaquery().mediaqueryheight(0.04, context),
-        child: Icon(Icons.arrow_forward_ios,
-            size: 24, color: Appallcolor().textcolor),
       ),
     );
   }

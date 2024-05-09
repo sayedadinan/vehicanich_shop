@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/services/body_service/service_bloc.dart';
-import 'package:vehicanich_shop/blocs/registration_blocs/services/engine_bloc/bloc/engine_bloc.dart';
 import 'package:vehicanich_shop/blocs/shop_updation_blocs/Interior_service_updation/bloc/interior_service_bloc.dart';
 import 'package:vehicanich_shop/blocs/shop_updation_blocs/body_service_updation/bloc/body_service_updation_bloc.dart';
+import 'package:vehicanich_shop/blocs/shop_updation_blocs/engine_service_updation/bloc/engine_service_bloc.dart';
 import 'package:vehicanich_shop/utils/app_textfields.dart';
 import 'package:vehicanich_shop/utils/app_validators.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
@@ -78,9 +78,9 @@ void showAddMoreDialog(
                             break;
                           case 'engine':
                             bloc.add(
-                              EngineServiceAddingButtonPressed(
-                                newservicename: serviceName,
-                                rate: serviceRate,
+                              EngineServiceUpdationAddingPressed(
+                                serviceName: serviceName,
+                                serviceRate: serviceRate,
                               ),
                             );
                             break;
