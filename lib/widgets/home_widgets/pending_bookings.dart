@@ -42,11 +42,6 @@ class PendingBookingScreen extends StatelessWidget {
                         fontSize: 20, // Set font size to 20
                         color: Colors.white, // Set font color to blue
                       ),
-                      // style: TextStyle(
-                      //     // fontFamily: Google,
-                      //     color: Appallcolor().colorwhite,
-                      //     fontSize:
-                      //         Mymediaquery().mediaquerywidth(0.05, context)),
                     )
                   ],
                 ),

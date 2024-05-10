@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:vehicanich_shop/screens/register_screen/otp_waiting_screen.dart';
-import 'package:vehicanich_shop/utils/bottom_navigation/bottom_list.dart';
+import 'package:vehicanich_shop/screens/waiting_screen/waiting_screen.dart';
 import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
 
 class FireBasePhoneAuth {
@@ -11,7 +11,6 @@ class FireBasePhoneAuth {
     final String phoneNumber = "+91${phonecontroller.text.toString()}";
     try {
       print('Trying phone authentication...');
-
       await instance.verifyPhoneNumber(
         verificationCompleted: (PhoneAuthCredential credential) {},
         verificationFailed: (FirebaseAuthException exception) {
@@ -37,7 +36,7 @@ class FireBasePhoneAuth {
     PhoneAuthCredential credential = PhoneAuthProvider.credential(
         verificationId: verificationId, smsCode: otpcontroller.text.toString());
     FirebaseAuth.instance.signInWithCredential(credential).whenComplete(() =>
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => BottomBar())));
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const WaitingScreen())));
   }
 }

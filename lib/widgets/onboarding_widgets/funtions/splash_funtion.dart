@@ -39,9 +39,11 @@ userRegisteredOrNotChecking(String phone, context) async {
   if (snapshot.docs.isNotEmpty) {
     final existingData = snapshot.docs.first.data();
     if (existingData[Referencekeys.isApproved]) {
+      print('accepted');
       Navigator.of(context).push(FadeTransitionPageRoute(child: BottomBar()));
       return;
     } else if (existingData[Referencekeys.isRejected]) {
+      print('rejected');
       Navigator.of(context)
           .push(FadeTransitionPageRoute(child: const RejectedScreen()));
     } else if (!existingData[Referencekeys.isApproved]) {
@@ -50,3 +52,7 @@ userRegisteredOrNotChecking(String phone, context) async {
     }
   }
 }
+
+// userCheckingForOnboarding() async {
+//   SharedPreferences prefs = await SharedPreferences.getInstance();
+// }

@@ -13,9 +13,10 @@ class StartedBUtton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: Mymediaquery().mediaquerywidth(0.90, context),
+      height: Mymediaquery().mediaqueryheight(0.04, context),
+      width: Mymediaquery().mediaquerywidth(0.32, context),
       child: CustomButton(
-        color: Appallcolor().appbarbackgroundcolor,
+        color: Appallcolor().successColor,
         function: () {
           context
               .read<CurrentStatusBloc>()
@@ -23,8 +24,8 @@ class StartedBUtton extends StatelessWidget {
           Navigator.of(context).pop();
         },
         text: 'start work',
-        fontSize: Mymediaquery().mediaquerywidth(0.04, context),
-        buttontextcolor: Colors.white,
+        fontSize: Mymediaquery().mediaquerywidth(0.03, context),
+        buttontextcolor: Colors.black,
       ),
     );
   }
@@ -37,9 +38,10 @@ class CompletedBUtton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: Mymediaquery().mediaquerywidth(0.90, context),
+      height: Mymediaquery().mediaqueryheight(0.04, context),
+      width: Mymediaquery().mediaquerywidth(0.32, context),
       child: CustomButton(
-        color: Appallcolor().appbarbackgroundcolor,
+        color: Appallcolor().successColor,
         function: () {
           context
               .read<CurrentStatusBloc>()
@@ -47,8 +49,29 @@ class CompletedBUtton extends StatelessWidget {
           Navigator.of(context).pop();
         },
         text: 'Completed',
-        fontSize: Mymediaquery().mediaquerywidth(0.04, context),
+        fontSize: Mymediaquery().mediaquerywidth(0.03, context),
         buttontextcolor: Colors.white,
+      ),
+    );
+  }
+}
+
+class CancelButton extends StatelessWidget {
+  const CancelButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: Mymediaquery().mediaqueryheight(0.04, context),
+      width: Mymediaquery().mediaquerywidth(0.32, context),
+      child: CustomButton(
+        color: Appallcolor().textcolor,
+        function: () {
+          Navigator.of(context).pop();
+        },
+        text: 'cancel',
+        fontSize: Mymediaquery().mediaquerywidth(0.03, context),
+        buttontextcolor: Colors.black,
       ),
     );
   }

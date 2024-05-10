@@ -17,9 +17,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    checkingforsplash(context);
     FirebaseDatastoring().shopidstoring();
     context.read<UserProfileBloc>().add(FetchingProfileDetails());
-    checkingforsplash(context);
   }
 
   @override
