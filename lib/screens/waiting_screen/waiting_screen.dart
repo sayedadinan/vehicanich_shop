@@ -25,13 +25,40 @@ class WaitingScreen extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: Mymediaquery().mediaqueryheight(0.24, context),
+              height: Mymediaquery().mediaqueryheight(0.19, context),
             ),
-            Text(
-              " Thank you for submitting your request to join our platform. Your application is currently under review by our admin team. Once approved, you'll be able to start communicating with users and customers. We appreciate your patience and look forward to having you onboard!",
-              style: TextStyle(
-                  color: Appallcolor().colorwhite,
-                  fontSize: Mymediaquery().mediaquerywidth(0.04, context)),
+            Container(
+              width: Mymediaquery().mediaquerywidth(0.90, context),
+              child: RichText(
+                text: TextSpan(
+                  style: TextStyle(
+                    fontSize: Mymediaquery().mediaquerywidth(0.04, context),
+                    color: Appallcolor().colorwhite,
+                  ),
+                  children: const [
+                    TextSpan(
+                      text:
+                          "Thank you for submitting your request to join our platform. We've received your application and it's currently under review by our admin team. We want you to know that we deeply value your interest in joining us. Once your application is ",
+                    ),
+                    TextSpan(
+                      text: "approved",
+                      style: TextStyle(
+                        color: Colors.green, // Highlight approved in green
+                        fontWeight:
+                            FontWeight.bold, // Optionally, you can make it bold
+                      ),
+                    ),
+                    TextSpan(
+                      text:
+                          ", you'll gain access to a vibrant community of users and customers eager to connect with you. Your journey with us will be filled with exciting opportunities to grow your business and reach new heights. We appreciate your patience.",
+                    ),
+                    TextSpan(
+                      text:
+                          " If your application is not approved within 24 hours, please contact our team via email. You can find the email address on our Play Store page.",
+                    ),
+                  ],
+                ),
+              ),
             ),
             SizedBox(
               child: Image.asset('assets/images/Exchange validation.png'),
