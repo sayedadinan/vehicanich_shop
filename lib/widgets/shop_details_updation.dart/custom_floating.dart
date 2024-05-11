@@ -6,7 +6,7 @@ import 'package:vehicanich_shop/blocs/shop_updation_blocs/engine_service_updatio
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 
 class CustomFloatingActionButtonForUpdation extends StatelessWidget {
-  const CustomFloatingActionButtonForUpdation({Key? key}) : super(key: key);
+  const CustomFloatingActionButtonForUpdation({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +48,7 @@ class CustomFloatingActionButtonForUpdation extends StatelessWidget {
 }
 
 class CustomFloatingActionButtonForUpdationForInterior extends StatelessWidget {
-  const CustomFloatingActionButtonForUpdationForInterior({Key? key})
-      : super(key: key);
+  const CustomFloatingActionButtonForUpdationForInterior({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -92,8 +91,7 @@ class CustomFloatingActionButtonForUpdationForInterior extends StatelessWidget {
 }
 
 class CustomFloatingActionButtonForUpdationForEngine extends StatelessWidget {
-  const CustomFloatingActionButtonForUpdationForEngine({Key? key})
-      : super(key: key);
+  const CustomFloatingActionButtonForUpdationForEngine({super.key});
 
   @override
   Widget build(BuildContext context) {

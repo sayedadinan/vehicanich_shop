@@ -8,7 +8,7 @@ import 'package:vehicanich_shop/widgets/shop_details_updation.dart/custom_animat
 import 'package:vehicanich_shop/widgets/shop_details_updation.dart/service_card.dart';
 
 class BodyUpdation extends StatefulWidget {
-  const BodyUpdation({Key? key}) : super(key: key);
+  const BodyUpdation({super.key});
 
   @override
   BodyUpdationState createState() => BodyUpdationState();

@@ -34,7 +34,7 @@ class RejectedScreen extends StatelessWidget {
                 child: Image.asset('assets/images/error_image.png'),
               ),
             ),
-            Container(
+            SizedBox(
               width: Mymediaquery().mediaquerywidth(0.90, context),
               child: Column(
                 children: [

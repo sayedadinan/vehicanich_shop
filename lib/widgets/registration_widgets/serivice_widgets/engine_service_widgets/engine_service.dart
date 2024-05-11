@@ -85,6 +85,6 @@ class BodyServicePageState extends State<EngineServicePage> {
             ],
           ),
         ),
-        floatingActionButton: CustomFloatingActionButton());
+        floatingActionButton: const CustomFloatingActionButton());
   }
 }

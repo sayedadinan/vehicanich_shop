@@ -8,7 +8,7 @@ import 'package:vehicanich_shop/widgets/shop_details_updation.dart/custom_floati
 import 'package:vehicanich_shop/widgets/shop_details_updation.dart/service_card.dart';
 
 class EngineUpdation extends StatefulWidget {
-  const EngineUpdation({Key? key}) : super(key: key);
+  const EngineUpdation({super.key});
 
   @override
   EngineUpdationState createState() => EngineUpdationState();

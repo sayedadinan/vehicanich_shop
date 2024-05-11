@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
+import 'package:vehicanich_shop/utils/app_fonts.dart';
+import 'package:vehicanich_shop/utils/app_text.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 
 class profile_list_widget extends StatelessWidget {
@@ -25,13 +27,7 @@ class profile_list_widget extends StatelessWidget {
           color: Appallcolor().textcolor,
         ),
       ),
-      title: Text(
-        text,
-        style: TextStyle(
-            color: Appallcolor().colorwhite,
-            fontWeight: FontWeight.w400,
-            fontSize: Mymediaquery().mediaquerywidth(0.04, context)),
-      ),
+      title: AppText(text: text, size: 0.05, fontFamily: AppFonts.headText),
       trailing: Container(
         decoration: BoxDecoration(
             color: Appallcolor().textcolor.withOpacity(0.1),

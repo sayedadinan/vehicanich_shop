@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/widgets.dart';
 import 'package:vehicanich_shop/data/data_provider/keys.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
+import 'package:vehicanich_shop/utils/app_text.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 
 class CustomTextforList extends StatelessWidget {
@@ -10,12 +11,10 @@ class CustomTextforList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyle(
-          color: Appallcolor().textcolor,
-          fontSize: Mymediaquery().mediaquerywidth(0.04, context),
-          fontWeight: FontWeight.w500),
+    return AppText(
+      text: text,
+      size: 0.04,
+      fontFamily: 'Quicksand',
     );
   }
 }
@@ -43,16 +42,13 @@ class Rowforcontainer extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(
-              left: Mymediaquery().mediaquerywidth(0.04, context)),
-          child: Text(
-            valuetext,
-            style: TextStyle(
-                color: Appallcolor().textcolor,
-                fontSize: Mymediaquery().mediaquerywidth(0.04, context),
-                fontWeight: FontWeight.w400),
-          ),
-        ),
+            padding: EdgeInsets.only(
+                left: Mymediaquery().mediaquerywidth(0.04, context)),
+            child: AppText(
+              text: valuetext,
+              size: 0.04,
+              fontFamily: 'Quicksand',
+            )),
       ],
     );
   }

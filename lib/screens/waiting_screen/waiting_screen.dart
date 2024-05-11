@@ -14,7 +14,6 @@ class WaitingScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.notifications),
           onPressed: () {
-            // FirebaseDatastoring().bookingDetailsGetting();
             Navigator.push(
                 context, SlideTransitionPageRoute(child: const HomeScreen()));
           },
@@ -27,7 +26,7 @@ class WaitingScreen extends StatelessWidget {
             SizedBox(
               height: Mymediaquery().mediaqueryheight(0.19, context),
             ),
-            Container(
+            SizedBox(
               width: Mymediaquery().mediaquerywidth(0.90, context),
               child: RichText(
                 text: TextSpan(
@@ -43,9 +42,8 @@ class WaitingScreen extends StatelessWidget {
                     TextSpan(
                       text: "approved",
                       style: TextStyle(
-                        color: Colors.green, // Highlight approved in green
-                        fontWeight:
-                            FontWeight.bold, // Optionally, you can make it bold
+                        color: Colors.green,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     TextSpan(

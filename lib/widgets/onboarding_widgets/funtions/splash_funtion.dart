@@ -47,6 +47,7 @@ userRegisteredOrNotChecking(String phone, context) async {
       Navigator.of(context)
           .push(FadeTransitionPageRoute(child: const RejectedScreen()));
     } else if (!existingData[Referencekeys.isApproved]) {
+      print('nothing');
       Navigator.of(context)
           .push(FadeTransitionPageRoute(child: const WaitingScreen()));
     }

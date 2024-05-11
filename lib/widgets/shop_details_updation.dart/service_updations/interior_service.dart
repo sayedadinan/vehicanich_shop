@@ -8,7 +8,7 @@ import 'package:vehicanich_shop/widgets/shop_details_updation.dart/custom_floati
 import 'package:vehicanich_shop/widgets/shop_details_updation.dart/service_card.dart';
 
 class InteriorUpdation extends StatefulWidget {
-  const InteriorUpdation({Key? key}) : super(key: key);
+  const InteriorUpdation({super.key});
 
   @override
   InteriorUpdationState createState() => InteriorUpdationState();

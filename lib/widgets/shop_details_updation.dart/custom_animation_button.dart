@@ -14,8 +14,8 @@ class CustomAnimatedButton extends StatelessWidget {
     required this.buttonText,
     required this.bloc,
     required this.eventType,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

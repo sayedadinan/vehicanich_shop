@@ -4,7 +4,7 @@ import 'package:vehicanich_shop/blocs/shop_updation_blocs/body_service_updation/
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 
 class CustomFloatingActionButton extends StatelessWidget {
-  const CustomFloatingActionButton({Key? key}) : super(key: key);
+  const CustomFloatingActionButton({super.key});
 
   @override
   Widget build(BuildContext context) {

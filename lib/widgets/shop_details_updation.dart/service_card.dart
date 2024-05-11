@@ -14,12 +14,12 @@ class CustomServiceCard extends StatelessWidget {
   final String eventType;
 
   const CustomServiceCard({
-    Key? key,
+    super.key,
     required this.texts,
     required this.rate,
     required this.onPressed,
     required this.eventType,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
