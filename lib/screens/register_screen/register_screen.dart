@@ -4,8 +4,10 @@ import 'package:vehicanich_shop/blocs/registration_blocs/registration_button_blo
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_custom_button.dart';
 import 'package:vehicanich_shop/utils/app_loadingindicator.dart';
+import 'package:vehicanich_shop/utils/app_sizedbox.dart';
 import 'package:vehicanich_shop/utils/app_textfields.dart';
 import 'package:vehicanich_shop/utils/app_validators.dart';
+import 'package:vehicanich_shop/utils/constant_variables/app_strings.dart';
 import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
 import 'package:vehicanich_shop/widgets/registration_widgets/banner_photo_container.dart';
 import 'package:vehicanich_shop/widgets/registration_widgets/emergency_service/emergency_container.dart';
@@ -41,30 +43,25 @@ class RegisterScreen extends StatelessWidget {
                 child: Form(
               key: signupKey,
               child: Column(children: [
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.15, context)),
-                const MainText(text: ' Welcome to vehicanich !'),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.05, context)),
-                const Smallheading(text: 'Details', width: 0.6),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
+                CustomSizedBoxHeight(0.15),
+                MainText(text: AppString.registerHead),
+                CustomSizedBoxHeight(0.05),
+                Smallheading(text: AppString.secHead, width: 0.6),
+                CustomSizedBoxHeight(0.02),
                 Inputfield(
                   hinttext: 'Name',
                   validator: (value) =>
                       Validators().validateEmpty('Name', value),
                   controller: namecontroller,
                 ),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
+                CustomSizedBoxHeight(0.02),
                 Inputfield(
                   hinttext: 'Email',
                   validator: (value) => Validators().validateEmail(value),
                   controller: emailcontroller,
                   keyboardType: TextInputType.emailAddress,
                 ),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
+                CustomSizedBoxHeight(0.02),
                 Inputfield(
                   maxlength: 10,
                   hinttext: 'phone',
@@ -72,8 +69,7 @@ class RegisterScreen extends StatelessWidget {
                   controller: phonecontroller,
                   keyboardType: TextInputType.phone,
                 ),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
+                CustomSizedBoxHeight(0.02),
                 Inputfield(
                   maxlength: 10,
                   hinttext: 'Whatsapp Number',
@@ -81,50 +77,41 @@ class RegisterScreen extends StatelessWidget {
                   controller: whatsappcontroller,
                   keyboardType: TextInputType.phone,
                 ),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
+                CustomSizedBoxHeight(0.02),
                 Inputfield(
                     hinttext: 'password',
                     validator: (value) => Validators().validatePassword(value),
                     controller: passwordcontroller),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
+                CustomSizedBoxHeight(0.02),
                 Inputfield(
                     hinttext: 'consfirm password',
                     validator: (value) => Validators()
                         .validatePasswordMatch(value!, passwordcontroller.text),
                     controller: confirmpassword),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
+                CustomSizedBoxHeight(0.02),
                 Inputfield(
                     hinttext: 'Shop Name',
                     validator: (value) =>
                         Validators().validateEmpty('Shop name', value),
                     controller: shopnamecontroller),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
+                CustomSizedBoxHeight(0.02),
                 const LocationTextContainer(),
                 const LocationErrorText(),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
+                CustomSizedBoxHeight(0.02),
                 Inputfield(
                     hinttext: 'Description',
                     controller: descriptioncontroller,
                     maxLines: 4,
                     validator: (value) => Validators().validateText(value)),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
+                CustomSizedBoxHeight(0.02),
                 const StartingTimeTextContainer(),
                 const StartingtimeErrorText(),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
+                CustomSizedBoxHeight(0.02),
                 const ClosingTimeTextContainer(),
                 const ClosingtimeErrorText(),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
-                const Smallheading(text: 'Proofs', width: 0.6),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
+                CustomSizedBoxHeight(0.02),
+                Smallheading(text: AppString.proofHead, width: 0.6),
+                CustomSizedBoxHeight(0.02),
                 Padding(
                     padding: EdgeInsets.only(
                         left: Mymediaquery().mediaquerywidth(0.05, context),
@@ -134,29 +121,19 @@ class RegisterScreen extends StatelessWidget {
                       LicenceImagecontainer()
                     ])),
                 const LicenceErrorText(),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.01, context)),
-                const Smallheading(text: 'Photos', width: 0.6),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.01, context)),
-                const HintText(size: 0.09, text: 'Banner photo'),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.01, context)),
+                CustomSizedBoxHeight(0.03),
+                Smallheading(text: AppString.photoHead, width: 0.6),
+                CustomSizedBoxHeight(0.02),
+                HintText(size: 0.09, text: AppString.bannerHead),
+                CustomSizedBoxHeight(0.02),
                 const BannerImagecontainer(),
                 const BannerErrorText(),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
-                const BodyServiceContainer(text: 'Add All services'),
+                CustomSizedBoxHeight(0.04),
+                BodyServiceContainer(text: AppString.allServiceTxt),
                 const ServiceErrorText(),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
-                const EmergencyButton(text: 'Add emergency services'),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.02, context)),
+                CustomSizedBoxHeight(0.02),
+                EmergencyButton(text: AppString.emergenyHead),
+                CustomSizedBoxHeight(0.02),
                 CustomButton(
                     function: () {
                       context.read<RegistrationBloc>().add(
@@ -166,8 +143,7 @@ class RegisterScreen extends StatelessWidget {
                     text: 'Register',
                     fontSize: Mymediaquery().mediaqueryheight(0.02, context),
                     color: Appallcolor().buttonforgroundcolor),
-                SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.04, context)),
+                CustomSizedBoxHeight(0.04),
               ]),
             ));
           },

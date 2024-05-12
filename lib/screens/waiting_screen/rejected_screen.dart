@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vehicanich_shop/screens/home_screen/home_screen.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
+import 'package:vehicanich_shop/utils/app_sizedbox.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
-import 'package:vehicanich_shop/utils/page_transition/page_slide_transition.dart';
 
 class RejectedScreen extends StatelessWidget {
   const RejectedScreen({super.key});
@@ -10,23 +9,11 @@ class RejectedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.notifications),
-          onPressed: () {
-            // FirebaseDatastoring().bookingDetailsGetting();
-            Navigator.push(
-                context, SlideTransitionPageRoute(child: const HomeScreen()));
-          },
-        ),
-        backgroundColor: Appallcolor().appbarbackgroundcolor,
-      ),
+      appBar: AppBar(backgroundColor: Appallcolor().appbarbackgroundcolor),
       body: Center(
         child: Column(
           children: [
-            SizedBox(
-              height: Mymediaquery().mediaqueryheight(0.10, context),
-            ),
+            CustomSizedBoxHeight(0.10),
             Padding(
               padding: EdgeInsets.only(
                   left: Mymediaquery().mediaquerywidth(0.20, context)),
@@ -46,16 +33,12 @@ class RejectedScreen extends StatelessWidget {
                       ),
                       children: const [
                         TextSpan(
-                          text:
-                              "We regret to inform you that your application to join our platform has been ",
-                        ),
+                            text:
+                                "We regret to inform you that your application to join our platform has been "),
                         TextSpan(
                           text: "rejected",
                           style: TextStyle(
-                            color: Colors.red, // Highlight rejected in red
-                            fontWeight: FontWeight
-                                .bold, // Optionally, you can make it bold
-                          ),
+                              color: Colors.red, fontWeight: FontWeight.bold),
                         ),
                         TextSpan(
                           text: " due to some ",
@@ -63,10 +46,8 @@ class RejectedScreen extends StatelessWidget {
                         TextSpan(
                           text: "validation issues",
                           style: TextStyle(
-                            color: Colors
-                                .red, // Highlight validation issues in red
-                            fontWeight: FontWeight
-                                .bold, // Optionally, you can make it bold
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                         TextSpan(
@@ -76,16 +57,14 @@ class RejectedScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: Mymediaquery().mediaqueryheight(0.04, context),
-                  ),
+                  CustomSizedBoxHeight(0.04),
                   RichText(
                     text: TextSpan(
                       style: TextStyle(
                         fontSize: Mymediaquery().mediaquerywidth(0.04, context),
                         color: Appallcolor().colorwhite,
                       ),
-                      children:const [
+                      children: const [
                         TextSpan(
                           text:
                               "We understand this may be disappointing news, but please know that we're here to assist you. You can contact our ",
@@ -93,10 +72,8 @@ class RejectedScreen extends StatelessWidget {
                         TextSpan(
                           text: "management team",
                           style: TextStyle(
-                            color:
-                                Colors.red, // Highlight management team in red
-                            fontWeight: FontWeight
-                                .bold, // Optionally, you can make it bold
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                         TextSpan(
@@ -105,16 +82,11 @@ class RejectedScreen extends StatelessWidget {
                         TextSpan(
                           text: "customer support",
                           style: TextStyle(
-                            color:
-                                Colors.red, // Highlight customer support in red
-                            fontWeight: FontWeight
-                                .bold, // Optionally, you can make it bold
-                          ),
+                              color: Colors.red, fontWeight: FontWeight.bold),
                         ),
                         TextSpan(
-                          text:
-                              " for further clarification or assistance. You can reach out to them via phone or email:",
-                        ),
+                            text:
+                                " for further clarification or assistance. You can reach out to them via phone or email:")
                       ],
                     ),
                   ),

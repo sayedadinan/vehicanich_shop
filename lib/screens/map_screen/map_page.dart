@@ -16,7 +16,6 @@ class MapScreen extends StatelessWidget {
       body: BlocBuilder<LocationBLoc, LocationState>(
         builder: (context, state) {
           if (state is CurrentLocationFetched) {
-            print('this worked');
             return Stack(
               children: [
                 GoogleMap(
@@ -25,10 +24,8 @@ class MapScreen extends StatelessWidget {
                         .read<LocationBLoc>()
                         .add(LocationPickerTaped(newpositionpicker: argument));
                   },
-                  initialCameraPosition: CameraPosition(
-                    target: state.picker,
-                    zoom: 13,
-                  ),
+                  initialCameraPosition:
+                      CameraPosition(target: state.picker, zoom: 13),
                   markers: {
                     Marker(
                         markerId: const MarkerId("marker location"),

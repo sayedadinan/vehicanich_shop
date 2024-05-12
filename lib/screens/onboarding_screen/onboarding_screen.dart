@@ -4,6 +4,7 @@ import 'package:vehicanich_shop/blocs/onboarding_bloc/onboarding_bloc.dart';
 import 'package:vehicanich_shop/screens/onboarding_screen/login_or_sign.dart';
 import 'package:vehicanich_shop/screens/onboarding_screen/onboarding_items.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
+import 'package:vehicanich_shop/utils/app_sizedbox.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 import 'package:vehicanich_shop/utils/page_transition/page_fade_transition.dart';
 import 'package:vehicanich_shop/widgets/onboarding_widgets/onboarding_image.dart';
@@ -31,9 +32,7 @@ class OnboardingScreen extends StatelessWidget {
         },
         child: Scaffold(
           bottomSheet: Smoothindicatorwithbutton(
-            controller: controller,
-            pageController: pageController,
-          ),
+              controller: controller, pageController: pageController),
           backgroundColor: Appallcolor().appbackgroundcolor,
           body: PageView.builder(
               itemCount: controller.items.length,
@@ -41,18 +40,14 @@ class OnboardingScreen extends StatelessWidget {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                        height: Mymediaquery().mediaqueryheight(0.1, context)),
+                    CustomSizedBoxHeight(0.01),
                     Myonboardmaintitle(
-                      size: Mymediaquery().mediaquerywidth(0.15, context),
-                      title: controller.items[index].title,
-                      textcolor: Appallcolor().textcolor,
-                    ),
-                    SizedBox(
-                        height: Mymediaquery().mediaqueryheight(0.06, context)),
+                        size: Mymediaquery().mediaquerywidth(0.15, context),
+                        title: controller.items[index].title,
+                        textcolor: Appallcolor().textcolor),
+                    CustomSizedBoxHeight(0.02),
                     Onboardingfirstimage(path: controller.items[index].image),
-                    SizedBox(
-                        height: Mymediaquery().mediaqueryheight(0.12, context)),
+                    CustomSizedBoxHeight(0.12),
                     Myonboardingsmalltext(
                         subtitle: controller.items[index].subtitle)
                   ],

@@ -5,6 +5,7 @@ import 'package:vehicanich_shop/screens/login_screen/login_screen.dart';
 import 'package:vehicanich_shop/screens/register_screen/register_screen.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_custom_button.dart';
+import 'package:vehicanich_shop/utils/app_sizedbox.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 import 'package:vehicanich_shop/utils/page_transition/page_fade_transition.dart';
 import 'package:vehicanich_shop/widgets/onboarding_widgets/onboardinng_texts.dart';
@@ -20,81 +21,52 @@ class LoginOrsign extends StatelessWidget {
             Navigator.of(context)
                 .push(FadeTransitionPageRoute(child: const LoginScreen()));
           }
-          // if (state is Navigatetosignpage) {
-          //   Navigator.push(
-          //       context,
-          //       MaterialPageRoute(
-          //           builder: (context) => const RegisterScreen()));
-          // }
           if (state is Navigatetosignpage) {
             Navigator.of(context)
                 .push(FadeTransitionPageRoute(child: const RegisterScreen()));
           }
         },
         child: Scaffold(
-          backgroundColor: Appallcolor().appbackgroundcolor,
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: Mymediaquery().mediaqueryheight(0.1, context),
-              ),
-              Row(
+            backgroundColor: Appallcolor().appbackgroundcolor,
+            body: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // SizedBox(
-                  //   width: Mymediaquery().mediaquerywidth(0.08, context),
-                  // ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: Mymediaquery().mediaquerywidth(0.08, context)),
-                    child: Myonboardmaintitle(
-                      size: Mymediaquery().mediaquerywidth(0.14, context),
-                      textcolor: Appallcolor().colorwhite,
-                      title: 'VEHI-CANICH',
-                    ),
+                  CustomSizedBoxHeight(0.01),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left:
+                                Mymediaquery().mediaquerywidth(0.08, context)),
+                        child: Myonboardmaintitle(
+                          size: Mymediaquery().mediaquerywidth(0.14, context),
+                          textcolor: Appallcolor().colorwhite,
+                          title: 'VEHI-CANICH',
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              // Container(
-              //   // width: Mymediaquery().mediaquerywidth(0.23, context),
-              //   // height: Mymediaquery().mediaqueryheight(0.23, context),
-              //   child: Transform.scale(
-              //       scale: 2.4,
-              //       child: Image.asset(
-              //           'assets/images/Animation - 1714540752582.gif')),
-              // ),
-              SizedBox(
-                height: Mymediaquery().mediaqueryheight(0.4, context),
-              ),
-              const Loginorsigntext(),
-              SizedBox(
-                height: Mymediaquery().mediaqueryheight(0.1, context),
-              ),
-              CustomButton(
-                buttontextcolor: Appallcolor().colorwhite,
-                text: 'Login',
-                function: () =>
-                    context.read<OnboardingBloc>().add(LoginButtonPressed()),
-                fontSize: Mymediaquery().mediaqueryheight(0.02, context),
-                color: Appallcolor().textcolor,
-              ),
-              SizedBox(
-                height: Mymediaquery().mediaqueryheight(0.02, context),
-              ),
-              CustomButton(
-                buttontextcolor: Appallcolor().colorwhite,
-                text: 'Register',
-                function: () =>
-                    context.read<OnboardingBloc>().add((Signinbuttonpressed())),
-                fontSize: Mymediaquery().mediaqueryheight(0.02, context),
-                color: Appallcolor().buttonforgroundcolor,
-              ),
-              // Container(
-              //   child: Lottie.asset('assets/images/animationmovingcar.json',
-              //       fit: BoxFit.fill),
-              // )
-            ],
-          ),
-        ));
+                  CustomSizedBoxHeight(0.04),
+                  const Loginorsigntext(),
+                  CustomSizedBoxHeight(0.01),
+                  CustomButton(
+                    buttontextcolor: Appallcolor().colorwhite,
+                    text: 'Login',
+                    function: () => context
+                        .read<OnboardingBloc>()
+                        .add(LoginButtonPressed()),
+                    fontSize: Mymediaquery().mediaqueryheight(0.02, context),
+                    color: Appallcolor().textcolor,
+                  ),
+                  CustomSizedBoxHeight(0.02),
+                  CustomButton(
+                      buttontextcolor: Appallcolor().colorwhite,
+                      text: 'Register',
+                      function: () => context
+                          .read<OnboardingBloc>()
+                          .add((Signinbuttonpressed())),
+                      fontSize: Mymediaquery().mediaqueryheight(0.02, context),
+                      color: Appallcolor().buttonforgroundcolor),
+                ])));
   }
 }

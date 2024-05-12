@@ -7,6 +7,7 @@ import 'package:vehicanich_shop/utils/app_custom_button.dart';
 import 'package:vehicanich_shop/utils/app_custom_dialogue.dart';
 import 'package:vehicanich_shop/utils/app_google_button.dart';
 import 'package:vehicanich_shop/utils/app_loadingindicator.dart';
+import 'package:vehicanich_shop/utils/app_sizedbox.dart';
 import 'package:vehicanich_shop/utils/app_textfields.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 import 'package:vehicanich_shop/widgets/login_screen_widgets/custom_divider.dart';
@@ -36,11 +37,10 @@ class LoginScreen extends StatelessWidget {
           }
           if (state is LoginSuccess) {
             Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const ForgotPasswordScreen()),
-              (route) => false,
-            );
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ForgotPasswordScreen()),
+                (route) => false);
           }
         },
         child: Scaffold(
@@ -50,28 +50,23 @@ class LoginScreen extends StatelessWidget {
               key: loginKey,
               child: Column(
                 children: [
-                  SizedBox(
-                      height: Mymediaquery().mediaqueryheight(0.2, context)),
+                  CustomSizedBoxHeight(0.02),
                   const LoginScreenMainText(),
-                  SizedBox(
-                      height: Mymediaquery().mediaqueryheight(0.05, context)),
+                  CustomSizedBoxHeight(0.05),
                   const Inputfield(
                     hinttext: 'Enter your email',
                   ),
-                  SizedBox(
-                      height: Mymediaquery().mediaqueryheight(0.02, context)),
+                  CustomSizedBoxHeight(0.02),
                   const Inputfield(
                     icon: Icon(Icons.remove_red_eye_outlined),
                     hinttext: 'Enter your password',
                   ),
-                  SizedBox(
-                      height: Mymediaquery().mediaqueryheight(0.01, context)),
+                  CustomSizedBoxHeight(0.01),
                   Forgetbutton(
                     function: () =>
                         context.read<LoginBloc>().add(ForgotButtonPressed()),
                   ),
-                  SizedBox(
-                      height: Mymediaquery().mediaqueryheight(0.06, context)),
+                  CustomSizedBoxHeight(0.06),
                   CustomButton(
                     function: () {},
                     buttontextcolor: Appallcolor().colorwhite,
@@ -79,11 +74,9 @@ class LoginScreen extends StatelessWidget {
                     fontSize: Mymediaquery().mediaqueryheight(0.02, context),
                     color: Appallcolor().buttonforgroundcolor,
                   ),
-                  SizedBox(
-                      height: Mymediaquery().mediaqueryheight(0.03, context)),
+                  CustomSizedBoxHeight(0.03),
                   const CustomDivider(),
-                  SizedBox(
-                      height: Mymediaquery().mediaqueryheight(0.03, context)),
+                  CustomSizedBoxHeight(0.03),
                   CustomGoogleButton(
                     text: 'login with phone',
                     bordercolor: Colors.white,
@@ -92,8 +85,7 @@ class LoginScreen extends StatelessWidget {
                     fontSize: Mymediaquery().mediaqueryheight(0.02, context),
                     function: () {},
                   ),
-                  SizedBox(
-                      height: Mymediaquery().mediaqueryheight(0.03, context)),
+                  CustomSizedBoxHeight(0.03),
                   const CustomQuestion()
                 ],
               ),

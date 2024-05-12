@@ -63,9 +63,7 @@ class FirstHomeScreen extends StatelessWidget {
                 } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
                   return Column(
                     children: [
-                      SizedBox(
-                        height: Mymediaquery().mediaqueryheight(0.13, context),
-                      ),
+                      CustomSizedBoxHeight(0.13),
                       Center(
                         child: Image.asset('assets/images/urban-842.png'),
                       ),
