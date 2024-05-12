@@ -11,7 +11,7 @@ import 'package:vehicanich_shop/blocs/registration_blocs/services/interior_servi
 import 'package:vehicanich_shop/blocs/registration_blocs/startingtime_bloc.dart/bloc/time_bloc.dart';
 import 'package:vehicanich_shop/data/models/shop_model.dart';
 import 'package:vehicanich_shop/data/data_provider/shop_reference.dart';
-import 'package:vehicanich_shop/services/image_changing.dart';
+import 'package:vehicanich_shop/data/services/image_changing.dart';
 import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
 
 class ShopDetailsFirebaseService {

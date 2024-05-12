@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/data/repositories/shop_details_firebase_service.dart';
 import 'package:vehicanich_shop/data/repositories/shop_id_service.dart';
-import 'package:vehicanich_shop/services/firebase_auth/phoneauth_.dart';
+import 'package:vehicanich_shop/data/services/firebase_auth/phoneauth_.dart';
 import 'package:vehicanich_shop/data/repositories/shop_data_repositery.dart';
 import 'package:vehicanich_shop/screens/register_screen/registration_velidations.dart';
 import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
