@@ -18,7 +18,7 @@ class ChatPage extends StatelessWidget {
   final ChatService chatService = ChatService();
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   sendMessage() async {
-    print('this is inside of chat$receiverUserID');
+    print('this is inside of chat $receiverUserID');
     if (receiverUserID.isNotEmpty && messageController.text.isNotEmpty) {
       print(receiverUserID);
       print(messageController.text);

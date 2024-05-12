@@ -29,4 +29,6 @@ class Referencekeys {
   static String isApproved = 'isApproved';
   static String isRejected = 'isRejected';
   static String locationaddress = 'locationaddress';
+  static String customerId = "userId";
+  static String userEmail = "userEmail";
 }

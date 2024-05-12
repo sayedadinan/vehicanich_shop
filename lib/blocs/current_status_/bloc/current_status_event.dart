@@ -13,3 +13,9 @@ class CompletedbuttonPressed extends CurrentStatusEvent {
 
   CompletedbuttonPressed({required this.documentId});
 }
+
+class DoneButtonPressed extends CurrentStatusEvent {
+  final String documentId;
+
+  DoneButtonPressed({required this.documentId});
+}

@@ -25,4 +25,19 @@ class BookingDetailsUpdation {
       return 'approve area error $e';
     }
   }
+
+  doneButtonPressedUpdation(String documentidpassing) async {
+    final documentReference = BookingReference()
+        .specifiedUserBookingUpdationReference(documentidpassing);
+    try {
+      await documentReference.update({
+        Referencekeys.isStarted: false,
+        Referencekeys.isCompleted: false,
+        Referencekeys.isPending: false
+      });
+      print('worked this also');
+    } catch (e) {
+      return 'approve area error $e';
+    }
+  }
 }

@@ -11,9 +11,6 @@ void showDetailsDialog(
   QueryDocumentSnapshot<Object?> bookingDetails,
   BuildContext context,
   final CurrentStatus currentStatus,
-  // String text,
-  // Function() onCancel,
-  // Function() onConfirm,
 ) {
   showDialog(
     context: context,
@@ -66,13 +63,16 @@ void showDetailsDialog(
           Row(
             children: [
               switch (currentStatus) {
+                CurrentStatus.done => DoneBUtton(shop: bookingDetails),
                 CurrentStatus.pending => StartedBUtton(shop: bookingDetails),
                 CurrentStatus.started => CompletedBUtton(shop: bookingDetails)
               },
               SizedBox(
                 width: Mymediaquery().mediaquerywidth(0.03, context),
               ),
-              const CancelButton()
+              CancelButton(
+                shop: bookingDetails,
+              )
             ],
           ),
         ],

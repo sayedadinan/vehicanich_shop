@@ -30,12 +30,6 @@ class ListViewForBookings extends StatelessWidget {
           child: GestureDetector(
             onTap: () {
               showDetailsDialog(bookingdetail, context, type);
-
-              // Navigator.of(context).push(FadeTransitionPageRoute(
-              //     child: DetailsScreen(
-              //   currentStatus: type,
-              //   bookingDetails: bookingdetail,
-              // )));k
             },
             child: Card(
               child: Container(

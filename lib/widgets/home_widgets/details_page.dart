@@ -8,10 +8,10 @@ import 'package:vehicanich_shop/utils/mediaquery.dart';
 import 'package:vehicanich_shop/widgets/home_widgets/buttons_.dart';
 import 'package:vehicanich_shop/widgets/home_widgets/custom_texts_for_bookings.dart';
 
-class DetailsScreen extends StatelessWidget {
+class CompletedDetailsScreen extends StatelessWidget {
   final QueryDocumentSnapshot<Object?> bookingDetails;
   final CurrentStatus currentStatus;
-  const DetailsScreen(
+  const CompletedDetailsScreen(
       {super.key, required this.bookingDetails, required this.currentStatus});
 
   @override
@@ -130,6 +130,7 @@ class DetailsScreen extends StatelessWidget {
             height: Mymediaquery().mediaqueryheight(0.04, context),
           ),
           switch (currentStatus) {
+            CurrentStatus.done => DoneBUtton(shop: bookingDetails),
             CurrentStatus.pending => StartedBUtton(shop: bookingDetails),
             CurrentStatus.started => CompletedBUtton(shop: bookingDetails)
           }

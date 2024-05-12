@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vehicanich_shop/data/data_provider/keys.dart';
 import 'package:vehicanich_shop/data/data_provider/shop_booking_ref.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_loadingindicator.dart';
@@ -22,7 +23,12 @@ class HistoryScreen extends StatelessWidget {
         backgroundColor: Appallcolor().appbarbackgroundcolor,
       ),
       body: StreamBuilder(
-          stream: BookingReference().allBookingDetails().snapshots(),
+          stream: BookingReference()
+              .allBookingDetails()
+              .where(Referencekeys.isCompleted, isEqualTo: false)
+              .where(Referencekeys.isPending, isEqualTo: false)
+              .where(Referencekeys.isStarted, isEqualTo: false)
+              .snapshots(),
           builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(
@@ -42,7 +48,7 @@ class HistoryScreen extends StatelessWidget {
                     child: Image.asset('assets/images/urban-842.png'),
                   ),
                   Text(
-                    'There are no pending bookings',
+                    'There is no previous bookings',
                     style: GoogleFonts.aclonica().copyWith(
                       fontSize: 20,
                       color: Colors.white,
