@@ -28,6 +28,7 @@ class HistoryScreen extends StatelessWidget {
               .where(Referencekeys.isCompleted, isEqualTo: false)
               .where(Referencekeys.isPending, isEqualTo: false)
               .where(Referencekeys.isStarted, isEqualTo: false)
+              .where(Referencekeys.ordered, isEqualTo: true)
               .snapshots(),
           builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {

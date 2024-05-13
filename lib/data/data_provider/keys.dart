@@ -31,4 +31,5 @@ class Referencekeys {
   static String locationaddress = 'locationaddress';
   static String customerId = "userId";
   static String userEmail = "userEmail";
+  static String ordered = "ordered";
 }

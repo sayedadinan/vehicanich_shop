@@ -18,6 +18,7 @@ class PendingBookingScreen extends StatelessWidget {
         stream: BookingReference()
             .allBookingDetails()
             .where(Referencekeys.isPending, isEqualTo: true)
+            .where(Referencekeys.ordered, isEqualTo: true)
             .snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {

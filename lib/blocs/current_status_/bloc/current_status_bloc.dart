@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:vehicanich_shop/data/repositories/booking_details_repo.dart';
-
 part 'current_status_event.dart';
 part 'current_status_state.dart';
 

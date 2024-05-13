@@ -19,6 +19,7 @@ class ProgresScreen extends StatelessWidget {
             .allBookingDetails()
             .where(Referencekeys.isStarted, isEqualTo: true)
             .where(Referencekeys.isPending, isEqualTo: false)
+            .where(Referencekeys.ordered, isEqualTo: true)
             .snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
