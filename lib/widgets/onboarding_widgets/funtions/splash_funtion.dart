@@ -10,18 +10,21 @@ import 'package:vehicanich_shop/utils/bottom_navigation/bottom_list.dart';
 import 'package:vehicanich_shop/utils/page_transition/page_fade_transition.dart';
 
 Future<void> checkingforsplash(context) async {
+  print('worked');
   SharedPreferences prefs = await SharedPreferences.getInstance();
   final data = prefs.getString(Referencekeys.shopPhone);
-
+  print('this phone for $data');
   await Future.delayed(const Duration(seconds: 2));
 
   if (data == null) {
+    print('data null worked');
     Navigator.of(context).pushAndRemoveUntil(
       MaterialPageRoute(builder: (context) => const LoginOrsign()),
       (Route<dynamic> route) => false,
     );
     return;
   } else if (data.isEmpty) {
+    print('data isEmpty worked');
     Navigator.of(context).pushAndRemoveUntil(
       MaterialPageRoute(builder: (context) => const LoginScreen()),
       (Route<dynamic> route) => false,
@@ -35,6 +38,7 @@ userRegisteredOrNotChecking(String phone, context) async {
   final collection = ShopreferenceId()
       .shopCollectionReference()
       .where(Referencekeys.phone, isEqualTo: phone);
+  print(collection);
   final snapshot = await collection.get();
   if (snapshot.docs.isNotEmpty) {
     final existingData = snapshot.docs.first.data();

@@ -1,13 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:vehicanich_shop/data/models/messages.dart';
+import 'package:vehicanich_shop/data/repositories/shop_data_repositery.dart';
 
 class ChatService {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   Future<void> sendMessage(String receiverId, String message) async {
     try {
-      final String currentUserId = firebaseAuth.currentUser!.uid;
+      final String currentUserId = FirebaseDatastoring.shopid;
       final String currentUserEmail =
           firebaseAuth.currentUser!.email.toString();
       final Timestamp timestamp = Timestamp.now();
@@ -19,6 +20,7 @@ class ChatService {
           message: message,
           timestamp: timestamp);
       List<String> ids = [currentUserId, receiverId];
+      print('this is here $ids');
       ids.sort();
       String chatRoomId = ids.join("_");
       await firestore

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:vehicanich_shop/data/repositories/shop_data_repositery.dart';
 import 'package:vehicanich_shop/data/services/chat_services/chat_services.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_textfields.dart';
@@ -20,7 +21,7 @@ class ChatPage extends StatelessWidget {
   sendMessage() async {
     print('this is inside of chat $receiverUserID');
     if (receiverUserID.isNotEmpty && messageController.text.isNotEmpty) {
-      print(receiverUserID);
+      print('this is our receveir $receiverUserID');
       print(messageController.text);
       await chatService.sendMessage(receiverUserID, messageController.text);
       messageController.clear();
@@ -71,7 +72,7 @@ class ChatPage extends StatelessWidget {
 
   Widget buildMessageItem(DocumentSnapshot document) {
     Map<String, dynamic> data = document.data() as Map<String, dynamic>;
-    var alignment = (data['senderId'] == firebaseAuth.currentUser!.uid)
+    var alignment = (data['senderId'] == FirebaseDatastoring.shopid)
         ? Alignment.centerRight
         : Alignment.centerLeft;
     return Container(
@@ -90,7 +91,9 @@ class ChatPage extends StatelessWidget {
   buildMessageList() {
     return StreamBuilder(
       stream: chatService.getMessages(
-          receiverUserID, firebaseAuth.currentUser!.uid),
+        FirebaseDatastoring.shopid,
+        receiverUserID,
+      ),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return Text('Error${snapshot.error}');

@@ -46,8 +46,8 @@ void showDetailsDialog(
                     SizedBox(
                         height: Mymediaquery().mediaqueryheight(0.02, context)),
                     DialogueBoxText(
-                      keyval: 'customer phone',
-                      valuetext: bookingDetails[Referencekeys.serviceName],
+                      keyval: 'vehicle number',
+                      valuetext: bookingDetails[Referencekeys.vahicleNumber],
                     ),
                     SizedBox(
                         height: Mymediaquery().mediaqueryheight(0.02, context)),

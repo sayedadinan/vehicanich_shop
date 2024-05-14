@@ -31,7 +31,7 @@ class LoginOrsign extends StatelessWidget {
             body: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CustomSizedBoxHeight(0.01),
+                  CustomSizedBoxHeight(0.1),
                   Row(
                     children: [
                       Padding(
@@ -46,9 +46,9 @@ class LoginOrsign extends StatelessWidget {
                       ),
                     ],
                   ),
-                  CustomSizedBoxHeight(0.04),
+                  CustomSizedBoxHeight(0.4),
                   const Loginorsigntext(),
-                  CustomSizedBoxHeight(0.01),
+                  CustomSizedBoxHeight(0.1),
                   CustomButton(
                     buttontextcolor: Appallcolor().colorwhite,
                     text: 'Login',
