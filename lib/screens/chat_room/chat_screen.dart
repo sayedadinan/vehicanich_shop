@@ -46,6 +46,28 @@ class ChatPage extends StatelessWidget {
     );
   }
 
+  buildMessageList() {
+    return StreamBuilder(
+      stream: chatService.getMessages(
+        FirebaseDatastoring.shopid,
+        receiverUserID,
+      ),
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          return Text('Error${snapshot.error}');
+        }
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Text('Loading...');
+        }
+        return ListView(
+          children: snapshot.data!.docs
+              .map((document) => buildMessageItem(document))
+              .toList(),
+        );
+      },
+    );
+  }
+
   buildMessageInput(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
@@ -85,28 +107,6 @@ class ChatPage extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-
-  buildMessageList() {
-    return StreamBuilder(
-      stream: chatService.getMessages(
-        FirebaseDatastoring.shopid,
-        receiverUserID,
-      ),
-      builder: (context, snapshot) {
-        if (snapshot.hasError) {
-          return Text('Error${snapshot.error}');
-        }
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Text('Loading...');
-        }
-        return ListView(
-          children: snapshot.data!.docs
-              .map((document) => buildMessageItem(document))
-              .toList(),
-        );
-      },
     );
   }
 }

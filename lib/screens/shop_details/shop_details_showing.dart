@@ -17,10 +17,8 @@ class ShopDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Appallcolor().appbackgroundcolor,
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Appallcolor().appbarbackgroundcolor,
-        title: const AppbarText(text: 'shop details'),
+      appBar: const CustomAppBar(
+        titleText: 'Shop details',
       ),
       body: Column(
         children: [

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vehicanich_shop/data/data_provider/keys.dart';
 import 'package:vehicanich_shop/data/data_provider/shop_booking_ref.dart';
+import 'package:vehicanich_shop/utils/app_bar_text.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_loadingindicator.dart';
-import 'package:vehicanich_shop/utils/app_text.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 import 'package:vehicanich_shop/widgets/home_widgets/first_home_screen/list_view.dart';
 
@@ -16,11 +16,8 @@ class HistoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Appallcolor().appbackgroundcolor,
-      appBar: AppBar(
-        centerTitle: true,
-        title: const AppText(
-            text: 'History', size: 0.06, fontFamily: 'Noto Serif'),
-        backgroundColor: Appallcolor().appbarbackgroundcolor,
+      appBar: const CustomAppBar(
+        titleText: 'History',
       ),
       body: StreamBuilder(
           stream: BookingReference()

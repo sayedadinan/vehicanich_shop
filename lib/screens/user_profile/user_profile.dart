@@ -31,13 +31,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const AppbarText(
-          text: 'Profile',
-        ),
-        centerTitle: true,
-        backgroundColor: Appallcolor().appbarbackgroundcolor,
-      ),
+      appBar: const CustomAppBar(titleText: 'Profile'),
       backgroundColor: Appallcolor().appbackgroundcolor,
       body: BlocBuilder<UserProfileBloc, UserProfileState>(
         builder: (context, state) {

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vehicanich_shop/data/data_provider/keys.dart';
 import 'package:vehicanich_shop/data/data_provider/shop_booking_ref.dart';
+import 'package:vehicanich_shop/utils/app_bar_text.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_fonts.dart';
 import 'package:vehicanich_shop/utils/app_loadingindicator.dart';
@@ -19,11 +20,8 @@ class FirstHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const AppText(
-            text: 'VEHICANICH', size: 0.06, fontFamily: 'Noto Serif'),
-        backgroundColor: Appallcolor().appbarbackgroundcolor,
+      appBar: const CustomAppBar(
+        titleText: 'VEHICANICH',
       ),
       backgroundColor: Appallcolor().appbackgroundcolor,
       body: SingleChildScrollView(
