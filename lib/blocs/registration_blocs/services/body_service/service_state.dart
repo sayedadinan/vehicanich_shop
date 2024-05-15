@@ -1,40 +1,44 @@
 part of 'service_bloc.dart';
 
 sealed class ServiceState {
-  final Map<String, dynamic> serviceNamemap;
   Map<String, dynamic> servicenameandrate;
   final List<String> newmpty;
+  final List<String> servicesList;
   ServiceState({
     required this.newmpty,
-    required this.serviceNamemap,
     required this.servicenameandrate,
+    required this.servicesList,
   });
 }
 
 final class ServiceInitial extends ServiceState {
-  ServiceInitial(
-      {required super.serviceNamemap,
-      required super.newmpty,
-      required super.servicenameandrate});
+  ServiceInitial({
+    required super.newmpty,
+    required super.servicenameandrate,
+    required super.servicesList,
+  });
 }
 
 class NavigatetoBodyservice extends ServiceState {
-  NavigatetoBodyservice(
-      {required super.serviceNamemap,
-      required super.newmpty,
-      required super.servicenameandrate});
+  NavigatetoBodyservice({
+    required super.newmpty,
+    required super.servicenameandrate,
+    required super.servicesList,
+  });
 }
 
 class BodyEnableBUttonValueAdded extends ServiceState {
-  BodyEnableBUttonValueAdded(
-      {required super.serviceNamemap,
-      required super.newmpty,
-      required super.servicenameandrate});
+  BodyEnableBUttonValueAdded({
+    required super.newmpty,
+    required super.servicenameandrate,
+    required super.servicesList,
+  });
 }
 
 class BodyServiceremove extends ServiceState {
-  BodyServiceremove(
-      {required super.newmpty,
-      required super.serviceNamemap,
-      required super.servicenameandrate});
+  BodyServiceremove({
+    required super.newmpty,
+    required super.servicenameandrate,
+    required super.servicesList,
+  });
 }

@@ -29,7 +29,8 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
           startingtimevalidation(event.context) &&
           closingtimevalidation(event.context) &&
           bannerphotovalidation(event.context) &&
-          licenceimagevalidation(event.context)) {
+          licenceimagevalidation(event.context) &&
+          interiorvalidation(event.context)) {
         await FireBasePhoneAuth().phoneAuthentication(event.context);
         await ShopDetailsFirebaseService()
             .addShopDetailsToFirebase(event.context);

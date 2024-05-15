@@ -4,7 +4,7 @@ part 'engine_event.dart';
 part 'engine_state.dart';
 
 class EngineBloc extends Bloc<EngineEvent, EngineState> {
-  EngineBloc() : super(EngineInitial(newmpty: [], serviceNamemap: {})) {
+  EngineBloc() : super(EngineInitial(newmpty: [], servicesList: [])) {
     on<EngineEnableButtonPressed>(engineenablebuttonpressed);
     on<EngineServiceAddingButtonPressed>(engineserviceaddingbuttonpressed);
   }
@@ -15,30 +15,24 @@ class EngineBloc extends Bloc<EngineEvent, EngineState> {
       print('nadakoolaa');
       servicestoring.remove(event.serviceName);
       emit(EngineServiceremove(
-          newmpty: servicestoring, serviceNamemap: state.serviceNamemap));
+          newmpty: servicestoring, servicesList: state.servicesList));
     } else {
       servicestoring.add(event.serviceName);
       emit(
         EngineEnableBUttonValueAdded(
-          newmpty: servicestoring,
-          serviceNamemap: state.serviceNamemap,
-        ),
+            newmpty: servicestoring, servicesList: state.servicesList),
       );
     }
   }
 
   engineserviceaddingbuttonpressed(
       EngineServiceAddingButtonPressed event, Emitter<EngineState> emit) {
-    Map<String, dynamic> cardTexts = {};
-    if (cardTexts.containsKey(event.newservicename)) {
-      print('value already exist');
-    } else {
-      cardTexts.putIfAbsent(event.newservicename, () => event.rate);
-      state.serviceNamemap.addAll(cardTexts);
-      emit(EngineInitial(
-        newmpty: state.newmpty,
-        serviceNamemap: state.serviceNamemap,
-      ));
-    }
+    // if (cardTexts.containsKey(event.newservicename)) {
+    //   print('value already exist');
+    // } else {
+    //   cardTexts.putIfAbsent(event.newservicename, () => event.rate);
+    state.servicesList.addAll(event.Selectedservices);
+    emit(EngineInitial(
+        newmpty: state.newmpty, servicesList: state.servicesList));
   }
 }

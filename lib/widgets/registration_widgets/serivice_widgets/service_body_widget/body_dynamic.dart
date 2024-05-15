@@ -7,9 +7,7 @@ import 'package:vehicanich_shop/utils/mediaquery.dart';
 
 class CustomBodydynamicard extends StatelessWidget {
   final String texts;
-  final dynamic rate;
-  const CustomBodydynamicard(
-      {super.key, required this.texts, required this.rate});
+  const CustomBodydynamicard({super.key, required this.texts});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +36,7 @@ class CustomBodydynamicard extends StatelessWidget {
                 IconButton(
                   icon: BlocProvider.of<BodyBloc>(context)
                           .state
-                          .serviceNamemap
+                          .servicesList
                           .isNotEmpty
                       ? Icon(
                           Icons.check_box,
@@ -50,28 +48,11 @@ class CustomBodydynamicard extends StatelessWidget {
                           color: Appallcolor().appbarbackgroundcolor,
                         ),
                   onPressed: () {
-                    context.read<BodyBloc>().add(BodyEnableButtonPressed(
-                        serviceName: texts, rate: rate));
+                    // context.read<BodyBloc>().add(BodyEnableButtonPressed(
+                    //     serviceName: texts, rate: rate));
                   },
                 ),
                 SizedBox(width: Mymediaquery().mediaquerywidth(0.03, context)),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
-                      color: Appallcolor().colorwhite,
-                      border: Border.all(
-                          color: Appallcolor().buttonforgroundcolor)),
-                  width: Mymediaquery().mediaquerywidth(0.17, context),
-                  height: Mymediaquery().mediaqueryheight(0.03, context),
-                  child: Center(child: (Text(rate.toString()))),
-                )
-                // CustomServiceTextField(
-                //   controller: controller,
-                //   enabled: BlocProvider.of<BodyBloc>(context)
-                //       .state
-                //       .newmpty
-                //       .contains(texts),
-                // ),
               ],
             ),
           ),

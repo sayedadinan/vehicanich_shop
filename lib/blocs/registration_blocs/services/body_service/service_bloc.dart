@@ -5,19 +5,19 @@ part 'service_state.dart';
 class BodyBloc extends Bloc<ServiceEvent, ServiceState> {
   BodyBloc()
       : super(ServiceInitial(
+          servicesList: [],
           servicenameandrate: {'dd': 2},
-          serviceNamemap: {},
           newmpty: [],
         )) {
     on<BodymaintaincePressed>(bodimaintainbuttonpressed);
     on<BodyEnableButtonPressed>(bodyenablebuttonpressed);
     on<BodyServiceAddingButtonPressed>(serviceaddingbuttonpressed);
-    on<AddServiceWithRate>(addservicewithrate);
+    // on<AddServiceWithRate>(addservicewithrate);
   }
   bodimaintainbuttonpressed(
       BodymaintaincePressed event, Emitter<ServiceState> emit) {
     emit(NavigatetoBodyservice(
-        serviceNamemap: state.serviceNamemap,
+        servicesList: state.servicesList,
         servicenameandrate: state.servicenameandrate,
         newmpty: state.newmpty));
   }
@@ -29,16 +29,17 @@ class BodyBloc extends Bloc<ServiceEvent, ServiceState> {
       print('nadakoolaa');
       servicestoring.remove(event.serviceName);
       emit(BodyServiceremove(
-          servicenameandrate: state.servicenameandrate,
-          newmpty: servicestoring,
-          serviceNamemap: state.serviceNamemap));
+        servicesList: state.servicesList,
+        servicenameandrate: state.servicenameandrate,
+        newmpty: servicestoring,
+      ));
     } else {
       servicestoring.add(event.serviceName);
       emit(
         BodyEnableBUttonValueAdded(
+          servicesList: state.servicesList,
           servicenameandrate: state.servicenameandrate,
           newmpty: servicestoring,
-          serviceNamemap: state.serviceNamemap,
         ),
       );
     }
@@ -46,30 +47,29 @@ class BodyBloc extends Bloc<ServiceEvent, ServiceState> {
 
   serviceaddingbuttonpressed(
       BodyServiceAddingButtonPressed event, Emitter<ServiceState> emit) {
-    Map<String, dynamic> cardTexts = {};
-    if (cardTexts.containsKey(event.newservicename)) {
-      print('value already exist');
+    print('worked');
+    if (state.servicesList.length >= 10) {
+      print('we cant add');
     } else {
-      cardTexts.putIfAbsent(event.newservicename, () => event.serviceRate);
-      print('Value added for key ${event.newservicename}');
-      // cardTexts.add(event.newservicename);
-      state.serviceNamemap.addAll(cardTexts);
+      state.servicesList.addAll(event.Selectedservices);
+      print('successfully added ${state.servicesList}');
       emit(ServiceInitial(
+        servicesList: state.servicesList,
         servicenameandrate: state.servicenameandrate,
         newmpty: state.newmpty,
-        serviceNamemap: state.serviceNamemap,
       ));
     }
   }
-
-  addservicewithrate(AddServiceWithRate event, Emitter<ServiceState> emit) {
-    print('this also worked');
-    final updateMap = {...state.servicenameandrate};
-    updateMap[event.serviceName] = event.rate;
-    print(updateMap);
-    emit(ServiceInitial(
-        serviceNamemap: state.serviceNamemap,
-        newmpty: state.newmpty,
-        servicenameandrate: updateMap));
-  }
 }
+
+  // addservicewithrate(AddServiceWithRate event, Emitter<ServiceState> emit) {
+  //   print('this also worked');
+  //   final updateMap = {...state.servicenameandrate};
+  //   updateMap[event.serviceName] = event.rate;
+  //   print(updateMap);
+  //   emit(ServiceInitial(
+  //       serviceNamemap: state.serviceNamemap,
+  //       newmpty: state.newmpty,
+  //       servicenameandrate: updateMap));
+  // }
+

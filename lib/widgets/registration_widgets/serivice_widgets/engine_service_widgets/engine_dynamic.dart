@@ -37,7 +37,7 @@ class CustomEnginecard extends StatelessWidget {
                 IconButton(
                   icon: BlocProvider.of<EngineBloc>(context, listen: true)
                           .state
-                          .serviceNamemap
+                          .servicesList
                           .isNotEmpty
                       ? Icon(
                           Icons.check_box,

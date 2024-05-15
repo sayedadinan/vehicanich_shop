@@ -17,9 +17,9 @@ class ShopModel {
   final bool isApproved;
   final bool isRejected;
   final String locationaddress;
-  final Map<String, dynamic> bodyservicemap;
-  final Map<String, dynamic> interiorservicemap;
-  final Map<String, dynamic> enginservicemap;
+  final List<String> bodyservicemap;
+  final List<String> interiorservicemap;
+  final List<String> enginservicemap;
   ShopModel({
     required this.name,
     required this.email,

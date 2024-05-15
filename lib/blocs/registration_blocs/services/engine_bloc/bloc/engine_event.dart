@@ -14,10 +14,7 @@ class EngineEnableButtonPressed extends EngineEvent {
 }
 
 class EngineServiceAddingButtonPressed extends EngineEvent {
-  final String newservicename;
-  final dynamic rate;
-  EngineServiceAddingButtonPressed({
-    required this.newservicename,
-    required this.rate,
-  });
+  final List<String> Selectedservices;
+
+  EngineServiceAddingButtonPressed({required this.Selectedservices});
 }

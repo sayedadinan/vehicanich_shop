@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vehicanich_shop/blocs/registration_blocs/services/body_service/service_bloc.dart';
 import 'package:vehicanich_shop/blocs/shop_updation_blocs/Interior_service_updation/bloc/interior_service_bloc.dart';
 import 'package:vehicanich_shop/blocs/shop_updation_blocs/body_service_updation/bloc/body_service_updation_bloc.dart';
 import 'package:vehicanich_shop/blocs/shop_updation_blocs/engine_service_updation/bloc/engine_service_bloc.dart';
@@ -60,14 +59,14 @@ void showAddMoreDialog(
                         String serviceName = serviceNameController.text;
                         int serviceRate = int.parse(serviceRateController.text);
                         switch (eventType) {
-                          case 'body':
-                            bloc.add(
-                              BodyServiceAddingButtonPressed(
-                                newservicename: serviceName,
-                                serviceRate: serviceRate,
-                              ),
-                            );
-                            break;
+                          // case 'body':
+                          //   bloc.add(
+                          //     BodyServiceAddingButtonPressed(
+                          //       newservicename: serviceName,
+                          //       serviceRate: serviceRate,
+                          //     ),
+                          //   );
+                          //   break;
                           case 'interior':
                             bloc.add(
                               InteriorServiceUpdationAddingPressed(

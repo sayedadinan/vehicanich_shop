@@ -15,15 +15,15 @@ class ServiceErrorText extends StatelessWidget {
       children: [
         if (BlocProvider.of<BodyBloc>(context, listen: true)
                 .state
-                .serviceNamemap
+                .servicesList
                 .isEmpty &&
             BlocProvider.of<InteriorBloc>(context, listen: true)
                 .state
-                .serviceNamemap
+                .servicesList
                 .isEmpty &&
             BlocProvider.of<EngineBloc>(context, listen: true)
                 .state
-                .serviceNamemap
+                .servicesList
                 .isEmpty &&
             BlocProvider.of<RegistrationBloc>(context, listen: true)
                 .state

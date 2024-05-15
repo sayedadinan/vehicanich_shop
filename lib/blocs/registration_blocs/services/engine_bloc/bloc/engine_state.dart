@@ -1,21 +1,27 @@
 part of 'engine_bloc.dart';
 
 sealed class EngineState {
-  final Map<String, dynamic> serviceNamemap;
+  final List<String> servicesList;
   List<String> newmpty;
 
-  EngineState({required this.serviceNamemap, required this.newmpty});
+  EngineState({
+    required this.newmpty,
+    required this.servicesList,
+  });
 }
 
 final class EngineInitial extends EngineState {
-  EngineInitial({required super.serviceNamemap, required super.newmpty});
+  EngineInitial({required super.newmpty, required super.servicesList});
 }
 
 class EngineEnableBUttonValueAdded extends EngineState {
   EngineEnableBUttonValueAdded(
-      {required super.serviceNamemap, required super.newmpty});
+      {required super.newmpty, required super.servicesList});
 }
 
 class EngineServiceremove extends EngineState {
-  EngineServiceremove({required super.newmpty, required super.serviceNamemap});
+  EngineServiceremove({
+    required super.newmpty,
+    required super.servicesList,
+  });
 }

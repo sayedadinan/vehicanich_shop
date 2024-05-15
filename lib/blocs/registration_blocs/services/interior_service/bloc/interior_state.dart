@@ -1,29 +1,31 @@
 part of 'interior_bloc.dart';
 
 sealed class InteriorState {
-  final Map<String, dynamic> serviceNamemap;
   List<String> newmpty;
+  final List<String> servicesList;
   InteriorState({
-    required this.serviceNamemap,
+    required this.servicesList,
     required this.newmpty,
   });
 }
 
 final class InteriorInitial extends InteriorState {
   InteriorInitial({
-    required super.serviceNamemap,
+    required super.servicesList,
     required super.newmpty,
   });
 }
 
 class InteriorEnableBUttonValueAdded extends InteriorState {
-  InteriorEnableBUttonValueAdded(
-      {required super.serviceNamemap, required super.newmpty});
+  InteriorEnableBUttonValueAdded({
+    required super.newmpty,
+    required super.servicesList,
+  });
 }
 
 class InteriorServiceremove extends InteriorState {
   InteriorServiceremove({
+    required super.servicesList,
     required super.newmpty,
-    required super.serviceNamemap,
   });
 }

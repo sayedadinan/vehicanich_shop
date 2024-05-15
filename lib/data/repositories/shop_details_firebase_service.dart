@@ -42,11 +42,11 @@ class ShopDetailsFirebaseService {
         licenceimagepath: licenceImageUrl,
         mmimagepath: mmImageUrl,
         bannerimagepath: bannerImageUrl,
-        bodyservicemap: BlocProvider.of<BodyBloc>(context).state.serviceNamemap,
+        bodyservicemap: BlocProvider.of<BodyBloc>(context).state.servicesList,
         interiorservicemap:
-            BlocProvider.of<InteriorBloc>(context).state.serviceNamemap,
+            BlocProvider.of<InteriorBloc>(context).state.servicesList,
         enginservicemap:
-            BlocProvider.of<EngineBloc>(context).state.serviceNamemap,
+            BlocProvider.of<EngineBloc>(context).state.servicesList,
       );
       await ShopreferenceId()
           .shopCollectionReference()

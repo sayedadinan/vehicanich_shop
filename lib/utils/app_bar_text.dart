@@ -23,9 +23,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         title: Text(
           titleText,
           style: TextStyle(
-            fontFamily: 'Noto Serif',
-            fontSize: titleFontSize,
-          ),
+              fontFamily: 'Noto Serif',
+              fontSize: titleFontSize,
+              color: Appallcolor().colorwhite),
         ),
         backgroundColor: Appallcolor()
             .appbarbackgroundcolor, // Change this color to your desired color

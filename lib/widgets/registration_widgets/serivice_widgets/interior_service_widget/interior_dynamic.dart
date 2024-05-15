@@ -8,7 +8,8 @@ import 'package:vehicanich_shop/utils/mediaquery.dart';
 class CustomInteriorcard extends StatelessWidget {
   final String texts;
   final dynamic rate;
-  const CustomInteriorcard({super.key, required this.texts, required this.rate});
+  const CustomInteriorcard(
+      {super.key, required this.texts, required this.rate});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class CustomInteriorcard extends StatelessWidget {
                 IconButton(
                   icon: BlocProvider.of<InteriorBloc>(context, listen: true)
                           .state
-                          .serviceNamemap
+                          .servicesList
                           .isNotEmpty
                       ? Icon(
                           Icons.check_box,
@@ -49,9 +50,9 @@ class CustomInteriorcard extends StatelessWidget {
                           color: Appallcolor().appbarbackgroundcolor,
                         ),
                   onPressed: () {
-                    context.read<InteriorBloc>().add(
-                        InteriorEnableButtonPressed(
-                            serviceName: texts, rate: rate));
+                    // context.read<InteriorBloc>().add(
+                    //     InteriorEnableButtonPressed(
+                    //         serviceName: texts, rate: rate));
                   },
                 ),
                 SizedBox(width: Mymediaquery().mediaquerywidth(0.00, context)),

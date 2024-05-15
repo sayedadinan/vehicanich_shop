@@ -36,7 +36,9 @@ bodyvalidation(context) {
 }
 
 interiorvalidation(context) {
-  return BlocProvider.of<InteriorBloc>(context).state.newmpty.isNotEmpty;
+  return BlocProvider.of<InteriorBloc>(context).state.newmpty.isNotEmpty ||
+      BlocProvider.of<BodyBloc>(context).state.servicesList.isNotEmpty ||
+      BlocProvider.of<EngineBloc>(context).state.newmpty.isNotEmpty;
 }
 
 enginevalidation(context) {
@@ -46,3 +48,5 @@ enginevalidation(context) {
 buttonpressedornot(context) {
   BlocProvider.of<RegistrationBloc>(context).state.buttonpressed;
 }
+
+serviceValidation(context) {}
