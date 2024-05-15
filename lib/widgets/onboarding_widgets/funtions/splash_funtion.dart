@@ -38,7 +38,7 @@ userRegisteredOrNotChecking(String phone, context) async {
   final collection = ShopreferenceId()
       .shopCollectionReference()
       .where(Referencekeys.phone, isEqualTo: phone);
-  print(collection);
+  print('this is from splash $collection');
   final snapshot = await collection.get();
   if (snapshot.docs.isNotEmpty) {
     final existingData = snapshot.docs.first.data();
