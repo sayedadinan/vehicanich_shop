@@ -93,25 +93,28 @@ class DialogueBoxText extends StatelessWidget {
       children: [
         SizedBox(width: Mymediaquery().mediaquerywidth(0.05, context)),
         SizedBox(
-          width: Mymediaquery().mediaquerywidth(0.32, context),
+          width: Mymediaquery().mediaquerywidth(0.31, context),
           child: CustomTextforList(text: keyval),
         ),
         Text(
           ':',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: Mymediaquery().mediaquerywidth(0.03, context),
             color: Appallcolor().textcolor,
           ),
         ),
         Padding(
           padding: EdgeInsets.only(
-              left: Mymediaquery().mediaquerywidth(0.04, context)),
-          child: Text(
-            valuetext,
-            style: TextStyle(
-                color: Appallcolor().textcolor,
-                fontSize: Mymediaquery().mediaquerywidth(0.04, context),
-                fontWeight: FontWeight.w400),
+              left: Mymediaquery().mediaquerywidth(0.02, context)),
+          child: SizedBox(
+            width: Mymediaquery().mediaquerywidth(0.28, context),
+            child: Text(
+              valuetext,
+              style: TextStyle(
+                  color: Appallcolor().textcolor,
+                  fontSize: Mymediaquery().mediaquerywidth(0.04, context),
+                  fontWeight: FontWeight.w400),
+            ),
           ),
         ),
       ],

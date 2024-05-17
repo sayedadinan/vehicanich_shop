@@ -39,9 +39,9 @@ class FirstHomeScreen extends StatelessWidget {
               height: Mymediaquery().mediaqueryheight(0.04, context),
               child: Center(
                   child: AppText(
+                fontFamily: AppFonts.headText,
                 text: 'Completed Works',
                 size: 0.04,
-                fontFamily: AppFonts.headText,
               )),
             ),
             StreamBuilder(

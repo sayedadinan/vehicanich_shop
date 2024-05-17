@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/blocs/current_status_/bloc/current_status_bloc.dart';
 import 'package:vehicanich_shop/data/data_provider/keys.dart';
 import 'package:vehicanich_shop/screens/chat_room/chat_screen.dart';
+import 'package:vehicanich_shop/screens/home_screen/total_bill_screen.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_custom_button.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
@@ -96,10 +97,14 @@ class DoneBUtton extends StatelessWidget {
       child: CustomButton(
         color: Appallcolor().successColor,
         function: () {
-          context
-              .read<CurrentStatusBloc>()
-              .add(DoneButtonPressed(documentId: shop.id));
-          Navigator.of(context).pop();
+          Navigator.of(context).push(FadeTransitionPageRoute(
+              child: TotalBillScreen(
+            shop: shop,
+          )));
+          // context
+          //     .read<CurrentStatusBloc>()
+          //     .add(DoneButtonPressed(documentId: shop.id));
+          // Navigator.of(context).pop();
         },
         text: 'Done',
         fontSize: Mymediaquery().mediaquerywidth(0.03, context),

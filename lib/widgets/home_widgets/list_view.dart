@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:vehicanich_shop/data/data_provider/keys.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
-import 'package:vehicanich_shop/utils/app_showdialogue.dart';
+import 'package:vehicanich_shop/widgets/app_showdialogue.dart';
 import 'package:vehicanich_shop/utils/constant_variables/enums.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 // import 'package:vehicanich_shop/utils/page_transition/page_fade_transition.dart';
