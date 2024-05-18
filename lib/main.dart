@@ -19,6 +19,7 @@ import 'package:vehicanich_shop/blocs/shop_updation_blocs/body_service_updation/
 import 'package:vehicanich_shop/blocs/shop_updation_blocs/engine_service_updation/bloc/engine_service_bloc.dart';
 import 'package:vehicanich_shop/blocs/shop_updation_blocs/time_updation_bloc/closing_time/closing_updation_bloc.dart';
 import 'package:vehicanich_shop/blocs/shop_updation_blocs/time_updation_bloc/starting_time/starting_time_updation_bloc.dart';
+import 'package:vehicanich_shop/blocs/total_bill_bloc/bloc/total_bill_bloc.dart';
 import 'package:vehicanich_shop/blocs/user_profile_bloc/bloc/user_profile_bloc.dart';
 import 'package:vehicanich_shop/blocs/user_profile_bloc/profile_image/bloc/image_updation_bloc.dart';
 import 'package:vehicanich_shop/firebase_options.dart';
@@ -51,6 +52,7 @@ void main(List<String> args) async {
     BlocProvider(create: (context) => StartingTimeUpdationBloc()),
     BlocProvider(create: (context) => ClosingUpdationBloc()),
     BlocProvider(create: (context) => ImageUpdationBloc()),
+    BlocProvider(create: (context) => TotalBillBloc()),
   ], child: const MyApp()));
 }
 

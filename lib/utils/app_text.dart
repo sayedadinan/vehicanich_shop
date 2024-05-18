@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 
 class AppText extends StatelessWidget {
@@ -20,7 +21,7 @@ class AppText extends StatelessWidget {
       style: GoogleFonts.getFont(fontFamily).copyWith(
         // Using GoogleFonts.getFont to dynamically get the font
         fontSize: Mymediaquery().mediaquerywidth(size, context),
-        color: Colors.white,
+        color: Appallcolor().primeryWhite,
       ),
     );
   }

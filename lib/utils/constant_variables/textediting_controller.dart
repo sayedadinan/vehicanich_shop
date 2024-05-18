@@ -15,3 +15,6 @@ final TextEditingController updateUserNameController = TextEditingController();
 final TextEditingController updateEmailController = TextEditingController();
 final TextEditingController updatePasswordController = TextEditingController();
 final TextEditingController updatePhoneController = TextEditingController();
+final TextEditingController extraServiceController = TextEditingController();
+final TextEditingController extraFittingsController = TextEditingController();
+final TextEditingController totalBillMoneyController = TextEditingController();
