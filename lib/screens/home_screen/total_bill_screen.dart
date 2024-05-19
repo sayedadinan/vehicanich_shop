@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/blocs/current_status_/bloc/current_status_bloc.dart';
-import 'package:vehicanich_shop/blocs/total_bill_bloc/bloc/total_bill_bloc.dart';
+import 'package:vehicanich_shop/blocs/payment/total_bill_bloc/bloc/total_bill_bloc.dart';
 import 'package:vehicanich_shop/data/data_provider/keys.dart';
 import 'package:vehicanich_shop/utils/app_bar_text.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';

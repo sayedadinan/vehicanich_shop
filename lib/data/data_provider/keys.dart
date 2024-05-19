@@ -33,4 +33,5 @@ class Referencekeys {
   static String userEmail = "userEmail";
   static String ordered = "ordered";
   static String totalBill = 'totalBill';
+  static String wallet = 'wallet';
 }
