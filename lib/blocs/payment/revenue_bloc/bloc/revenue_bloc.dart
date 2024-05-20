@@ -1,24 +1,17 @@
 import 'package:bloc/bloc.dart';
-// import 'package:vehicanich_shop/data/data_provider/keys.dart';
-// import 'package:vehicanich_shop/data/data_provider/shop_reference.dart';
-// import 'package:vehicanich_shop/data/repositories/shop_data_repositery.dart';
 part 'revenue_event.dart';
 part 'revenue_state.dart';
 
 class RevenueBloc extends Bloc<RevenueEvent, RevenueState> {
-  RevenueBloc() : super(RevenueInitial()) {
-    on<FetchMyRevenue>(fetchmyRevenue);
+  RevenueBloc() : super(RevenueInitial(balanceAmount: 0)) {
+    on<TotalRevenue>(totalRevenueCounting);
   }
-  fetchmyRevenue(FetchMyRevenue event, Emitter<RevenueState> emit) async {
+  totalRevenueCounting(TotalRevenue event, Emitter<RevenueState> emit) {
     try {
-      // final shopRevenueReference = await ShopreferenceId()
-      //     .shopCollectionReference()
-      //     .doc(FirebaseDatastoring.shopid)
-      //     .collection(Referencekeys.wallet)
-      //     .doc()
-      //     .get();
-      // dynamic value = int.parse(shopRevenueReference['money']);
-      // dynamic revenue +=value;
+      int converted = int.tryParse(event.amount) ?? 0;
+      int totalAmount = state.balanceAmount + converted;
+      emit(RevenueInitial(balanceAmount: totalAmount));
+      // state.balanceAmount += converted;
     } catch (e) {}
   }
 }

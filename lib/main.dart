@@ -5,6 +5,7 @@ import 'package:vehicanich_shop/blocs/bottom_nav_blocs/bloc/bottom_nav_bloc.dart
 import 'package:vehicanich_shop/blocs/current_status_/bloc/current_status_bloc.dart';
 import 'package:vehicanich_shop/blocs/login_bloc/login_bloc.dart';
 import 'package:vehicanich_shop/blocs/onboarding_bloc/onboarding_bloc.dart';
+import 'package:vehicanich_shop/blocs/payment/revenue_bloc/bloc/revenue_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/closingtime_blocs/bloc/closingtime_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/image_blocs/image_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/location_bloc/location_bloc.dart';
@@ -53,6 +54,7 @@ void main(List<String> args) async {
     BlocProvider(create: (context) => ClosingUpdationBloc()),
     BlocProvider(create: (context) => ImageUpdationBloc()),
     BlocProvider(create: (context) => TotalBillBloc()),
+    BlocProvider(create: (context) => RevenueBloc()),
   ], child: const MyApp()));
 }
 

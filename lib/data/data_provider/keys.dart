@@ -34,4 +34,7 @@ class Referencekeys {
   static String ordered = "ordered";
   static String totalBill = 'totalBill';
   static String wallet = 'wallet';
+  static String userName = 'userName';
+  static String money = 'money';
+  static String todaysDate = 'todaysDate';
 }

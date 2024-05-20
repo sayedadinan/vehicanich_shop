@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/blocs/user_profile_bloc/bloc/user_profile_bloc.dart';
 import 'package:vehicanich_shop/blocs/user_profile_bloc/profile_image/bloc/image_updation_bloc.dart';
 import 'package:vehicanich_shop/screens/ratings_and_revices/ratings_and_review.dart';
+import 'package:vehicanich_shop/screens/revenue_screen/revenue_screen.dart';
 import 'package:vehicanich_shop/screens/shop_details/shop_details_showing.dart';
 import 'package:vehicanich_shop/utils/app_bar_text.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
@@ -82,6 +83,17 @@ class _UserProfilePageState extends State<UserProfilePage> {
               child: const profile_list_widget(
                 icon: Icons.rate_review,
                 text: 'ratings and reviews',
+              ),
+            ),
+            CustomSizedBoxHeight(0.03),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(FadeTransitionPageRoute(
+                    child: const RevenueShowingScreen()));
+              },
+              child: const profile_list_widget(
+                icon: Icons.attach_money_rounded,
+                text: 'wallet',
               ),
             )
           ])));
