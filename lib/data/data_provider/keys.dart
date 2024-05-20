@@ -37,4 +37,5 @@ class Referencekeys {
   static String userName = 'userName';
   static String money = 'money';
   static String todaysDate = 'todaysDate';
+  static String rateAndReview = 'rateAndReview';
 }
