@@ -1,7 +1,7 @@
 part of 'interior_service_bloc.dart';
 
 sealed class InteriorServiceUpdationState {
-  Map<String, dynamic> servicesFromFirebase = {};
+  List<dynamic> servicesFromFirebase = [];
   InteriorServiceUpdationState({required this.servicesFromFirebase});
 }
 

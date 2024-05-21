@@ -44,20 +44,17 @@ class InteriorUpdationState extends State<InteriorUpdation> {
                     itemCount: state.servicesFromFirebase.length + 1,
                     itemBuilder: (context, index) {
                       if (index < state.servicesFromFirebase.length) {
-                        List<dynamic> values =
-                            state.servicesFromFirebase.values.toList();
-                        List<String> keys =
-                            state.servicesFromFirebase.keys.toList();
+                        List<dynamic> keys = state.servicesFromFirebase;
                         return CustomServiceCard(
                           eventType: 'interior',
                           onPressed: () {
-                            context.read<InteriorServiceUpdationBloc>().add(
-                                InteriorEnableButtonPressedUpdation(
-                                    serviceName: keys[index],
-                                    serviceRate: values[index]));
+                            context
+                                .read<InteriorServiceUpdationBloc>()
+                                .add(InteriorEnableButtonPressedUpdation(
+                                  serviceName: keys[index],
+                                ));
                           },
                           texts: keys[index],
-                          rate: values[index],
                         );
                       } else {
                         return Padding(

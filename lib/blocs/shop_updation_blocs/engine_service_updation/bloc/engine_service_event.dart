@@ -6,18 +6,14 @@ class FetchDatatoEngineServicePage extends EngineServiceUpdationEvent {}
 
 class EngineServiceUpdationAddingPressed extends EngineServiceUpdationEvent {
   final String serviceName;
-  final dynamic serviceRate;
 
-  EngineServiceUpdationAddingPressed(
-      {required this.serviceName, required this.serviceRate});
+  EngineServiceUpdationAddingPressed({required this.serviceName});
 }
 
 class EngineServiceUpdationSavePressed extends EngineServiceUpdationEvent {}
 
 class EngineEnableButtonPressedUpdation extends EngineServiceUpdationEvent {
   final String serviceName;
-  final dynamic serviceRate;
 
-  EngineEnableButtonPressedUpdation(
-      {required this.serviceName, required this.serviceRate});
+  EngineEnableButtonPressedUpdation({required this.serviceName});
 }

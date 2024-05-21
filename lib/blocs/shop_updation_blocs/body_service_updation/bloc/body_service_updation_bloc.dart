@@ -11,7 +11,7 @@ part 'body_service_updation_state.dart';
 class BodyServiceUpdationBloc
     extends Bloc<BodyServiceUpdationEvent, BodyServiceUpdationState> {
   BodyServiceUpdationBloc()
-      : super(BodyServiceUpdationInitial(servicesFromFirebase: {})) {
+      : super(BodyServiceUpdationInitial(servicesFromFirebase: [])) {
     on<FetchDatatoBodyServicePage>(fetchBodyServiceFromFireBase);
     on<BodyServiceUpdationAddingPressed>(serviceupdationaddingbuttonpressed);
     on<BodyServiceUpdationSavePressed>(bodyServiceUpdationSavePressed);
@@ -22,8 +22,7 @@ class BodyServiceUpdationBloc
     try {
       final collection = await CurrentShopCollection().currentShopCollections();
       final shopData = collection;
-      final Map<String, dynamic> fromFireBase =
-          shopData[Referencekeys.bodyservicemap];
+      final List<dynamic> fromFireBase = shopData[Referencekeys.bodyservicemap];
       emit(BodyServiceUpdationInitial(servicesFromFirebase: fromFireBase));
     } catch (e) {
       print(e);
@@ -33,12 +32,12 @@ class BodyServiceUpdationBloc
   serviceupdationaddingbuttonpressed(BodyServiceUpdationAddingPressed event,
       Emitter<BodyServiceUpdationState> emit) async {
     try {
-      Map<String, dynamic> cardTexts = {};
-      if (cardTexts.containsKey(event.serviceName)) {
+      List<dynamic> cardText = [];
+      if (cardText.contains(event.serviceName)) {
         print('value already exist');
       } else {
-        cardTexts.putIfAbsent(event.serviceName, () => event.serviceRate);
-        state.servicesFromFirebase.addAll(cardTexts);
+        cardText.add(event.serviceName);
+        state.servicesFromFirebase.addAll(cardText);
         emit(BodyServiceUpdationInitial(
             servicesFromFirebase: state.servicesFromFirebase));
       }
@@ -62,10 +61,14 @@ class BodyServiceUpdationBloc
       if (snapshot.docs.isNotEmpty) {
         final docId = snapshot.docs.first.id;
         final existingData = snapshot.docs.first.data();
-        final existingMap = existingData[Referencekeys.bodyservicemap];
-        final updatedMap = Map<String, dynamic>.from(existingMap)
-          ..addAll(state.servicesFromFirebase);
-        existingData[Referencekeys.bodyservicemap] = updatedMap;
+        final existingSet = Set.from(existingData[
+            Referencekeys.bodyservicemap]); // Assuming existingData is a map
+        final serviceSet = Set.from(state
+            .servicesFromFirebase); // Convert servicesFromFirebase to a set
+        final updatedSet = {...existingSet, ...serviceSet};
+        existingData[Referencekeys.bodyservicemap] = updatedSet
+            .toList(); // Update existingData with the merged set converted back to a list
+
         await ShopreferenceId()
             .shopCollectionReference()
             .doc(docId)
@@ -79,26 +82,30 @@ class BodyServiceUpdationBloc
 
   enableButtonPressed(BodyEnableButtonPressedUpdation event,
       Emitter<BodyServiceUpdationState> emit) async {
-    Map<String, dynamic> carryingNow = {...state.servicesFromFirebase};
+    List<dynamic> carryingNow = [...state.servicesFromFirebase];
     carryingNow.remove(event.serviceName);
     emit(BodyServiceUpdationInitial(servicesFromFirebase: carryingNow));
+
     final pref = await SharedPreferences.getInstance();
     final phone = pref.getString(Referencekeys.shopPhone);
     if (phone == null || phone.isEmpty) {
       return;
     }
+
     final collection = ShopreferenceId()
         .shopCollectionReference()
         .where(Referencekeys.phone, isEqualTo: phone);
     final snapshot = await collection.get();
+
     if (snapshot.docs.isNotEmpty) {
       final docId = snapshot.docs.first.id;
       final existingData = snapshot.docs.first.data();
-      final existingMap =
-          Map<String, dynamic>.from(existingData[Referencekeys.bodyservicemap]);
-      existingMap.remove(event.serviceName);
+      List<dynamic> existingList =
+          List<dynamic>.from(existingData[Referencekeys.bodyservicemap]);
+      existingList.remove(event.serviceName);
+
       await ShopreferenceId().shopCollectionReference().doc(docId).update({
-        Referencekeys.bodyservicemap: existingMap,
+        Referencekeys.bodyservicemap: existingList,
       });
 
       print('removed');

@@ -6,18 +6,14 @@ class FetchDatatoInteriorServicePage extends InteriorServiceEvent {}
 
 class InteriorServiceUpdationAddingPressed extends InteriorServiceEvent {
   final String serviceName;
-  final dynamic serviceRate;
 
-  InteriorServiceUpdationAddingPressed(
-      {required this.serviceName, required this.serviceRate});
+  InteriorServiceUpdationAddingPressed({required this.serviceName});
 }
 
 class InteriorServiceUpdationSavePressed extends InteriorServiceEvent {}
 
 class InteriorEnableButtonPressedUpdation extends InteriorServiceEvent {
   final String serviceName;
-  final dynamic serviceRate;
 
-  InteriorEnableButtonPressedUpdation(
-      {required this.serviceName, required this.serviceRate});
+  InteriorEnableButtonPressedUpdation({required this.serviceName});
 }

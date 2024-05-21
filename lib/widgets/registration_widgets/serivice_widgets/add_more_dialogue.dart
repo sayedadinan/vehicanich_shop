@@ -13,7 +13,6 @@ void showAddMoreDialog(
   String eventType,
 ) {
   final TextEditingController serviceNameController = TextEditingController();
-  final TextEditingController serviceRateController = TextEditingController();
   final GlobalKey<FormState> signupKey = GlobalKey<FormState>();
 
   showDialog(
@@ -41,15 +40,6 @@ void showAddMoreDialog(
                 label: 'service',
               ),
               SizedBox(height: Mymediaquery().mediaqueryheight(0.01, context)),
-              Inputfield(
-                maxlength: 5,
-                keyboardType: TextInputType.number,
-                validator: (value) => Validators().validateNumericInput(value),
-                controller: serviceRateController,
-                hinttext: 'Give your services',
-                label: 'rate',
-              ),
-              SizedBox(height: Mymediaquery().mediaqueryheight(0.01, context)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -57,21 +47,11 @@ void showAddMoreDialog(
                     onPressed: () {
                       if (signupKey.currentState!.validate()) {
                         String serviceName = serviceNameController.text;
-                        int serviceRate = int.parse(serviceRateController.text);
                         switch (eventType) {
-                          // case 'body':
-                          //   bloc.add(
-                          //     BodyServiceAddingButtonPressed(
-                          //       newservicename: serviceName,
-                          //       serviceRate: serviceRate,
-                          //     ),
-                          //   );
-                          //   break;
                           case 'interior':
                             bloc.add(
                               InteriorServiceUpdationAddingPressed(
                                 serviceName: serviceName,
-                                serviceRate: serviceRate,
                               ),
                             );
                             break;
@@ -79,18 +59,15 @@ void showAddMoreDialog(
                             bloc.add(
                               EngineServiceUpdationAddingPressed(
                                 serviceName: serviceName,
-                                serviceRate: serviceRate,
                               ),
                             );
                             break;
                           case 'body updation':
                             bloc.add(BodyServiceUpdationAddingPressed(
-                                serviceName: serviceName,
-                                serviceRate: serviceRate));
+                              serviceName: serviceName,
+                            ));
                         }
                         serviceNameController.clear();
-                        serviceRateController.clear();
-                        print('object');
                         Navigator.pop(context);
                       }
                     },

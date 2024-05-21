@@ -44,20 +44,17 @@ class EngineUpdationState extends State<EngineUpdation> {
                     itemCount: state.servicesFromFirebase.length + 1,
                     itemBuilder: (context, index) {
                       if (index < state.servicesFromFirebase.length) {
-                        List<dynamic> values =
-                            state.servicesFromFirebase.values.toList();
-                        List<String> keys =
-                            state.servicesFromFirebase.keys.toList();
+                        List<dynamic> keys = state.servicesFromFirebase;
                         return CustomServiceCard(
                           eventType: 'engine',
                           onPressed: () {
-                            context.read<EngineServiceUpdationBloc>().add(
-                                EngineEnableButtonPressedUpdation(
-                                    serviceName: keys[index],
-                                    serviceRate: values[index]));
+                            context
+                                .read<EngineServiceUpdationBloc>()
+                                .add(EngineEnableButtonPressedUpdation(
+                                  serviceName: keys[index],
+                                ));
                           },
                           texts: keys[index],
-                          rate: values[index],
                         );
                       } else {
                         return Padding(

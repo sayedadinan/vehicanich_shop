@@ -9,14 +9,12 @@ import 'package:vehicanich_shop/utils/mediaquery.dart';
 
 class CustomServiceCard extends StatelessWidget {
   final String texts;
-  final dynamic rate;
   final VoidCallback onPressed;
   final String eventType;
 
   const CustomServiceCard({
     super.key,
     required this.texts,
-    required this.rate,
     required this.onPressed,
     required this.eventType,
   });
@@ -124,18 +122,6 @@ class CustomServiceCard extends StatelessWidget {
                 ),
                 iconButton,
                 SizedBox(width: Mymediaquery().mediaquerywidth(0.03, context)),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4),
-                    color: Appallcolor().colorwhite,
-                    border: Border.all(
-                      color: Appallcolor().buttonforgroundcolor,
-                    ),
-                  ),
-                  width: Mymediaquery().mediaquerywidth(0.17, context),
-                  height: Mymediaquery().mediaqueryheight(0.03, context),
-                  child: Center(child: Text(rate.toString())),
-                )
               ],
             ),
           ),

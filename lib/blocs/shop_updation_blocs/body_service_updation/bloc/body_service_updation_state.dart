@@ -1,7 +1,7 @@
 part of 'body_service_updation_bloc.dart';
 
 sealed class BodyServiceUpdationState {
-  Map<String, dynamic> servicesFromFirebase = {};
+  List<dynamic> servicesFromFirebase;
   BodyServiceUpdationState({required this.servicesFromFirebase});
 }
 

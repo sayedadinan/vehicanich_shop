@@ -6,18 +6,14 @@ class FetchDatatoBodyServicePage extends BodyServiceUpdationEvent {}
 
 class BodyServiceUpdationAddingPressed extends BodyServiceUpdationEvent {
   final String serviceName;
-  final dynamic serviceRate;
 
-  BodyServiceUpdationAddingPressed(
-      {required this.serviceName, required this.serviceRate});
+  BodyServiceUpdationAddingPressed({required this.serviceName});
 }
 
 class BodyServiceUpdationSavePressed extends BodyServiceUpdationEvent {}
 
 class BodyEnableButtonPressedUpdation extends BodyServiceUpdationEvent {
   final String serviceName;
-  final dynamic serviceRate;
 
-  BodyEnableButtonPressedUpdation(
-      {required this.serviceName, required this.serviceRate});
+  BodyEnableButtonPressedUpdation({required this.serviceName});
 }
