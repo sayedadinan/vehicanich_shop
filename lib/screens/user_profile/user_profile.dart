@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/blocs/user_profile_bloc/bloc/user_profile_bloc.dart';
 import 'package:vehicanich_shop/blocs/user_profile_bloc/profile_image/bloc/image_updation_bloc.dart';
@@ -60,7 +59,9 @@ class _UserProfilePageState extends State<UserProfilePage> {
             CustomSizedBoxHeight(0.02),
             const edit_button(),
             CustomSizedBoxHeight(0.02),
-            const Divider(),
+            const Divider(
+              color: Colors.transparent,
+            ),
             CustomSizedBoxHeight(0.02),
             const profile_list_widget(
               icon: Icons.settings,
