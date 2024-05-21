@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vehicanich_shop/blocs/payment/revenue_bloc/bloc/revenue_bloc.dart';
+import 'package:vehicanich_shop/blocs/wallet/revenue_bloc/bloc/revenue_bloc.dart';
 import 'package:vehicanich_shop/data/data_provider/keys.dart';
 import 'package:vehicanich_shop/data/data_provider/shop_reference.dart';
 import 'package:vehicanich_shop/data/repositories/shop_data_repositery.dart';

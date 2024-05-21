@@ -5,7 +5,7 @@ import 'package:vehicanich_shop/blocs/bottom_nav_blocs/bloc/bottom_nav_bloc.dart
 import 'package:vehicanich_shop/blocs/current_status_/bloc/current_status_bloc.dart';
 import 'package:vehicanich_shop/blocs/login_bloc/login_bloc.dart';
 import 'package:vehicanich_shop/blocs/onboarding_bloc/onboarding_bloc.dart';
-import 'package:vehicanich_shop/blocs/payment/revenue_bloc/bloc/revenue_bloc.dart';
+import 'package:vehicanich_shop/blocs/wallet/revenue_bloc/bloc/revenue_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/closingtime_blocs/bloc/closingtime_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/image_blocs/image_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/location_bloc/location_bloc.dart';
@@ -20,7 +20,7 @@ import 'package:vehicanich_shop/blocs/shop_updation_blocs/body_service_updation/
 import 'package:vehicanich_shop/blocs/shop_updation_blocs/engine_service_updation/bloc/engine_service_bloc.dart';
 import 'package:vehicanich_shop/blocs/shop_updation_blocs/time_updation_bloc/closing_time/closing_updation_bloc.dart';
 import 'package:vehicanich_shop/blocs/shop_updation_blocs/time_updation_bloc/starting_time/starting_time_updation_bloc.dart';
-import 'package:vehicanich_shop/blocs/payment/total_bill_bloc/bloc/total_bill_bloc.dart';
+import 'package:vehicanich_shop/blocs/wallet/total_bill_bloc/bloc/total_bill_bloc.dart';
 import 'package:vehicanich_shop/blocs/user_profile_bloc/bloc/user_profile_bloc.dart';
 import 'package:vehicanich_shop/blocs/user_profile_bloc/profile_image/bloc/image_updation_bloc.dart';
 import 'package:vehicanich_shop/firebase_options.dart';

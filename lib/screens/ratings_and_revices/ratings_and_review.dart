@@ -5,11 +5,10 @@ import 'package:vehicanich_shop/data/data_provider/keys.dart';
 import 'package:vehicanich_shop/data/data_provider/shop_reference.dart';
 import 'package:vehicanich_shop/data/repositories/shop_data_repositery.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
-import 'package:vehicanich_shop/utils/app_fonts.dart';
 import 'package:vehicanich_shop/utils/app_loadingindicator.dart';
 import 'package:vehicanich_shop/utils/app_sizedbox.dart';
 import 'package:vehicanich_shop/utils/app_text.dart';
-import 'package:vehicanich_shop/utils/mediaquery.dart';
+import 'package:vehicanich_shop/widgets/ratings_and_review/review_showing_card.dart';
 
 class RatingsAndReviews extends StatelessWidget {
   const RatingsAndReviews({super.key});
@@ -59,46 +58,7 @@ class RatingsAndReviews extends StatelessWidget {
                 );
               } else {
                 final bookingDetails = snapshot.data!.docs;
-                return ListView.builder(
-                  itemCount: bookingDetails.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Card(
-                        color: Appallcolor().appbarbackgroundcolor,
-                        child: Container(
-                          height:
-                              Mymediaquery().mediaqueryheight(0.08, context),
-                          width: Mymediaquery().mediaquerywidth(0.33, context),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              CustomSizedBoxHeight(0.01),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    left: Mymediaquery()
-                                        .mediaquerywidth(0.05, context)),
-                                child: AppText(
-                                    text: 'Adnan',
-                                    size: 0.03,
-                                    fontFamily: AppFonts.headText),
-                              ),
-                              CustomSizedBoxHeight(0.01),
-                              const Divider(
-                                endIndent: 20,
-                                indent: 20,
-                              ),
-                              // SizedBox(
-                              //   child: Text(
-                              //       'Excellent service! The staff was incredibly helpful and knowledgeable. I was pleasantly surprised by the efficiency and professionalism. Definitely recommend it to everyone!'),
-                              // )
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                );
+                return ReviewShowingCard(bookingDetails: bookingDetails);
               }
             }));
   }
