@@ -39,6 +39,6 @@ class Referencekeys {
   static String todaysDate = 'todaysDate';
   static String rateAndReview = 'rateAndReview';
   static String feedback = 'feedback';
-  static String ratingCount = 'ratingCount';
+  static String ratingCount = 'ratinCount';
   static String reviewerName = 'reviewerName';
 }
