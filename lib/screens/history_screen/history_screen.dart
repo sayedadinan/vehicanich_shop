@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:vehicanich_shop/data/data_provider/keys.dart';
 import 'package:vehicanich_shop/data/data_provider/shop_booking_ref.dart';
 import 'package:vehicanich_shop/utils/app_bar_text.dart';
@@ -45,9 +44,9 @@ class HistoryScreen extends StatelessWidget {
                   Center(
                     child: Image.asset('assets/images/urban-842.png'),
                   ),
-                  Text(
+                  const Text(
                     'There is no previous bookings',
-                    style: GoogleFonts.aclonica().copyWith(
+                    style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
                     ),

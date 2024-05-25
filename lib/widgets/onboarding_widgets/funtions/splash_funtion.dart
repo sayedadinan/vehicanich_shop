@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vehicanich_shop/data/data_provider/keys.dart';
@@ -7,24 +8,22 @@ import 'package:vehicanich_shop/screens/onboarding_screen/login_or_sign.dart';
 import 'package:vehicanich_shop/screens/waiting_screen/rejected_screen.dart';
 import 'package:vehicanich_shop/screens/waiting_screen/waiting_screen.dart';
 import 'package:vehicanich_shop/utils/bottom_navigation/bottom_list.dart';
-import 'package:vehicanich_shop/utils/page_transition/page_fade_transition.dart';
 
 Future<void> checkingforsplash(context) async {
-  print('worked');
+  log('worked');
   SharedPreferences prefs = await SharedPreferences.getInstance();
   final data = prefs.getString(Referencekeys.shopPhone);
-  print('this phone for $data');
+  log('this phone for $data');
   await Future.delayed(const Duration(seconds: 2));
-
   if (data == null) {
-    print('data null worked');
+    log('data null worked');
     Navigator.of(context).pushAndRemoveUntil(
       MaterialPageRoute(builder: (context) => const LoginOrsign()),
       (Route<dynamic> route) => false,
     );
     return;
   } else if (data.isEmpty) {
-    print('data isEmpty worked');
+    log('data isEmpty worked');
     Navigator.of(context).pushAndRemoveUntil(
       MaterialPageRoute(builder: (context) => const LoginScreen()),
       (Route<dynamic> route) => false,
@@ -38,22 +37,29 @@ userRegisteredOrNotChecking(String phone, context) async {
   final collection = ShopreferenceId()
       .shopCollectionReference()
       .where(Referencekeys.phone, isEqualTo: phone);
-  print('this is from splash $collection');
+  log('this is from splash $collection');
   final snapshot = await collection.get();
   if (snapshot.docs.isNotEmpty) {
     final existingData = snapshot.docs.first.data();
     if (existingData[Referencekeys.isApproved]) {
-      print('accepted');
-      Navigator.of(context).push(FadeTransitionPageRoute(child: BottomBar()));
+      log('accepted');
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => BottomBar()),
+        (Route<dynamic> route) => false,
+      );
       return;
     } else if (existingData[Referencekeys.isRejected]) {
-      print('rejected');
-      Navigator.of(context)
-          .push(FadeTransitionPageRoute(child: const RejectedScreen()));
+      log('rejected');
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const RejectedScreen()),
+        (Route<dynamic> route) => false,
+      );
     } else if (!existingData[Referencekeys.isApproved]) {
-      print('nothing');
-      Navigator.of(context)
-          .push(FadeTransitionPageRoute(child: const WaitingScreen()));
+      log('nothing');
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const WaitingScreen()),
+        (Route<dynamic> route) => false,
+      );
     }
   }
 }

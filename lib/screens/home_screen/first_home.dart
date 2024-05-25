@@ -29,7 +29,7 @@ class FirstHomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomSizedBoxHeight(0.03),
-            CustomSearchField(),
+            CustomSearchFieldForHome(),
             CustomSizedBoxHeight(0.03),
             const Current_status_containers(),
             CustomSizedBoxHeight(0.04),

@@ -36,7 +36,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
       body: BlocBuilder<UserProfileBloc, UserProfileState>(
         builder: (context, state) {
           return SingleChildScrollView(
-              child: Container(
+              child: SizedBox(
                   child: Column(children: [
             CustomSizedBoxHeight(0.03),
             SizedBox(
@@ -59,14 +59,8 @@ class _UserProfilePageState extends State<UserProfilePage> {
             CustomSizedBoxHeight(0.02),
             const edit_button(),
             CustomSizedBoxHeight(0.02),
-            const Divider(
-              color: Colors.transparent,
-            ),
+            const Divider(),
             CustomSizedBoxHeight(0.02),
-            const profile_list_widget(
-              icon: Icons.settings,
-              text: 'settings',
-            ),
             CustomSizedBoxHeight(0.03),
             GestureDetector(
                 onTap: () {
@@ -96,7 +90,12 @@ class _UserProfilePageState extends State<UserProfilePage> {
                 icon: Icons.attach_money_rounded,
                 text: 'wallet',
               ),
-            )
+            ),
+            CustomSizedBoxHeight(0.03),
+            const profile_list_widget(
+              icon: Icons.logout,
+              text: 'log out',
+            ),
           ])));
         },
       ),

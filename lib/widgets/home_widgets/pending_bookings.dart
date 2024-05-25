@@ -13,7 +13,7 @@ class PendingBookingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       child: StreamBuilder(
         stream: BookingReference()
             .allBookingDetails()
