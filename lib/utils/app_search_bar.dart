@@ -30,11 +30,11 @@ class CustomSearchField extends StatelessWidget {
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.0),
-            borderSide: BorderSide(color: Colors.white, width: 1.0),
+            borderSide: const BorderSide(color: Colors.white, width: 1.0),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.0),
-            borderSide: BorderSide(color: Colors.white, width: 1.0),
+            borderSide: const BorderSide(color: Colors.white, width: 1.0),
           ),
         ),
       ),
