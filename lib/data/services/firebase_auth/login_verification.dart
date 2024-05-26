@@ -1,4 +1,8 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vehicanich_shop/data/data_provider/shop_reference.dart';
 import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
 
@@ -20,8 +24,14 @@ class LoginVerification {
       }
       return 'Login successful';
     } catch (error) {
-      print('Error verifying login details: $error');
+      log('Error verifying login details: $error');
       return 'An error occurred';
     }
+  }
+
+  userLogoutfun() async {
+    await FirebaseAuth.instance.signOut();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
   }
 }

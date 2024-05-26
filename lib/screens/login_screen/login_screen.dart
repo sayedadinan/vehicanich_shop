@@ -9,17 +9,19 @@ import 'package:vehicanich_shop/utils/app_google_button.dart';
 import 'package:vehicanich_shop/utils/app_loadingindicator.dart';
 import 'package:vehicanich_shop/utils/app_sizedbox.dart';
 import 'package:vehicanich_shop/utils/app_textfields.dart';
+import 'package:vehicanich_shop/utils/app_validators.dart';
+import 'package:vehicanich_shop/utils/bottom_navigation/bottom_list.dart';
+import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 import 'package:vehicanich_shop/widgets/login_screen_widgets/custom_divider.dart';
 import 'package:vehicanich_shop/widgets/login_screen_widgets/forgot_button.dart';
 import 'package:vehicanich_shop/widgets/login_screen_widgets/login_screen_texts.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
+  LoginScreen({super.key});
+  final GlobalKey<FormState> loginKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> loginKey = GlobalKey<FormState>();
     return BlocListener<LoginBloc, LoginBlocState>(
         listener: (context, state) {
           if (state is LoginLoading) {
@@ -38,8 +40,7 @@ class LoginScreen extends StatelessWidget {
           if (state is LoginSuccess) {
             Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => const ForgotPasswordScreen()),
+                MaterialPageRoute(builder: (context) => BottomBar()),
                 (route) => false);
           }
         },
@@ -50,16 +51,21 @@ class LoginScreen extends StatelessWidget {
               key: loginKey,
               child: Column(
                 children: [
-                  CustomSizedBoxHeight(0.02),
+                  CustomSizedBoxHeight(0.20),
                   const LoginScreenMainText(),
                   CustomSizedBoxHeight(0.05),
-                  const Inputfield(
-                    hinttext: 'Enter your email',
+                  Inputfield(
+                    controller: loginphonecontroller,
+                    hinttext: 'Enter your phone',
+                    validator: (value) =>
+                        Validators().validatePhoneNumber(value),
                   ),
                   CustomSizedBoxHeight(0.02),
-                  const Inputfield(
-                    icon: Icon(Icons.remove_red_eye_outlined),
+                  Inputfield(
+                    controller: loginpasswordcontroller,
+                    icon: const Icon(Icons.remove_red_eye_outlined),
                     hinttext: 'Enter your password',
+                    validator: (value) => Validators().validatePassword(value),
                   ),
                   CustomSizedBoxHeight(0.01),
                   Forgetbutton(
@@ -68,7 +74,11 @@ class LoginScreen extends StatelessWidget {
                   ),
                   CustomSizedBoxHeight(0.06),
                   CustomButton(
-                    function: () {},
+                    function: () {
+                      context
+                          .read<LoginBloc>()
+                          .add(LoginScreenButtonPressed(formkey: loginKey));
+                    },
                     buttontextcolor: Appallcolor().colorwhite,
                     text: 'Login',
                     fontSize: Mymediaquery().mediaqueryheight(0.02, context),

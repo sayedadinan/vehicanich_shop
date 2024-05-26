@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/blocs/user_profile_bloc/bloc/user_profile_bloc.dart';
 import 'package:vehicanich_shop/blocs/user_profile_bloc/profile_image/bloc/image_updation_bloc.dart';
+import 'package:vehicanich_shop/data/services/firebase_auth/login_verification.dart';
+import 'package:vehicanich_shop/screens/onboarding_screen/login_or_sign.dart';
 import 'package:vehicanich_shop/screens/ratings_and_revices/ratings_and_review.dart';
 import 'package:vehicanich_shop/screens/revenue_screen/revenue_screen.dart';
 import 'package:vehicanich_shop/screens/shop_details/shop_details_showing.dart';
@@ -92,9 +95,18 @@ class _UserProfilePageState extends State<UserProfilePage> {
               ),
             ),
             CustomSizedBoxHeight(0.03),
-            const profile_list_widget(
-              icon: Icons.logout,
-              text: 'log out',
+            GestureDetector(
+              onTap: () async {
+                await LoginVerification().userLogoutfun();
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => const LoginOrsign()),
+                  (Route<dynamic> route) => false,
+                );
+              },
+              child: const profile_list_widget(
+                icon: Icons.logout,
+                text: 'log out',
+              ),
             ),
           ])));
         },

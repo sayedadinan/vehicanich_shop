@@ -25,7 +25,7 @@ Future<void> checkingforsplash(context) async {
   } else if (data.isEmpty) {
     log('data isEmpty worked');
     Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(builder: (context) => const LoginScreen()),
+      MaterialPageRoute(builder: (context) => LoginScreen()),
       (Route<dynamic> route) => false,
     );
   } else {
