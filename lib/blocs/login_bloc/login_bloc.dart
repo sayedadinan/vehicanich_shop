@@ -33,6 +33,7 @@ class LoginBloc extends Bloc<LoginBlocEvent, LoginBlocState> {
 
   loginScreenButtonPressed(
       LoginScreenButtonPressed event, Emitter<LoginBlocState> emit) async {
+    emit(LoginLoading());
     if (event.formkey.currentState!.validate()) {
       final connectivity = await Connectivity().checkConnectivity();
       if (connectivity.contains(ConnectivityResult.none)) {
@@ -44,7 +45,7 @@ class LoginBloc extends Bloc<LoginBlocEvent, LoginBlocState> {
           .where("phone", isEqualTo: loginphonecontroller.text)
           .get();
       if (shopDetailsCollection.docs.isEmpty) {
-        emit(LoginError(error: 'user is not registers'));
+        emit(LoginError(error: 'some thing went wrong'));
         return;
       } else {
         final data = shopDetailsCollection.docs.first;
@@ -55,7 +56,7 @@ class LoginBloc extends Bloc<LoginBlocEvent, LoginBlocState> {
           log('successfully login');
           emit(LoginSuccess());
         } else {
-          emit(LoginError(error: 'user is not register'));
+          emit(LoginError(error: 'some thing went wrong'));
         }
       }
       // }
