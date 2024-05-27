@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:vehicanich_shop/data/services/connectivity/internet_connection.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
+import 'package:vehicanich_shop/widgets/connectivity_widget/connectivity_screen.dart';
 import 'package:vehicanich_shop/widgets/home_widgets/progress_page.dart';
 import 'package:vehicanich_shop/widgets/home_widgets/pending_bookings.dart';
 
@@ -40,10 +42,17 @@ class HomeScreen extends StatelessWidget {
               unselectedLabelColor: Appallcolor().colorwhite,
             ),
           ),
-          body: const TabBarView(children: [
-            PendingBookingScreen(),
-            ProgresScreen(),
-          ])),
+          body: StreamBuilder(
+              stream: checkInternetConnection(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData || !snapshot.data!) {
+                  return const ConnectivityWidget();
+                }
+                return const TabBarView(children: [
+                  PendingBookingScreen(),
+                  ProgresScreen(),
+                ]);
+              })),
     );
   }
 }

@@ -56,8 +56,8 @@ class CustomContainerForFirstHome extends StatelessWidget {
   }
 }
 
-class Current_status_containers extends StatelessWidget {
-  const Current_status_containers({
+class CurrentStatusContainer extends StatelessWidget {
+  const CurrentStatusContainer({
     super.key,
   });
 

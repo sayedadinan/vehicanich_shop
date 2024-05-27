@@ -89,6 +89,7 @@ flutter:
     - assets/images/car for vehicanich.webp
     - assets/images/urban-842.png
     - assets/images/error_image.png
+    - assets/images/none_networkImage.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

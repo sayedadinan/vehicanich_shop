@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/blocs/user_profile_bloc/bloc/user_profile_bloc.dart';
 import 'package:vehicanich_shop/blocs/user_profile_bloc/profile_image/bloc/image_updation_bloc.dart';
+import 'package:vehicanich_shop/data/services/connectivity/internet_connection.dart';
 import 'package:vehicanich_shop/data/services/firebase_auth/login_verification.dart';
 import 'package:vehicanich_shop/screens/onboarding_screen/login_or_sign.dart';
 import 'package:vehicanich_shop/screens/ratings_and_revices/ratings_and_review.dart';
@@ -13,6 +14,7 @@ import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_sizedbox.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 import 'package:vehicanich_shop/utils/page_transition/page_fade_transition.dart';
+import 'package:vehicanich_shop/widgets/connectivity_widget/connectivity_screen.dart';
 import 'package:vehicanich_shop/widgets/profile_widgets/edit_button_.dart';
 import 'package:vehicanich_shop/widgets/profile_widgets/profile_screen_list.dart';
 
@@ -36,81 +38,92 @@ class _UserProfilePageState extends State<UserProfilePage> {
     return Scaffold(
       appBar: const CustomAppBar(titleText: 'Profile'),
       backgroundColor: Appallcolor().appbackgroundcolor,
-      body: BlocBuilder<UserProfileBloc, UserProfileState>(
-        builder: (context, state) {
-          return SingleChildScrollView(
-              child: SizedBox(
-                  child: Column(children: [
-            CustomSizedBoxHeight(0.03),
-            SizedBox(
-                width: Mymediaquery().mediaquerywidth(0.29, context),
-                height: Mymediaquery().mediaqueryheight(0.12, context),
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.network(state.shopImage, fit: BoxFit.fill))),
-            CustomSizedBoxHeight(0.02),
-            Text(state.userName,
-                style: TextStyle(
-                    color: Appallcolor().colorwhite,
-                    fontWeight: FontWeight.w600,
-                    fontSize: Mymediaquery().mediaquerywidth(0.05, context))),
-            Text(state.email,
-                style: TextStyle(
-                    color: Appallcolor().colorwhite,
-                    fontWeight: FontWeight.w400,
-                    fontSize: Mymediaquery().mediaquerywidth(0.04, context))),
-            CustomSizedBoxHeight(0.02),
-            const edit_button(),
-            CustomSizedBoxHeight(0.02),
-            const Divider(),
-            CustomSizedBoxHeight(0.02),
-            CustomSizedBoxHeight(0.03),
-            GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                      FadeTransitionPageRoute(child: const ShopDetailPage()));
-                },
-                child: const profile_list_widget(
-                    icon: Icons.shop, text: 'shop details')),
-            CustomSizedBoxHeight(0.03),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(
-                    FadeTransitionPageRoute(child: const RatingsAndReviews()));
+      body: StreamBuilder(
+          stream: checkInternetConnection(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData || !snapshot.data!) {
+              return const ConnectivityWidget();
+            }
+            return BlocBuilder<UserProfileBloc, UserProfileState>(
+              builder: (context, state) {
+                return SingleChildScrollView(
+                    child: SizedBox(
+                        child: Column(children: [
+                  CustomSizedBoxHeight(0.03),
+                  SizedBox(
+                      width: Mymediaquery().mediaquerywidth(0.29, context),
+                      height: Mymediaquery().mediaqueryheight(0.12, context),
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100),
+                          child: Image.network(state.shopImage,
+                              fit: BoxFit.fill))),
+                  CustomSizedBoxHeight(0.02),
+                  Text(state.userName,
+                      style: TextStyle(
+                          color: Appallcolor().colorwhite,
+                          fontWeight: FontWeight.w600,
+                          fontSize:
+                              Mymediaquery().mediaquerywidth(0.05, context))),
+                  Text(state.email,
+                      style: TextStyle(
+                          color: Appallcolor().colorwhite,
+                          fontWeight: FontWeight.w400,
+                          fontSize:
+                              Mymediaquery().mediaquerywidth(0.04, context))),
+                  CustomSizedBoxHeight(0.02),
+                  const edit_button(),
+                  CustomSizedBoxHeight(0.02),
+                  const Divider(),
+                  CustomSizedBoxHeight(0.02),
+                  CustomSizedBoxHeight(0.03),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(FadeTransitionPageRoute(
+                            child: const ShopDetailPage()));
+                      },
+                      child: const profile_list_widget(
+                          icon: Icons.shop, text: 'shop details')),
+                  CustomSizedBoxHeight(0.03),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(FadeTransitionPageRoute(
+                          child: const RatingsAndReviews()));
+                    },
+                    child: const profile_list_widget(
+                      icon: Icons.rate_review,
+                      text: 'ratings and reviews',
+                    ),
+                  ),
+                  CustomSizedBoxHeight(0.03),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(FadeTransitionPageRoute(
+                          child: const RevenueShowingScreen()));
+                    },
+                    child: const profile_list_widget(
+                      icon: Icons.attach_money_rounded,
+                      text: 'wallet',
+                    ),
+                  ),
+                  CustomSizedBoxHeight(0.03),
+                  GestureDetector(
+                    onTap: () async {
+                      await LoginVerification().userLogoutfun();
+                      Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                            builder: (context) => const LoginOrsign()),
+                        (Route<dynamic> route) => false,
+                      );
+                    },
+                    child: const profile_list_widget(
+                      icon: Icons.logout,
+                      text: 'log out',
+                    ),
+                  ),
+                ])));
               },
-              child: const profile_list_widget(
-                icon: Icons.rate_review,
-                text: 'ratings and reviews',
-              ),
-            ),
-            CustomSizedBoxHeight(0.03),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(FadeTransitionPageRoute(
-                    child: const RevenueShowingScreen()));
-              },
-              child: const profile_list_widget(
-                icon: Icons.attach_money_rounded,
-                text: 'wallet',
-              ),
-            ),
-            CustomSizedBoxHeight(0.03),
-            GestureDetector(
-              onTap: () async {
-                await LoginVerification().userLogoutfun();
-                Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => const LoginOrsign()),
-                  (Route<dynamic> route) => false,
-                );
-              },
-              child: const profile_list_widget(
-                icon: Icons.logout,
-                text: 'log out',
-              ),
-            ),
-          ])));
-        },
-      ),
+            );
+          }),
     );
   }
 }
