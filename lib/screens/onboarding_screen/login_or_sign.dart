@@ -50,7 +50,7 @@ class LoginOrsign extends StatelessWidget {
                   const Loginorsigntext(),
                   CustomSizedBoxHeight(0.1),
                   CustomButton(
-                    buttontextcolor: Appallcolor().colorwhite,
+                    buttontextcolor: Appallcolor().colorblack,
                     text: 'Login',
                     function: () => context
                         .read<OnboardingBloc>()

@@ -1,16 +1,16 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/blocs/user_profile_bloc/bloc/user_profile_bloc.dart';
 import 'package:vehicanich_shop/blocs/user_profile_bloc/profile_image/bloc/image_updation_bloc.dart';
 import 'package:vehicanich_shop/data/services/connectivity/internet_connection.dart';
 import 'package:vehicanich_shop/data/services/firebase_auth/login_verification.dart';
-import 'package:vehicanich_shop/screens/onboarding_screen/login_or_sign.dart';
 import 'package:vehicanich_shop/screens/ratings_and_revices/ratings_and_review.dart';
 import 'package:vehicanich_shop/screens/revenue_screen/revenue_screen.dart';
 import 'package:vehicanich_shop/screens/shop_details/shop_details_showing.dart';
 import 'package:vehicanich_shop/utils/app_bar_text.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
+import 'package:vehicanich_shop/utils/app_custom_dialogue.dart';
 import 'package:vehicanich_shop/utils/app_sizedbox.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 import 'package:vehicanich_shop/utils/page_transition/page_fade_transition.dart';
@@ -107,12 +107,31 @@ class _UserProfilePageState extends State<UserProfilePage> {
                   ),
                   CustomSizedBoxHeight(0.03),
                   GestureDetector(
-                    onTap: () async {
-                      await LoginVerification().userLogoutfun();
-                      Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(
-                            builder: (context) => const LoginOrsign()),
-                        (Route<dynamic> route) => false,
+                    onTap: () {
+                      CustomShowdialogue.showCustomDialog(
+                        context,
+                        title: 'Warning',
+                        message: 'Are you sure for logout',
+                        type: DialogType.error,
+                        secondButtonText: 'logout',
+                        showSecondButton: true,
+                        onSecondButtonPressed: () async {
+                          await LoginVerification().userLogoutfun(context);
+                          final snackBar = SnackBar(
+                            padding: const EdgeInsets.all(26),
+                            elevation: 0,
+                            behavior: SnackBarBehavior.floating,
+                            backgroundColor: Colors.transparent,
+                            content: AwesomeSnackbarContent(
+                              title: 'On logout',
+                              message: 'you logouted from your account',
+                              contentType: ContentType.warning,
+                            ),
+                          );
+                          ScaffoldMessenger.of(context)
+                            ..hideCurrentSnackBar()
+                            ..showSnackBar(snackBar);
+                        },
                       );
                     },
                     child: const profile_list_widget(

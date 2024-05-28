@@ -2,8 +2,10 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vehicanich_shop/data/data_provider/shop_reference.dart';
+import 'package:vehicanich_shop/screens/onboarding_screen/login_or_sign.dart';
 import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
 
 class LoginVerification {
@@ -29,9 +31,13 @@ class LoginVerification {
     }
   }
 
-  userLogoutfun() async {
+  userLogoutfun(context) async {
     await FirebaseAuth.instance.signOut();
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.clear();
+    Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(builder: (context) => const LoginOrsign()),
+      (Route<dynamic> route) => false,
+    );
   }
 }
