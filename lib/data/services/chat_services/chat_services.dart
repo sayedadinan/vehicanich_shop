@@ -9,13 +9,13 @@ class ChatService {
   Future<void> sendMessage(String receiverId, String message) async {
     try {
       final String currentUserId = FirebaseDatastoring.shopid;
-      final String currentUserEmail =
-          firebaseAuth.currentUser!.email.toString();
+      // final String currentUserEmail = firebaseAuth.currentUser.email.toString();
       final Timestamp timestamp = Timestamp.now();
       print('this is from chatservice $receiverId');
       Message newMessage = Message(
+          sendEmail: '',
           senderId: currentUserId,
-          sendEmail: currentUserEmail,
+          // sendEmail: currentUserEmail,
           receiverId: receiverId,
           message: message,
           timestamp: timestamp);
@@ -30,7 +30,7 @@ class ChatService {
           .add(newMessage.toJson());
     } catch (e) {
       // Handle the exception here
-      print('Error sending message: $e');
+      print('Error sending messages: $e');
       // You can re-throw the exception or handle it based on your requirement
       throw e;
     }
