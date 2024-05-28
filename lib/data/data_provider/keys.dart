@@ -41,4 +41,5 @@ class Referencekeys {
   static String feedback = 'feedback';
   static String ratingCount = 'ratinCount';
   static String reviewerName = 'reviewerName';
+  static String offDay = 'offDay';
 }

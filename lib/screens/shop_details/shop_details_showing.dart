@@ -3,6 +3,7 @@ import 'package:vehicanich_shop/utils/app_bar_text.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_sizedbox.dart';
 import 'package:vehicanich_shop/utils/page_transition/page_slide_transition.dart';
+import 'package:vehicanich_shop/widgets/shop_details_updation.dart/off_days_marking.dart';
 import 'package:vehicanich_shop/widgets/shop_details_updation.dart/service_updations/body_service_updation.dart';
 import 'package:vehicanich_shop/widgets/shop_details_updation.dart/service_updations/engine_service_updation.dart';
 import 'package:vehicanich_shop/widgets/shop_details_updation.dart/service_updations/interior_service.dart';
@@ -47,9 +48,18 @@ class ShopDetailPage extends StatelessWidget {
               child: const ServiceContainers(
                   text: 'Engine and Mechanichal Services')),
           CustomSizedBoxHeight(0.03),
+          GestureDetector(
+              onTap: () {
+                // showDateChangingDialog(context);
+                Navigator.of(context).push(
+                    SlideTransitionPageRoute(child: const DateChangingPage()));
+              },
+              child: const ServiceContainers(
+                  text: 'leave days or garage full               ')),
+          CustomSizedBoxHeight(0.03),
           const StartingTimeUpdationContainer(),
           CustomSizedBoxHeight(0.03),
-          const ClosingTimeUpdationContainer()
+          const ClosingTimeUpdationContainer(),
         ],
       ),
     );

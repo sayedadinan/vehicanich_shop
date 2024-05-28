@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/blocs/bottom_nav_blocs/bloc/bottom_nav_bloc.dart';
 import 'package:vehicanich_shop/blocs/current_status_/bloc/current_status_bloc.dart';
+import 'package:vehicanich_shop/blocs/date_change_bloc/bloc/date_change_bloc.dart';
 import 'package:vehicanich_shop/blocs/login_bloc/login_bloc.dart';
 import 'package:vehicanich_shop/blocs/onboarding_bloc/onboarding_bloc.dart';
 import 'package:vehicanich_shop/blocs/wallet/revenue_bloc/bloc/revenue_bloc.dart';
@@ -55,6 +56,7 @@ void main(List<String> args) async {
     BlocProvider(create: (context) => ImageUpdationBloc()),
     BlocProvider(create: (context) => TotalBillBloc()),
     BlocProvider(create: (context) => RevenueBloc()),
+    BlocProvider(create: (context) => DateChangeBloc()),
   ], child: const MyApp()));
 }
 
