@@ -1,6 +1,8 @@
 // ignore_for_file: avoid_print
 
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vehicanich_shop/data/data_provider/keys.dart';
 import 'package:vehicanich_shop/data/data_provider/shop_booking_ref.dart';
@@ -75,6 +77,19 @@ class BodyServiceUpdationBloc
             .update(existingData);
       }
       print('successfully updated');
+      final snackBar = SnackBar(
+        padding: const EdgeInsets.all(26),
+        elevation: 0,
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: Colors.transparent,
+        content: AwesomeSnackbarContent(
+            title: 'Ohh',
+            message: 'Ohh successfully updated',
+            contentType: ContentType.success),
+      );
+      ScaffoldMessenger.of(event.context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(snackBar);
     } catch (e) {
       print('error when try to update $e');
     }

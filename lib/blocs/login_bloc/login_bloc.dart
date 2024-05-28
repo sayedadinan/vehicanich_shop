@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
@@ -55,11 +56,23 @@ class LoginBloc extends Bloc<LoginBlocEvent, LoginBlocState> {
               .saveShopPhoneToSharedPreferences(loginphonecontroller.text);
           log('successfully login');
           emit(LoginSuccess());
+          final snackBar = SnackBar(
+            padding: const EdgeInsets.all(26),
+            elevation: 0,
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: Colors.transparent,
+            content: AwesomeSnackbarContent(
+                title: 'Ohh',
+                message: 'Ohh you successfully login to Vehicanich',
+                contentType: ContentType.success),
+          );
+          ScaffoldMessenger.of(event.context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(snackBar);
         } else {
           emit(LoginError(error: 'some thing went wrong'));
         }
       }
-      // }
       emit(LoginLoading());
       final loginverification = LoginVerification();
       final result = await loginverification.verifyLoginDetails();

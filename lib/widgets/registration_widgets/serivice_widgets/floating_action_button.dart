@@ -20,7 +20,7 @@ class CustomFloatingActionButton extends StatelessWidget {
           onPressed: () {
             context
                 .read<BodyServiceUpdationBloc>()
-                .add(BodyServiceUpdationSavePressed());
+                .add(BodyServiceUpdationSavePressed(context: context));
 
             Navigator.of(context).pop();
           },

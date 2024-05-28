@@ -55,6 +55,7 @@ class LoginScreen extends StatelessWidget {
                   const LoginScreenMainText(),
                   CustomSizedBoxHeight(0.05),
                   Inputfield(
+                    keyboardType: TextInputType.phone,
                     controller: loginphonecontroller,
                     hinttext: 'Enter your phone',
                     validator: (value) =>
@@ -75,9 +76,8 @@ class LoginScreen extends StatelessWidget {
                   CustomSizedBoxHeight(0.06),
                   CustomButton(
                     function: () {
-                      context
-                          .read<LoginBloc>()
-                          .add(LoginScreenButtonPressed(formkey: loginKey));
+                      context.read<LoginBloc>().add(LoginScreenButtonPressed(
+                          formkey: loginKey, context: context));
                     },
                     buttontextcolor: Appallcolor().colorwhite,
                     text: 'Login',

@@ -10,7 +10,11 @@ class BodyServiceUpdationAddingPressed extends BodyServiceUpdationEvent {
   BodyServiceUpdationAddingPressed({required this.serviceName});
 }
 
-class BodyServiceUpdationSavePressed extends BodyServiceUpdationEvent {}
+class BodyServiceUpdationSavePressed extends BodyServiceUpdationEvent {
+  final BuildContext context;
+
+  BodyServiceUpdationSavePressed({required this.context});
+}
 
 class BodyEnableButtonPressedUpdation extends BodyServiceUpdationEvent {
   final String serviceName;
