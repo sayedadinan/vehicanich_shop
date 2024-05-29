@@ -74,26 +74,19 @@ class FirstHomeScreen extends StatelessWidget {
                         children: [
                           CustomSizedBoxHeight(0.13),
                           Center(
-                            child: Image.asset('assets/images/urban-842.png'),
-                          ),
+                              child:
+                                  Image.asset('assets/images/urban-842.png')),
                           Text(
                             'There are no completed bookings',
-                            style: GoogleFonts.aclonica().copyWith(
-                              fontSize: 20,
-                              color: Colors.white,
-                            ),
+                            style: GoogleFonts.aclonica()
+                                .copyWith(fontSize: 20, color: Colors.white),
                           ),
                         ],
                       );
                     } else {
                       final bookingDetails = snapshot.data!.docs;
-                      return ListView.builder(
-                        itemCount: bookingDetails.length,
-                        itemBuilder: (context, index) {
-                          return ListViewForCompletedList(
-                            bookingDetails: bookingDetails,
-                          );
-                        },
+                      return ListViewForCompletedList(
+                        bookingDetails: bookingDetails,
                       );
                     }
                   },
