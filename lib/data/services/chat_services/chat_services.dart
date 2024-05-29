@@ -15,7 +15,6 @@ class ChatService {
       Message newMessage = Message(
           sendEmail: '',
           senderId: currentUserId,
-          // sendEmail: currentUserEmail,
           receiverId: receiverId,
           message: message,
           timestamp: timestamp);

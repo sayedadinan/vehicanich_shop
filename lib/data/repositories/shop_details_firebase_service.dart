@@ -16,6 +16,7 @@ import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.
 
 class ShopDetailsFirebaseService {
   Future<void> addShopDetailsToFirebase(BuildContext context) async {
+    //data adding to Database from here
     try {
       final licenceImageUrl =
           await ImageChanging().licenceImageChanging(context);
@@ -48,6 +49,7 @@ class ShopDetailsFirebaseService {
         enginservicemap:
             BlocProvider.of<EngineBloc>(context).state.servicesList,
       );
+      //this is the funtion for adding to firebase
       await ShopreferenceId()
           .shopCollectionReference()
           .add(shopDetails.toJson());

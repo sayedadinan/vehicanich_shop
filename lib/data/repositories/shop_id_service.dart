@@ -6,6 +6,8 @@ import 'package:vehicanich_shop/data/data_provider/keys.dart';
 import 'package:vehicanich_shop/data/data_provider/shop_reference.dart';
 
 class ShopIdService {
+  //shop id taking with phone number
+
   getShopId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     final phone = prefs.getString(Referencekeys.shopPhone);
@@ -25,6 +27,8 @@ class ShopIdService {
 }
 
 class SharedPreferencesService {
+  //stoing phone number to sharedpreference
+
   Future<void> saveShopPhoneToSharedPreferences(String phone) async {
     print(phone);
     SharedPreferences prefs = await SharedPreferences.getInstance();
