@@ -1,3 +1,4 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -77,9 +78,9 @@ class TotalBillScreen extends StatelessWidget {
                   color: Colors.transparent,
                   fontSize: Mymediaquery().mediaquerywidth(0.04, context),
                   function: () {
-                    context
-                        .read<CurrentStatusBloc>()
-                        .add(DoneButtonPressed(documentId: shop.id));
+                    // context
+                    //     .read<CurrentStatusBloc>()
+                    //     .add(DoneButtonPressed(documentId: shop.id));
 
                     context.read<TotalBillBloc>().add(TotalBillAdded(
                           serviceName: shop[Referencekeys.serviceName],
@@ -89,6 +90,23 @@ class TotalBillScreen extends StatelessWidget {
                           totalAmount: totalBillMoneyController.text,
                           customerId: shop.id,
                         ));
+                    context
+                        .read<CurrentStatusBloc>()
+                        .add(CompletedbuttonPressed(documentId: shop.id));
+                    final snackBar = SnackBar(
+                      padding: const EdgeInsets.all(26),
+                      elevation: 0,
+                      behavior: SnackBarBehavior.floating,
+                      backgroundColor: Colors.transparent,
+                      content: AwesomeSnackbarContent(
+                        title: 'oohh',
+                        message: 'we successfully completed the work',
+                        contentType: ContentType.success,
+                      ),
+                    );
+                    ScaffoldMessenger.of(context)
+                      ..hideCurrentSnackBar()
+                      ..showSnackBar(snackBar);
                     Navigator.of(context).pop();
                   },
                   text: 'SEND BILL',

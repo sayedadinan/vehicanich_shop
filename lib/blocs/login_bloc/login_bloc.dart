@@ -55,6 +55,8 @@ class LoginBloc extends Bloc<LoginBlocEvent, LoginBlocState> {
           await SharedPreferencesService()
               .saveShopPhoneToSharedPreferences(loginphonecontroller.text);
           log('successfully login');
+          loginphonecontroller.clear();
+          loginpasswordcontroller.clear();
           emit(LoginSuccess());
           final snackBar = SnackBar(
             padding: const EdgeInsets.all(26),
