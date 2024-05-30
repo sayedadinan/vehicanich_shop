@@ -40,7 +40,7 @@ class ReviewShowingCard extends StatelessWidget {
                     padding: EdgeInsets.only(
                         left: Mymediaquery().mediaquerywidth(0.05, context)),
                     child: AppText(
-                        text: bookingDetail[Referencekeys.feedback],
+                        text: bookingDetail[Referencekeys.userName],
                         size: 0.03,
                         fontFamily: AppFonts.headText),
                   ),
@@ -79,8 +79,7 @@ class ReviewShowingCard extends StatelessWidget {
                       child: AppText(
                           fontFamily: AppFonts.normalText,
                           size: 0.03,
-                          text:
-                              'Excellent service! The staff was incredibly helpful and knowledgeable. I was pleasantly surprised by the efficiency and professionalism. Definitely recommend it to everyone!'),
+                          text: bookingDetail[Referencekeys.feedback]),
                     ),
                   ),
                   CustomSizedBoxHeight(0.02),
