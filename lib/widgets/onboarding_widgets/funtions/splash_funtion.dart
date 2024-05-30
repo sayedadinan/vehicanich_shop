@@ -5,31 +5,43 @@ import 'package:vehicanich_shop/data/data_provider/keys.dart';
 import 'package:vehicanich_shop/data/data_provider/shop_reference.dart';
 import 'package:vehicanich_shop/screens/login_screen/login_screen.dart';
 import 'package:vehicanich_shop/screens/onboarding_screen/login_or_sign.dart';
+import 'package:vehicanich_shop/screens/onboarding_screen/onboarding_screen.dart';
 import 'package:vehicanich_shop/screens/waiting_screen/rejected_screen.dart';
 import 'package:vehicanich_shop/screens/waiting_screen/waiting_screen.dart';
 import 'package:vehicanich_shop/utils/bottom_navigation/bottom_list.dart';
 
 Future<void> checkingforsplash(context) async {
-  log('worked');
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  final data = prefs.getString(Referencekeys.shopPhone);
-  log('this phone for $data');
-  await Future.delayed(const Duration(seconds: 2));
-  if (data == null) {
-    log('data null worked');
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  final initialUser = preferences.getBool(Referencekeys.initialEntry);
+  log('this $initialUser');
+  if (initialUser == null) {
     Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(builder: (context) => const LoginOrsign()),
-      (Route<dynamic> route) => false,
-    );
-    return;
-  } else if (data.isEmpty) {
-    log('data isEmpty worked');
-    Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(builder: (context) => LoginScreen()),
+      MaterialPageRoute(builder: (context) => OnboardingScreen()),
       (Route<dynamic> route) => false,
     );
   } else {
-    userRegisteredOrNotChecking(data, context);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final data = prefs.getString(Referencekeys.shopPhone);
+
+    log('this phone for $data');
+    log('this $initialUser');
+    await Future.delayed(const Duration(seconds: 2));
+    if (data == null) {
+      log('data null worked');
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const LoginOrsign()),
+        (Route<dynamic> route) => false,
+      );
+      return;
+    } else if (data.isEmpty) {
+      log('data isEmpty worked');
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+        (Route<dynamic> route) => false,
+      );
+    } else {
+      userRegisteredOrNotChecking(data, context);
+    }
   }
 }
 
@@ -41,6 +53,7 @@ userRegisteredOrNotChecking(String phone, context) async {
   final snapshot = await collection.get();
   if (snapshot.docs.isNotEmpty) {
     final existingData = snapshot.docs.first.data();
+
     if (existingData[Referencekeys.isApproved]) {
       log('accepted');
       Navigator.of(context).pushAndRemoveUntil(

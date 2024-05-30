@@ -1,6 +1,7 @@
 class Referencekeys {
   static String shopDetails = 'shop_details';
   static String shopPhone = 'shop_phone';
+  static String initialEntry = 'initialEntry';
   static String newBookings = 'newbooking';
   static String date = 'date';
   static String serviceName = 'servicename';

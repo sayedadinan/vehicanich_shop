@@ -4,8 +4,6 @@ import 'package:vehicanich_shop/blocs/login_bloc/login_bloc.dart';
 import 'package:vehicanich_shop/screens/forgot_password/forgot_password.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_custom_button.dart';
-import 'package:vehicanich_shop/utils/app_custom_dialogue.dart';
-import 'package:vehicanich_shop/utils/app_google_button.dart';
 import 'package:vehicanich_shop/utils/app_loadingindicator.dart';
 import 'package:vehicanich_shop/utils/app_sizedbox.dart';
 import 'package:vehicanich_shop/utils/app_textfields.dart';
@@ -14,7 +12,6 @@ import 'package:vehicanich_shop/utils/bottom_navigation/bottom_list.dart';
 import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
 import 'package:vehicanich_shop/utils/mediaquery.dart';
 import 'package:vehicanich_shop/widgets/login_screen_widgets/custom_divider.dart';
-import 'package:vehicanich_shop/widgets/login_screen_widgets/forgot_button.dart';
 import 'package:vehicanich_shop/widgets/login_screen_widgets/login_screen_texts.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -27,10 +24,10 @@ class LoginScreen extends StatelessWidget {
           if (state is LoginLoading) {
             loader;
           }
-          if (state is LoginError) {
-            CustomShowdialogue.showCustomDialog(context,
-                title: 'Error', message: state.error, type: DialogType.error);
-          }
+          // if (state is LoginError) {
+          //   // CustomShowdialogue.showCustomDialog(context,
+          //   //     title: 'Error', message: state.error, type: DialogType.error);
+          // }
           if (state is NavigateToForgetPage) {
             Navigator.push(
                 context,
@@ -69,10 +66,10 @@ class LoginScreen extends StatelessWidget {
                     validator: (value) => Validators().validatePassword(value),
                   ),
                   CustomSizedBoxHeight(0.01),
-                  Forgetbutton(
-                    function: () =>
-                        context.read<LoginBloc>().add(ForgotButtonPressed()),
-                  ),
+                  // Forgetbutton(
+                  //   function: () =>
+                  //       context.read<LoginBloc>().add(ForgotButtonPressed()),
+                  // ),
                   CustomSizedBoxHeight(0.06),
                   CustomButton(
                     function: () {
@@ -86,15 +83,6 @@ class LoginScreen extends StatelessWidget {
                   ),
                   CustomSizedBoxHeight(0.03),
                   const CustomDivider(),
-                  CustomSizedBoxHeight(0.03),
-                  CustomGoogleButton(
-                    text: 'login with phone',
-                    bordercolor: Colors.white,
-                    buttontextcolor: Appallcolor().textcolor,
-                    color: Colors.transparent,
-                    fontSize: Mymediaquery().mediaqueryheight(0.02, context),
-                    function: () {},
-                  ),
                   CustomSizedBoxHeight(0.03),
                   const CustomQuestion()
                 ],

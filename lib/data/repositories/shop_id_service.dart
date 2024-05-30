@@ -1,5 +1,7 @@
 // ignore_for_file: avoid_print
 
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vehicanich_shop/data/data_provider/keys.dart';
@@ -34,4 +36,15 @@ class SharedPreferencesService {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString(Referencekeys.shopPhone, phone);
   }
+
+  Future<void> userFirstTimeOrNot(bool value) async {
+    log('this worked $value');
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(Referencekeys.initialEntry, value);
+  }
+
+  // Future<bool> isFirstTimeUser() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   return prefs.getBool(Referencekeys.initialEntry) ?? true;
+  // }
 }

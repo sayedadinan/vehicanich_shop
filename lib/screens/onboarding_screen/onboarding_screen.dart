@@ -40,12 +40,12 @@ class OnboardingScreen extends StatelessWidget {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CustomSizedBoxHeight(0.01),
+                    CustomSizedBoxHeight(0.09),
                     Myonboardmaintitle(
-                        size: Mymediaquery().mediaquerywidth(0.15, context),
+                        size: Mymediaquery().mediaquerywidth(0.13, context),
                         title: controller.items[index].title,
                         textcolor: Appallcolor().textcolor),
-                    CustomSizedBoxHeight(0.02),
+                    CustomSizedBoxHeight(0.03),
                     Onboardingfirstimage(path: controller.items[index].image),
                     CustomSizedBoxHeight(0.12),
                     Myonboardingsmalltext(

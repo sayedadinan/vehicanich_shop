@@ -37,7 +37,7 @@ class Smoothindicatorwithbutton extends StatelessWidget {
             width: Mymediaquery().mediaquerywidth(0.20, context),
           ),
           InkWell(
-            onTap: () {
+            onTap: () async {
               context
                   .read<OnboardingBloc>()
                   .add(NextButtonPressed(pageController.page!));
