@@ -40,7 +40,7 @@ class Revenue_transition_card extends StatelessWidget {
           size: 0.04,
         ),
         trailing: AppText(
-            text: '+ ${bookingDetail[Referencekeys.money]}',
+            text: '+ ₹${bookingDetail[Referencekeys.money]}',
             size: 0.04,
             fontFamily: AppFonts.normalText),
       ),

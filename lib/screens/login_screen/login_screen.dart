@@ -24,10 +24,6 @@ class LoginScreen extends StatelessWidget {
           if (state is LoginLoading) {
             loader;
           }
-          // if (state is LoginError) {
-          //   // CustomShowdialogue.showCustomDialog(context,
-          //   //     title: 'Error', message: state.error, type: DialogType.error);
-          // }
           if (state is NavigateToForgetPage) {
             Navigator.push(
                 context,
@@ -61,15 +57,10 @@ class LoginScreen extends StatelessWidget {
                   CustomSizedBoxHeight(0.02),
                   Inputfield(
                     controller: loginpasswordcontroller,
-                    icon: const Icon(Icons.remove_red_eye_outlined),
                     hinttext: 'Enter your password',
                     validator: (value) => Validators().validatePassword(value),
                   ),
                   CustomSizedBoxHeight(0.01),
-                  // Forgetbutton(
-                  //   function: () =>
-                  //       context.read<LoginBloc>().add(ForgotButtonPressed()),
-                  // ),
                   CustomSizedBoxHeight(0.06),
                   CustomButton(
                     function: () {

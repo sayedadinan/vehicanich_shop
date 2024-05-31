@@ -15,8 +15,6 @@ class OnboardingBloc extends Bloc<OnboardingblocEvent, OnboardingBlocState> {
       emit(NavigatetosecondOnboardingPage());
     } else if (event.page == 1) {
       await SharedPreferencesService().userFirstTimeOrNot(true);
-      // SharedPreferences prefs = await SharedPreferences.getInstance();
-      // await prefs.setBool(Referencekeys.initialEntry, true);
       emit(NavigatetoLoginorSignPage());
     }
   }

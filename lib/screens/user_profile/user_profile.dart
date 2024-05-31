@@ -5,9 +5,11 @@ import 'package:vehicanich_shop/blocs/user_profile_bloc/bloc/user_profile_bloc.d
 import 'package:vehicanich_shop/blocs/user_profile_bloc/profile_image/bloc/image_updation_bloc.dart';
 import 'package:vehicanich_shop/data/services/connectivity/internet_connection.dart';
 import 'package:vehicanich_shop/data/services/firebase_auth/login_verification.dart';
+import 'package:vehicanich_shop/screens/privacy_policy/privacy_policy_screen.dart';
 import 'package:vehicanich_shop/screens/ratings_and_revices/ratings_and_review.dart';
 import 'package:vehicanich_shop/screens/revenue_screen/revenue_screen.dart';
 import 'package:vehicanich_shop/screens/shop_details/shop_details_showing.dart';
+import 'package:vehicanich_shop/screens/terms_and_condtion/terms_conditions.dart';
 import 'package:vehicanich_shop/utils/app_bar_text.dart';
 import 'package:vehicanich_shop/utils/app_colors.dart';
 import 'package:vehicanich_shop/utils/app_custom_dialogue.dart';
@@ -41,7 +43,9 @@ class _UserProfilePageState extends State<UserProfilePage> {
       body: StreamBuilder(
           stream: checkInternetConnection(),
           builder: (context, snapshot) {
-            if (!snapshot.hasData || !snapshot.data!) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (!snapshot.hasData || !snapshot.data!) {
               return const ConnectivityWidget();
             }
             return BlocBuilder<UserProfileBloc, UserProfileState>(
@@ -85,15 +89,13 @@ class _UserProfilePageState extends State<UserProfilePage> {
                           icon: Icons.shop, text: 'shop details')),
                   CustomSizedBoxHeight(0.03),
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(FadeTransitionPageRoute(
-                          child: const RatingsAndReviews()));
-                    },
-                    child: const profile_list_widget(
-                      icon: Icons.rate_review,
-                      text: 'ratings and reviews',
-                    ),
-                  ),
+                      onTap: () {
+                        Navigator.of(context).push(FadeTransitionPageRoute(
+                            child: const RatingsAndReviews()));
+                      },
+                      child: const profile_list_widget(
+                          icon: Icons.rate_review,
+                          text: 'ratings and reviews')),
                   CustomSizedBoxHeight(0.03),
                   GestureDetector(
                     onTap: () {
@@ -105,6 +107,23 @@ class _UserProfilePageState extends State<UserProfilePage> {
                       text: 'wallet',
                     ),
                   ),
+                  CustomSizedBoxHeight(0.03),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(FadeTransitionPageRoute(
+                            child: const PrivacyPolicy()));
+                      },
+                      child: const profile_list_widget(
+                          icon: Icons.privacy_tip, text: 'privacy policy')),
+                  CustomSizedBoxHeight(0.03),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(FadeTransitionPageRoute(
+                            child: const TermsCondition()));
+                      },
+                      child: const profile_list_widget(
+                          icon: Icons.terminal_sharp,
+                          text: 'terms and conditions')),
                   CustomSizedBoxHeight(0.03),
                   GestureDetector(
                     onTap: () {

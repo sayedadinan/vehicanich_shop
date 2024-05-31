@@ -97,10 +97,10 @@ class DoneBUtton extends StatelessWidget {
       child: CustomButton(
         color: Appallcolor().successColor,
         function: () {
-          // context
-          //     .read<CurrentStatusBloc>()
-          //     .add(DoneButtonPressed(documentId: shop.id));
-          // Navigator.of(context).pop();
+          context
+              .read<CurrentStatusBloc>()
+              .add(DoneButtonPressed(documentId: shop.id));
+          Navigator.of(context).pop();
         },
         text: 'Done',
         fontSize: Mymediaquery().mediaquerywidth(0.03, context),
