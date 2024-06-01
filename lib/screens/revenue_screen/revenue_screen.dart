@@ -41,9 +41,10 @@ class RevenueShowingScreen extends StatelessWidget {
                     children: [
                       CustomSizedBoxHeight(0.03),
                       AppText(
-                          text: 'Your all Income here',
-                          size: 0.05,
-                          fontFamily: AppFonts.normalText),
+                        text: 'Your all Income here',
+                        size: 0.05,
+                        fontFamily: AppFonts.normalText,
+                      ),
                       CustomSizedBoxHeight(0.04),
                       AppText(
                           text: 'Balance',

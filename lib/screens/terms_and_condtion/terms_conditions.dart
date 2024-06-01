@@ -16,16 +16,14 @@ class TermsCondition extends StatelessWidget {
         backgroundColor: Appallcolor().appbarbackgroundcolor,
         centerTitle: true,
         title: AppText(
-            text: 'Privacy Policy', size: 0.06, fontFamily: AppFonts.headText),
+            text: 'Terms and Conditions',
+            size: 0.06,
+            fontFamily: AppFonts.headText),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             CustomSizedBoxHeight(0.02),
-            AppText(
-                text: 'Last updated: May 31, 2024',
-                size: 0.05,
-                fontFamily: AppFonts.normalText),
             CustomSizedBoxHeight(0.01),
             Padding(
                 padding: EdgeInsets.only(
@@ -69,23 +67,7 @@ IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR A
 ''',
                     style: TextStyle(color: Colors.white),
                   ),
-                )
-//                 child: AppText(
-//                   fontFamily: AppFonts.normalText,
-// //                   text: '''
-
-// // We are
-// // ("Company," "we," "us," "our").
-// // We operate, as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
-// // You can contact us by email at
-// // or by mail to
-// // These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.
-// // Supplemental terms and conditions or documents that may be posted on the Services from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Legal Terms at any time and for any reason. We will alert you about any changes by updating the "Last updated" date of these Legal Terms, and you waive any right to receive specific notice of each such change. It is your responsibility to periodically review these Legal Terms to stay informed of updates. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Legal Terms by your continued use of the Services after the date such revised Legal Terms are posted.
-// // We recommend that you print a copy of these Legal Terms for your records.', size: 0.03, fontFamily: AppFonts.normalText''',
-// //                   size: Mymediaquery().mediaquerywidth(0.03, context),
-// //                 ),
-//               ),
-                ),
+                )),
           ],
         ),
       ),

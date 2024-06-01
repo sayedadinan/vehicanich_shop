@@ -10,7 +10,6 @@ import 'package:vehicanich_shop/utils/app_validators.dart';
 import 'package:vehicanich_shop/utils/constant_variables/app_strings.dart';
 import 'package:vehicanich_shop/utils/constant_variables/textediting_controller.dart';
 import 'package:vehicanich_shop/widgets/registration_widgets/banner_photo_container.dart';
-import 'package:vehicanich_shop/widgets/registration_widgets/emergency_service/emergency_container.dart';
 import 'package:vehicanich_shop/widgets/registration_widgets/error_widgets/bannerphoto_error.dart';
 import 'package:vehicanich_shop/widgets/registration_widgets/error_widgets/closing_time_error.dart';
 import 'package:vehicanich_shop/widgets/registration_widgets/error_widgets/licence_error.dart';
@@ -131,9 +130,7 @@ class RegisterScreen extends StatelessWidget {
                 CustomSizedBoxHeight(0.04),
                 BodyServiceContainer(text: AppString.allServiceTxt),
                 const ServiceErrorText(),
-                CustomSizedBoxHeight(0.02),
-                EmergencyButton(text: AppString.emergenyHead),
-                CustomSizedBoxHeight(0.02),
+                CustomSizedBoxHeight(0.04),
                 CustomButton(
                     function: () {
                       context.read<RegistrationBloc>().add(
