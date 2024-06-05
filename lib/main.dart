@@ -30,9 +30,7 @@ import 'package:vehicanich_shop/utils/app_colors.dart';
 
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MultiBlocProvider(providers: [
     BlocProvider(create: (context) => OnboardingBloc()),
     BlocProvider(create: (context) => LoginBloc()),

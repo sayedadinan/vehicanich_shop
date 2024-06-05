@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:853196773303:android:98dfb6d3d4bdd3aa9eba32",
+        "mobilesdk_app_id": "1:853196773303:android:56dc702d605c27d99eba32",
         "android_client_info": {
-          "package_name": "in.shop.vehicanich_shop"
+          "package_name": "com.example.vehicahich_admin"
         }
       },
       "oauth_client": [
@@ -31,10 +31,70 @@
               "client_type": 3
             },
             {
-              "client_id": "853196773303-g4ag6l3gnn8i5qieatp2fm7kenpd6nhb.apps.googleusercontent.com",
+              "client_id": "853196773303-99qqn772d3hfe0nvebu0skp91pgn96sc.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.vehicanich"
+                "bundle_id": "com.example.vehicahichAdmin"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853196773303:android:98dfb6d3d4bdd3aa9eba32",
+        "android_client_info": {
+          "package_name": "in.shop.vehicanich_shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "853196773303-69fnbkct8ga5bemu2t3a3qkfu782c4f5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.shop.vehicanich_shop",
+            "certificate_hash": "af933cb7bb5e793aafee3b3c013cbc608996e256"
+          }
+        },
+        {
+          "client_id": "853196773303-g6261bu7tric8kdl0l2v1jjn73m8e9og.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.shop.vehicanich_shop",
+            "certificate_hash": "288b179421276199075d9160e73502fb1d9d2190"
+          }
+        },
+        {
+          "client_id": "853196773303-kbhik7koo41gmij6ojqrgcfeg6oldlij.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.shop.vehicanich_shop",
+            "certificate_hash": "8569e2b728f22030b931dc93770360d6aff0d0cb"
+          }
+        },
+        {
+          "client_id": "853196773303-hbv16p0ru2o7iu764qodeitpdr3uoi1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm8CTJorEzSWcUK-cejzRcDwvorza8JtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "853196773303-hbv16p0ru2o7iu764qodeitpdr3uoi1u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "853196773303-99qqn772d3hfe0nvebu0skp91pgn96sc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vehicahichAdmin"
               }
             }
           ]
@@ -75,10 +135,46 @@
               "client_type": 3
             },
             {
-              "client_id": "853196773303-g4ag6l3gnn8i5qieatp2fm7kenpd6nhb.apps.googleusercontent.com",
+              "client_id": "853196773303-99qqn772d3hfe0nvebu0skp91pgn96sc.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.vehicanich"
+                "bundle_id": "com.example.vehicahichAdmin"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853196773303:android:8164d2fe036404569eba32",
+        "android_client_info": {
+          "package_name": "in.vehicanich.shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "853196773303-hbv16p0ru2o7iu764qodeitpdr3uoi1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm8CTJorEzSWcUK-cejzRcDwvorza8JtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "853196773303-hbv16p0ru2o7iu764qodeitpdr3uoi1u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "853196773303-99qqn772d3hfe0nvebu0skp91pgn96sc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vehicahichAdmin"
               }
             }
           ]

@@ -17,17 +17,29 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
-        return windows;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for windows - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -40,53 +52,11 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyACB9r1b6ThieLcmzEBZHH2CmwVp8-4HCk',
-    appId: '1:853196773303:web:45f709e7d8f287da9eba32',
-    messagingSenderId: '853196773303',
-    projectId: 'vehicanich',
-    authDomain: 'vehicanich.firebaseapp.com',
-    storageBucket: 'vehicanich.appspot.com',
-    measurementId: 'G-59N5LJ0SNJ',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDm8CTJorEzSWcUK-cejzRcDwvorza8JtQ',
-    appId: '1:853196773303:android:98dfb6d3d4bdd3aa9eba32',
+    appId: '1:853196773303:android:8164d2fe036404569eba32',
     messagingSenderId: '853196773303',
     projectId: 'vehicanich',
     storageBucket: 'vehicanich.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDqiy9y_ddTPBQxWF7erQbYlb6hvKNrZWg',
-    appId: '1:853196773303:ios:6c5285b2d498e6b59eba32',
-    messagingSenderId: '853196773303',
-    projectId: 'vehicanich',
-    storageBucket: 'vehicanich.appspot.com',
-    androidClientId: '853196773303-t2tjpsr3nh1flcnd0eue8ooavtg0aitm.apps.googleusercontent.com',
-    iosClientId: '853196773303-jmnd405lva0f4dhulu0o0v7nkhg9bga2.apps.googleusercontent.com',
-    iosBundleId: 'com.example.vehicanichShop',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDqiy9y_ddTPBQxWF7erQbYlb6hvKNrZWg',
-    appId: '1:853196773303:ios:6c5285b2d498e6b59eba32',
-    messagingSenderId: '853196773303',
-    projectId: 'vehicanich',
-    storageBucket: 'vehicanich.appspot.com',
-    androidClientId: '853196773303-t2tjpsr3nh1flcnd0eue8ooavtg0aitm.apps.googleusercontent.com',
-    iosClientId: '853196773303-jmnd405lva0f4dhulu0o0v7nkhg9bga2.apps.googleusercontent.com',
-    iosBundleId: 'com.example.vehicanichShop',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyACB9r1b6ThieLcmzEBZHH2CmwVp8-4HCk',
-    appId: '1:853196773303:web:1b17f91aca8051f59eba32',
-    messagingSenderId: '853196773303',
-    projectId: 'vehicanich',
-    authDomain: 'vehicanich.firebaseapp.com',
-    storageBucket: 'vehicanich.appspot.com',
-    measurementId: 'G-PKPE4TF8ZF',
   );
 }

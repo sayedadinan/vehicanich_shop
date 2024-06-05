@@ -1,3 +1,4 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicanich_shop/blocs/registration_blocs/registration_button_bloc/bloc/registration_bloc.dart';
@@ -33,10 +34,29 @@ class RegisterScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: Appallcolor().appbackgroundcolor,
         body: BlocConsumer<RegistrationBloc, RegistrationState>(
-          listener: (context, state) {},
+          listener: (context, state) {
+            if (state is PhoneNumberAlreadyRegistered) {
+              final snackBar = SnackBar(
+                padding: const EdgeInsets.all(26),
+                elevation: 0,
+                behavior: SnackBarBehavior.floating,
+                backgroundColor: Colors.transparent,
+                content: AwesomeSnackbarContent(
+                  title: 'Oops',
+                  message: 'this phone already registered',
+                  contentType: ContentType.failure,
+                ),
+              );
+              ScaffoldMessenger.of(context)
+                ..hideCurrentSnackBar()
+                ..showSnackBar(snackBar);
+            }
+          },
           builder: (context, state) {
             if (state is Registrationloading) {
-              return loader;
+              return Center(
+                child: loader,
+              );
             }
             return SingleChildScrollView(
                 child: Form(
@@ -54,12 +74,12 @@ class RegisterScreen extends StatelessWidget {
                   controller: namecontroller,
                 ),
                 CustomSizedBoxHeight(0.02),
-                Inputfield(
-                  hinttext: 'Email',
-                  validator: (value) => Validators().validateEmail(value),
-                  controller: emailcontroller,
-                  keyboardType: TextInputType.emailAddress,
-                ),
+                // Inputfield(
+                //   hinttext: 'Email',
+                //   validator: (value) => Validators().validateEmail(value),
+                //   controller: emailcontroller,
+                //   keyboardType: TextInputType.emailAddress,
+                // ),
                 CustomSizedBoxHeight(0.02),
                 Inputfield(
                   maxlength: 10,

@@ -17,3 +17,15 @@ class Registrationsuccess extends RegistrationState {
 class Registrationloading extends RegistrationState {
   Registrationloading({required super.buttonpressed});
 }
+
+final class PhoneNumberAlreadyRegistered extends RegistrationState {
+  PhoneNumberAlreadyRegistered({required super.buttonpressed});
+}
+
+class RegistrationError extends RegistrationState {
+  RegistrationError({required super.buttonpressed});
+}
+
+class OtpScreenLoading extends RegistrationState {
+  OtpScreenLoading({required super.buttonpressed});
+}
