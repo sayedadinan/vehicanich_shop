@@ -18,6 +18,7 @@ class CustomSearchField extends StatelessWidget {
         onChanged: (value) {
           context.read<SearchBloc>().add(SearchValueAdded(value: value));
         },
+        style: TextStyle(color: Colors.white),
         decoration: InputDecoration(
           hintText: 'Search bookings with vehicle number',
           hintStyle: const TextStyle(color: Colors.white),

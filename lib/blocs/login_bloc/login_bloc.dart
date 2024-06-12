@@ -38,6 +38,19 @@ class LoginBloc extends Bloc<LoginBlocEvent, LoginBlocState> {
     if (event.formkey.currentState!.validate()) {
       final connectivity = await Connectivity().checkConnectivity();
       if (connectivity.contains(ConnectivityResult.none)) {
+        final snackBar = SnackBar(
+          padding: const EdgeInsets.all(26),
+          elevation: 0,
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.transparent,
+          content: AwesomeSnackbarContent(
+              title: 'Oops',
+              message: 'check your connection',
+              contentType: ContentType.failure),
+        );
+        ScaffoldMessenger.of(event.context)
+          ..hideCurrentSnackBar()
+          ..showSnackBar(snackBar);
         emit(Networkerror(error: 'Check your network connection'));
         return;
       }
@@ -46,8 +59,21 @@ class LoginBloc extends Bloc<LoginBlocEvent, LoginBlocState> {
           .where("phone", isEqualTo: loginphonecontroller.text)
           .get();
       if (shopDetailsCollection.docs.isEmpty) {
+        final snackBar = SnackBar(
+          padding: const EdgeInsets.all(26),
+          elevation: 0,
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.transparent,
+          content: AwesomeSnackbarContent(
+              title: 'Oops',
+              message: 'some thing went wrong',
+              contentType: ContentType.failure),
+        );
+        ScaffoldMessenger.of(event.context)
+          ..hideCurrentSnackBar()
+          ..showSnackBar(snackBar);
         emit(LoginError(error: 'some thing went wrong'));
-        return;
+        // return;
       } else {
         final data = shopDetailsCollection.docs.first;
         final password = data['password'];
@@ -73,6 +99,19 @@ class LoginBloc extends Bloc<LoginBlocEvent, LoginBlocState> {
             ..showSnackBar(snackBar);
         } else {
           emit(LoginError(error: 'some thing went wrong'));
+          final snackBar = SnackBar(
+            padding: const EdgeInsets.all(26),
+            elevation: 0,
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: Colors.transparent,
+            content: AwesomeSnackbarContent(
+                title: 'Oops',
+                message: 'some thing went wrong',
+                contentType: ContentType.failure),
+          );
+          ScaffoldMessenger.of(event.context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(snackBar);
         }
       }
       emit(LoginLoading());
